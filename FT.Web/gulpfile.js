@@ -7,17 +7,28 @@
     var del = require("del");
 
 
+
     gulp.task("help", $.taskListing);
     gulp.task("default", ["help"]);
 
     gulp.task("jshint", function() {
         log("** JSHint Check **");
         return gulp
-            .src(config.allJavascriptFilesInSolution)
+            .src(config.appJavaScriptFiles)
             .pipe($.jshint())
             .pipe($.jshint.reporter("jshint-stylish", { verbose: true }))
             //todo:  Step necessary to stop the build process in case of JSHint blows up
             .pipe($.jshint.reporter("fail"));
+
+    });
+
+    gulp.task("tslint", function() {
+        log("** TSLint Check **");
+
+        return gulp
+            .src(config.appTsDev)
+            .pipe($.tslint())
+            .pipe($.tslint.report("verbose"));
 
     });
 
@@ -36,7 +47,7 @@
         };
 
         return gulp
-            .src(config.appTsDev)
+            .src([config.appTsDev, config.tsTypingDefinitions])
             .pipe($.typescript(typescriptOptions))
             .pipe(gulp.dest(config.appDeployFolder));
     });
@@ -53,7 +64,6 @@
 
 //todo add gulp-inject to populate the cshtml file...
 //todo add uglify/minification
-//todo add TSLint
     
     function clean(path, done) {
         log("Cleaning " + $.util.colors.red(path));

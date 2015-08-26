@@ -20,5 +20,4 @@ initialSetup.deployment = true;
 var receipt = new Models.FundTracker();
 receipt.checkNumber = "ABCCheckNumber#123";
 receipt.receiptNum = 1;
-receipt.totalAmount = 600.00;
-//# sourceMappingURL=defaultSetup.js.map
+receipt.totalAmount = 500.00;
