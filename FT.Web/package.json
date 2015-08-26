@@ -1,0 +1,27 @@
+{
+  "version": "3.0.0",
+  "name": "FundTracker",
+  "description": "TypeScript with AngularJS Spike",
+  "repository": {
+    "type": "git",
+    "url": ".."
+  },
+  "devDependencies": {
+    "bower": "^1.5.1",
+    "del": "^1.2.1",
+    "gulp": "^3.8.10",
+    "gulp-batch": "^1.0.5",
+    "gulp-bower": "^0.0.7",
+    "gulp-debug": "^2.1.0",
+    "gulp-inject": "^1.5.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-task-listing": "^1.0.1",
+    "gulp-typescript": "^2.8.1",  
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5",
+    "jshint-stylish": "^2.0.1",
+    "wiredep": "^3.0.0-beta"
+  }
+}
