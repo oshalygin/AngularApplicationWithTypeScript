@@ -1,6 +1,7 @@
 {
   "version": "3.0.0",
   "name": "FundTracker",
+  "license": "..",
   "description": "TypeScript with AngularJS Spike",
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
     "gulp-jshint": "^1.11.2",
     "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-plumber": "^1.0.1",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-task-listing": "^1.0.1",
     "gulp-tslint": "^3.2.0",
     "gulp-typescript": "^2.8.1",
