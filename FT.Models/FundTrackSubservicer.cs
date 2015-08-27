@@ -1,4 +1,4 @@
-﻿namespace FT.DAL
+﻿namespace FT.Models
 {
     public class FundTrackSubservicer
     {

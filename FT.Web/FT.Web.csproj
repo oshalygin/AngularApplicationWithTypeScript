@@ -137,7 +137,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\ReceiptController.cs" />
-    <Compile Include="Controllers\Api\TestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -12962,6 +12961,16 @@
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />
     <TypeScriptCompile Include="typings\typescriptApp.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FT.BLL\FT.BLL.csproj">
+      <Project>{4720ad30-896e-456d-baf9-fc8b6827cc46}</Project>
+      <Name>FT.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FT.Models\FT.Models.csproj">
+      <Project>{b3e21755-894d-420f-b574-11f3c1b38be5}</Project>
+      <Name>FT.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using FT.Models;
 
 namespace FT.DAL
 {

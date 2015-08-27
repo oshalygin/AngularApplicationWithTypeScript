@@ -1,6 +1,4 @@
-﻿using System.Data.Entity.ModelConfiguration.Conventions;
-
-namespace FT.DAL
+﻿namespace FT.Models
 {
     public class FundTrackReceiptType
     {
