@@ -1,0 +1,44 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" style="font-size:large">
+        {{::vm.title}}
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-2">Id:</div>
+                    <div class="col-md-6">{{vm.receipt.id}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">CheckNumber:</div>
+                    <div class="col-md-6">{{vm.receipt.checkNumber }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Servicer:</div>
+                    <div class="col-md-6">{{vm.receipt.servicer.name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Receipt Type:</div>
+                    <div class="col-md-6">{{vm.receipt.receiptType.name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">Amount:</div>
+                    <div class="col-md-6">{{ vm.receipt.totalAmount | currency}}</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="center-block img-responsive"
+                     style="width:200px;margin:2px;"
+                     ng-src="{{vm.receipt.imageUrl}}"
+                     title="{{vm.receipt.checkNumber}}">
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-default"
+           ng-href="#receipts"
+           style="width:80px">
+            < Back
+        </a>
+    </div>
+</div>
