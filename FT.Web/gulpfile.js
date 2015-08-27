@@ -48,9 +48,9 @@
         //todo: fix sourcemaps destination
         return gulp
             .src([config.appTsDev, config.tsTypingDefinitions])
-            .pipe($.sourcemaps.init({loadMaps: true}))
+            //.pipe($.sourcemaps.init({loadMaps: true}))
             .pipe($.typescript(typescriptOptions))
-            .pipe($.sourcemaps.write({includeContent: false}))
+            //.pipe($.sourcemaps.write({includeContent: false}))
             .pipe(gulp.dest(config.appDeployFolder));
     });
 
