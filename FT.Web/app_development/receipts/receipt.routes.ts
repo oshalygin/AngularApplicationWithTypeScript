@@ -2,6 +2,7 @@
     angular.module("app.receipts")
         .config(configuration);
 
+    configuration.$inject["$stateProvider", "$urlProvider"];
     function configuration(
         $stateProvider: angular.ui.IStateProvider,
         $urlProvider: angular.ui.IUrlRouterProvider) {

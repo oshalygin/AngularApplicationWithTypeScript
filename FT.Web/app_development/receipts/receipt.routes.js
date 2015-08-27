@@ -1,6 +1,7 @@
 (function () {
     angular.module("app.receipts")
         .config(configuration);
+    configuration.$inject["$stateProvider", "$urlProvider"];
     function configuration($stateProvider, $urlProvider) {
         //todo might not be necessary...research
         $urlProvider.otherwise("/");
