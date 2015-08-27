@@ -10,4 +10,3 @@ var app;
         models.FundTrackReceiptType = FundTrackReceiptType;
     })(models = app.models || (app.models = {}));
 })(app || (app = {}));
-//# sourceMappingURL=FundTrackReceiptType.js.map

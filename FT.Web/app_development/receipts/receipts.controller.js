@@ -43,7 +43,7 @@ var app;
                     receipt.comments.push(comments);
                     receipt.servicer = (iterator % 2) ? cenlarSubservicer : loanCareSubServicer;
                     receipt.receiptType = (iterator % 2) ? checkType : wireType;
-                    receipt.totalAmount = 50000.00 + iterator * 5000;
+                    receipt.totalAmount = 500000.00 * Math.random();
                     receiptList.push(receipt);
                 }
                 vm.receipts = receiptList;
@@ -54,4 +54,3 @@ var app;
             .controller("app.receipts.ReceiptController", ReceiptController);
     })(receipts = app.receipts || (app.receipts = {}));
 })(app || (app = {}));
-//# sourceMappingURL=receipts.controller.js.map

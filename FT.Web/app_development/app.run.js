@@ -6,4 +6,3 @@
         $rootScope.$stateParams = $stateParams;
     }
 })();
-//# sourceMappingURL=app.run.js.map
