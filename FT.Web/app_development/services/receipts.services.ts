@@ -2,7 +2,7 @@
 
     export interface IReceiptService {
         getAllReceipts(): app.models.IFundTrackReceipt[];
-        
+        getReceiptById(receiptId: number): app.models.IFundTrackReceipt;
     }
 
     class ReceiptService implements IReceiptService {
@@ -77,11 +77,10 @@
         }
 
         getReceiptById(receiptId: number): app.models.IFundTrackReceipt {
-
-            var receipt = app.models.FundTrackReceipt;
-
-            receipt = this.hardcodedReceipts()[receiptId];
-
+            //Making assumption here that the Id matches the index...
+            //No need to unnecessarily loop through the array...
+            var receipt = this.hardcodedReceipts()[receiptId];
+            return receipt;
 
         }
     }

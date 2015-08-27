@@ -12932,6 +12932,7 @@
     <TypeScriptCompile Include="app_development\models\FundTrackReceiptType.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackSubservicer.model.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipt.routes.ts" />
+    <TypeScriptCompile Include="app_development\receipts\receiptDetail.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipts.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipts.module.ts" />
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
