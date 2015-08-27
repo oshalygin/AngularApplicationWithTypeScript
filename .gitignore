@@ -28,6 +28,9 @@ bld/
 # App_Deploy Folder
 app_deploy/
 
+#Javascript files in the TypeScript app_development folder
+app_development/*.js
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
