@@ -6,3 +6,4 @@
         "app.receipts"
     ]);
 })();
+//# sourceMappingURL=app.js.map

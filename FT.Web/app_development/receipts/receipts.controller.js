@@ -54,3 +54,4 @@ var app;
             .controller("app.receipts.ReceiptController", ReceiptController);
     })(receipts = app.receipts || (app.receipts = {}));
 })(app || (app = {}));
+//# sourceMappingURL=receipts.controller.js.map
