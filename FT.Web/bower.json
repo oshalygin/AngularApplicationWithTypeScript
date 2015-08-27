@@ -1,0 +1,15 @@
+{
+  "name": "FT.Web",
+  "version": "0.0.0",
+  "authors": [
+    "Oleg Shalygin <oshalygin@gmail.com>"
+  ],
+  "license": "..",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

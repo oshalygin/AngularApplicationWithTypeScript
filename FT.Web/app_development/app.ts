@@ -2,9 +2,9 @@
     "use strict";
 
     angular.module("app", [
-        "app.core",
-        "app.layout",
-        "app.receipts"
+        "app.core"
+        ,"app.layout"
+        ,"app.receipts"
         
     ]);
 

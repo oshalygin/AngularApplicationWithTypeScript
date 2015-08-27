@@ -4,10 +4,11 @@
 
     angular.module("app.core", [
         //Angular
-        "ngRoute",
-        "ngSanitize"
+        "ngRoute"
+        ,"ngSanitize"
 
         //Third Party
+        ,"ui.router"
     ]);
 
 })();

@@ -3,6 +3,7 @@
     angular.module("app.core", [
         //Angular
         "ngRoute",
-        "ngSanitize"
+        "ngSanitize",
+        "ui.router"
     ]);
 })();
