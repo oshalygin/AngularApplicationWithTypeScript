@@ -19,13 +19,14 @@
             var vm = this;
             vm.title = "Receipts";
             vm.receipts = receiptService.getAllReceipts();
-            //
+            
 
         }
     }
 
     angular.module("app.receipts")
-        .controller("app.receipts.ReceiptController", ReceiptController);
+        .controller("app.receipts.ReceiptController",
+            ReceiptController);
 
 }
 
