@@ -8,11 +8,11 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td>Id</td>
-                    <td>CheckNumber</td>
-                    <td>Servicer</td>
-                    <td>Type</td>
-                    <td>Amount</td>
+                    <td><strong>Id</strong></td>
+                    <td><strong>CheckNumber</strong></td>
+                    <td><strong>Servicer</strong></td>
+                    <td><strong>Type</strong></td>
+                    <td><strong>Amount</strong></td>
                 </tr>
             </thead>
             <tbody>
@@ -25,9 +25,9 @@
                         </a>
                     </td>
                     <td>{{ receipt.checkNumber }}</td>
-                    <td>{{ receipt.servicer}}</td>
-                    <td>{{ receipt.receiptType}}</td>
-                    <td>{{ receipt.totalAmount}}</td>
+                    <td>{{ receipt.servicer.name}}</td>
+                    <td>{{ receipt.receiptType.name}}</td>
+                    <td>{{ receipt.totalAmount | currency}}</td>
                 </tr>
             </tbody>
         </table>
