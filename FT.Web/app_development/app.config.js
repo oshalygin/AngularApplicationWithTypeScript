@@ -6,3 +6,4 @@
         $locationProvider.html5Mode(true);
     }
 })();
+//# sourceMappingURL=app.config.js.map

@@ -7,3 +7,4 @@
         "ui.router"
     ]);
 })();
+//# sourceMappingURL=app.core.js.map

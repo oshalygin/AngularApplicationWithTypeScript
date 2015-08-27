@@ -3,18 +3,63 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The description of my page" />
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+
+
+
 </head>
 <body>
-<div>
-    @RenderBody();
-</div>
+    <div>
+        @RenderBody()
+    </div>
 
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!--TODO: Inject all of this and point to deployment folder... -->
+    <!-- AngularLibrary Library Files -->
+
+    <script src="~/bower_components/angular/angular.js"></script>
+    <script src="~/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="~/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="~/bower_components/angular-route/angular-route.js"></script>
+    <script src="~/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- App Modules -->
+
+
+    <script src="~/app_development/layout/layout.module.js"></script>
+    <script src="~/app_development/widgets/widgets.module.js"></script>
+    <script src="~/app_development/receipts/receipts.module.js"></script>
+    <script src="~/app_development/services/services.module.js"></script>
+
+    <script src="~/app_development/app.core.js"></script>
+    <script src="~/app_development/app.js"></script>
+
+    <!-- Routing -->
+
+    <script src="~/app_development/layout/layout.routes.js"></script>
+    <script src="~/app_development/receipts/receipt.routes.js"></script>
+
+    <!-- Configuration -->
+
+    <script src="~/app_development/app.config.js"></script>
+
+    <!-- Services -->
+
+    <script src="~/app_development/services/receipts.services.js"></script>
+
+    <!-- Directives -->
+    <!-- Controllers -->
+
+    <script src="~/app_development/layout/layout.controller.js"></script>
+    <script src="~/app_development/receipts/receipts.controller.js"></script>
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>

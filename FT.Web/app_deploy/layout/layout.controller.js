@@ -16,4 +16,3 @@ var app;
             .controller("app.layout.LayoutController", LayoutController);
     })(layout = app.layout || (app.layout = {}));
 })(app || (app = {}));
-//# sourceMappingURL=layout.controller.js.map

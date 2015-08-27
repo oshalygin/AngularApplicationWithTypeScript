@@ -1,7 +1,6 @@
 (function () {
     angular.module("app.receipts")
         .config(configuration);
-    //configuration.$inject["$stateProvider"];
     function configuration($stateProvider) {
         //todo might not be necessary...research
         //$urlProvider.otherwise("/");
@@ -14,4 +13,3 @@
         });
     }
 })();
-//# sourceMappingURL=receipt.routes.js.map

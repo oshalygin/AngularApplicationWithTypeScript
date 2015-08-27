@@ -3,12 +3,12 @@
     angular.module("app.receipts")
         .config(configuration);
 
-    configuration.$inject["$stateProvider", "$urlProvider"];
+    //configuration.$inject["$stateProvider"];
+
     function configuration(
-        $stateProvider: angular.ui.IStateProvider,
-        $urlProvider: angular.ui.IUrlRouterProvider) {
+        $stateProvider: angular.ui.IStateProvider) {
         //todo might not be necessary...research
-        $urlProvider.otherwise("/");
+        //$urlProvider.otherwise("/");
 
         $stateProvider
             .state("receipts", {
