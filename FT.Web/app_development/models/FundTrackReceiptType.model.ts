@@ -5,7 +5,7 @@
         name: string;
         description: string;
     }
-    export class FundTrackReceiptType {
+    export class FundTrackReceiptType implements IFundTrackReceiptType {
 
         id: number;
         name: string;

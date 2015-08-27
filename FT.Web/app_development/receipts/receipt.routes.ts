@@ -15,6 +15,13 @@
                 templateUrl: "./app_development/receipts/receipts.html",
                 controller: "app.receipts.ReceiptController",
                 controllerAs: "vm"
+            })
+            .state("receiptDetail", {
+                url: "/Receipts/{int:id}",
+                title: "Receipt Detail",
+                templateUrl: "./app_development/receipts/receiptDetailhtml",
+                controller: "app.receipts.ReceiptDetailController",
+                controllerAs: "vm"
             });
     }
 

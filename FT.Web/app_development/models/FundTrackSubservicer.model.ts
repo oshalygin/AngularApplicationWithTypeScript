@@ -6,7 +6,7 @@
         isEnabled: boolean;
     }
 
-    export class FundTrackSubservicer {
+    export class FundTrackSubservicer implements IFundTrackSubservicer {
         id: number;
         name: string;
         isEnabled: boolean;

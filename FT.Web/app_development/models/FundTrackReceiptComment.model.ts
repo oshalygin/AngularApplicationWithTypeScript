@@ -7,7 +7,7 @@
         updateDate: Date;
     }
 
-    export class FundTrackReceiptComment {
+    export class FundTrackReceiptComment implements IFundTrackReceiptComment {
         id: number;
         text: string;
         createdDate: Date;

@@ -2,12 +2,12 @@
 
     export interface IReceiptService {
         getAllReceipts(): app.models.IFundTrackReceipt[];
+        
     }
 
     class ReceiptService implements IReceiptService {
 
-        getAllReceipts(): app.models.IFundTrackReceipt[]{
-
+        hardcodedReceipts(): app.models.IFundTrackReceipt[] {
             var iterator: number;
             var numberOfReceipts: number;
             var numberOfComments: number;
@@ -38,13 +38,13 @@
             checkType.name = "Check";
             checkType.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae scelerisque tortor. Fusce ac augue in nulla lobortis auctor fringilla id urna. Aenean eleifend metus mi, non fringilla libero tempus ac. Curabitur vitae posuere ligula, ac faucibus ex. Cras placerat est lectus, condimentum dictum est volutpat quis. Proin bibendum vel tortor sit amet lobortis. Curabitur bibendum porttitor erat vel molestie. Morbi auctor cursus nisl et posuere. Donec ac placerat mauris";
 
-           
 
-       
-                var wireType = new app.models.FundTrackReceiptType();
-                wireType.id = 2;
-                wireType.name = "Wire";
-                wireType.description = "Aenean sed fringilla lectus, vitae placerat mi. Proin non ante interdum, congue metus dignissim, gravida enim. Praesent pulvinar vehicula sodales. In congue hendrerit vestibulum. Sed vitae interdum quam. Maecenas nec quam urna. Nulla sollicitudin, nisi a vulputate luctus, leo neque luctus turpis, quis ultrices mauris dui sit amet diam. Nunc imperdiet quam id lectus convallis, eget condimentum lorem consectetur. Sed dignissim bibendum ultrices. Proin in sem ac dolor vestibulum sodales a nec lacus. Praesent lectus quam, interdum a condimentum accumsan, congue in ante. Phasellus at mi euismod, mollis dui ";
+
+
+            var wireType = new app.models.FundTrackReceiptType();
+            wireType.id = 2;
+            wireType.name = "Wire";
+            wireType.description = "Aenean sed fringilla lectus, vitae placerat mi. Proin non ante interdum, congue metus dignissim, gravida enim. Praesent pulvinar vehicula sodales. In congue hendrerit vestibulum. Sed vitae interdum quam. Maecenas nec quam urna. Nulla sollicitudin, nisi a vulputate luctus, leo neque luctus turpis, quis ultrices mauris dui sit amet diam. Nunc imperdiet quam id lectus convallis, eget condimentum lorem consectetur. Sed dignissim bibendum ultrices. Proin in sem ac dolor vestibulum sodales a nec lacus. Praesent lectus quam, interdum a condimentum accumsan, congue in ante. Phasellus at mi euismod, mollis dui ";
 
             for (iterator = 0; iterator <= numberOfComments; iterator++) {
                 var comment = new app.models.FundTrackReceiptComment();
@@ -68,6 +68,21 @@
                 receiptList.push(receipt);
             }
             return receiptList;
+        }
+
+        getAllReceipts(): app.models.IFundTrackReceipt[] {
+
+            var allReceipts = this.hardcodedReceipts();
+            return allReceipts;
+        }
+
+        getReceiptById(receiptId: number): app.models.IFundTrackReceipt {
+
+            var receipt = app.models.FundTrackReceipt;
+
+            receipt = this.hardcodedReceipts()[receiptId];
+
+
         }
     }
 

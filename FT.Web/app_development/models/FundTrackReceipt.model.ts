@@ -9,7 +9,7 @@
         servicer: app.models.IFundTrackSubservicer;
     }
 
-    export class FundTrackReceipt {
+    export class FundTrackReceipt implements IFundTrackReceipt {
         id: number;
         totalAmount: number;
         checkNumber: string;
