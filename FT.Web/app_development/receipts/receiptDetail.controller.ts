@@ -5,6 +5,7 @@
     interface IReceiptDetailController {
         title: string;
         receiptId: number;
+        imageUrl: string;
     }
 
     class ReceiptDetailController implements  IReceiptDetailController {
@@ -12,23 +13,19 @@
         title: string;
         receipt: app.models.FundTrackReceipt;
         receiptId: number;
+        imageUrl: string;
 
-        static $inject = ["$stateParams"];
+        static $inject = ["app.services.ReceiptService", "$stateParams"];
         constructor(receiptService: app.services.IReceiptService,
-            $stateParams: app.services.IReceiptStateParams
-           ) {
+            $stateParams: app.services.IReceiptStateParams) {
 
             receiptService = new app.services.ReceiptService();
-
-            //this.receiptId = $stateParams.receiptId;
-            this.receiptId = 2;
+            this.receiptId = $stateParams.receiptId;
 
             var vm = this;
-            vm.title = "Receipts";
-
+            vm.title = "Receipt Detail";
             vm.receipt = receiptService.getReceiptById(this.receiptId);
-            //vm.receipt = receipt;
-
+            vm.imageUrl = "./Content/images/receiptImage.png";
 
         }
 
