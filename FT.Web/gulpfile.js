@@ -1,5 +1,5 @@
-﻿/// <binding />
-//gulpfile.js
+﻿/// <binding AfterBuild='transpile' />
+
 
     var gulp = require("gulp");
     var config = require("./gulp.config")();
