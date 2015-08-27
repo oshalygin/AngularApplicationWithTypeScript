@@ -12,7 +12,7 @@
 
     export class ReceiptService implements IReceiptService {
 
-        //TODO: Convert this to $resource and throw the hardcoded into the Mock interceptor
+        //TODO: Get this data back via $resource...
         hardcodedReceipts(): app.models.IFundTrackReceipt[] {
             var iterator: number;
             var numberOfReceipts: number;
@@ -43,9 +43,6 @@
             checkType.id = 1;
             checkType.name = "Check";
             checkType.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae scelerisque tortor. Fusce ac augue in nulla lobortis auctor fringilla id urna. Aenean eleifend metus mi, non fringilla libero tempus ac. Curabitur vitae posuere ligula, ac faucibus ex. Cras placerat est lectus, condimentum dictum est volutpat quis. Proin bibendum vel tortor sit amet lobortis. Curabitur bibendum porttitor erat vel molestie. Morbi auctor cursus nisl et posuere. Donec ac placerat mauris";
-
-
-
 
             var wireType = new app.models.FundTrackReceiptType();
             wireType.id = 2;

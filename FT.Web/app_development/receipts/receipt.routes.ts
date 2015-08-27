@@ -4,7 +4,6 @@
         .config(configuration);
 
     //configuration.$inject["$stateProvider"];
-
     function configuration(
         $stateProvider: angular.ui.IStateProvider) {
 

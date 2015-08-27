@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The description of my page" />
-    <title>{{ $state.current.title }}</title>
+    <title ng-cloak>{{ $state.current.title }}</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
