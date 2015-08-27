@@ -1,4 +1,5 @@
 ﻿((): void => {
+
     angular.module("app.receipts")
         .config(configuration);
 
