@@ -9,7 +9,7 @@
             .state("receipts", {
             url: "/Receipts",
             templateUrl: "./app_development/receipts/receipts.html",
-            controller: "app.receipts.ReceiptsController",
+            controller: "app.receipts.ReceiptController",
             controllerAs: "vm"
         });
     }

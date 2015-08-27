@@ -5,6 +5,8 @@ var app;
         "use strict";
         var ReceiptController = (function () {
             function ReceiptController() {
+                var vm = this;
+                vm.title = "derp";
             }
             return ReceiptController;
         })();
