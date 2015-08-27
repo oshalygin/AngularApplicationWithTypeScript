@@ -15,15 +15,14 @@
 
         static $inject = ["$stateParams"];
         constructor(receiptService: app.services.IReceiptService,
-            $stateParams: angular.ui.IStateParamsService ) {
-            //,$stateParams: any) {
-            //this.receiptId = $stateParams;
+            $stateParams: app.services.IReceiptStateParams) {
 
+            this.receiptId = $stateParams.receiptId;
 
             var vm = this;
             vm.title = "Receipts";
 
-            //vm.receipt = receiptService.getReceiptById(id);
+            vm.receipt = receiptService.getReceiptById(this.receiptId);
 
 
         }
