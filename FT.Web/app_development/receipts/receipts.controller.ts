@@ -8,7 +8,6 @@
         lastComment: app.models.IFundTrackReceiptComment;
     }
 
-    
 
     class ReceiptController implements IReceiptsScope {
         title: string;
@@ -21,7 +20,6 @@
             var vm = this;
             vm.title = "Receipts";
             vm.receipts = receiptService.getAllReceipts();
-            vm.receipts[0].id = 10;
 
         }
     }

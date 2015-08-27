@@ -1,5 +1,10 @@
 ﻿module app.services {
 
+
+    export interface IReceiptStateParams extends angular.ui.IStateParamsService {
+        receiptId: number;
+    }
+
     export interface IReceiptService {
         getAllReceipts(): app.models.IFundTrackReceipt[];
         getReceiptById(receiptId: number): app.models.IFundTrackReceipt;
@@ -7,6 +12,7 @@
 
     class ReceiptService implements IReceiptService {
 
+        //TODO: Convert this to $resource and throw the hardcoded into the Mock interceptor
         hardcodedReceipts(): app.models.IFundTrackReceipt[] {
             var iterator: number;
             var numberOfReceipts: number;
@@ -69,6 +75,8 @@
             }
             return receiptList;
         }
+
+
 
         getAllReceipts(): app.models.IFundTrackReceipt[] {
 

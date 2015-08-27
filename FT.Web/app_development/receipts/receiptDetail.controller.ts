@@ -1,21 +1,30 @@
 ﻿module app.receipts {
 
+
+
     interface IReceiptDetailController {
         title: string;
-            
+        receiptId: number;
     }
-    class ReceiptDetailController {
-        
-        title: string;
-        receipt: app.models.FundTrackReceipt; 
-        
 
-        constructor(receiptService: app.services.IReceiptService) {
+    class ReceiptDetailController implements  IReceiptDetailController {
+
+        title: string;
+        receipt: app.models.FundTrackReceipt;
+        receiptId: number;
+
+        static $inject = ["$stateParams"];
+        constructor(receiptService: app.services.IReceiptService,
+            $stateParams: angular.ui.IStateParamsService ) {
+            //,$stateParams: any) {
+            //this.receiptId = $stateParams;
+
 
             var vm = this;
             vm.title = "Receipts";
-            //vm.receipts = receiptService.getAllReceipts();
-            //vm.receipts[0].id = 10;
+
+            //vm.receipt = receiptService.getReceiptById(id);
+
 
         }
 
