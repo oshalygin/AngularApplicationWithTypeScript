@@ -5,7 +5,6 @@
     angular.module("app.core", [
         //Angular
         "ngRoute"
-        ,"ngSanitize"
 
         //Third Party
         ,"ui.router"

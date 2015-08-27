@@ -6,16 +6,15 @@
 
     //configuration.$inject["$stateProvider", "$urlProvider"];
     function configuration(
-        $stateProvider: angular.ui.IStateProvider,
-        $urlProvider: angular.ui.IUrlRouterProvider) {
+        $stateProvider: angular.ui.IStateProvider
+        , $urlRouterProvider: angular.ui.IUrlRouterProvider) {
 
-        $urlProvider.otherwise("/");
+        $urlRouterProvider.otherwise("/");
 
         $stateProvider
             .state("home", {
-            url: "",
-            abstract: true,
-                templateUrl: "app_development/layout/layout.html",
+                url: "/",
+                templateUrl: "./app_development/layout/layout.html",
                 controller: "app.layout.LayoutController",
                 controllerAs: "vm"
             });

@@ -2,13 +2,13 @@
     angular.module("app")
         .run(run);
 
-    function run($rootScope: ng.IRootScopeService,
+    function run($rootScope: any,
         //$state doesn't have a go() typing? ugh...
-        $state: any) {
-        $state.go("home");
-    }
+        $state: any,
+        $stateParams: angular.ui.IStateParamsService) {
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
         
-    
-
+    }
 
 })();
