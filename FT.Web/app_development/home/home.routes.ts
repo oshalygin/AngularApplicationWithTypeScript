@@ -9,7 +9,7 @@
         $stateProvider: angular.ui.IStateProvider
         , $urlRouterProvider: angular.ui.IUrlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/");
+        //$urlRouterProvider.otherwise("/");
 
         $stateProvider
             .state("home", {

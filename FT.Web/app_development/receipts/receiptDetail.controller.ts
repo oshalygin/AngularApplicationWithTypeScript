@@ -15,14 +15,19 @@
 
         static $inject = ["$stateParams"];
         constructor(receiptService: app.services.IReceiptService,
-            $stateParams: app.services.IReceiptStateParams) {
+            $stateParams: app.services.IReceiptStateParams
+           ) {
 
-            this.receiptId = $stateParams.receiptId;
+            receiptService = new app.services.ReceiptService();
+
+            //this.receiptId = $stateParams.receiptId;
+            this.receiptId = 2;
 
             var vm = this;
             vm.title = "Receipts";
 
             vm.receipt = receiptService.getReceiptById(this.receiptId);
+            //vm.receipt = receipt;
 
 
         }

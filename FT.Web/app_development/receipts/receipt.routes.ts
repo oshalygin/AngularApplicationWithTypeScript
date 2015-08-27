@@ -17,12 +17,18 @@
                 controllerAs: "vm"
             })
             .state("receiptDetail", {
-                url: "/Receipts/{int:receiptId}",
-                title: "Receipt Detail",
-                templateUrl: "./app_development/receipts/receiptDetailhtml",
+                url: "/Receipts/Detail/:receiptId",
+                templateUrl: "./app_development/receipts/receiptDetail.html",
                 controller: "app.receipts.ReceiptDetailController",
-                controllerAs: "vm"
-            });
+                controllerAs: "vm",
+                resolve: {
+                    //receiptService: "app.services.ReceiptService",
+
+                    //receipt: function (receiptService, $stateParams) {
+                    //    //var productId = $stateParams.productId;
+                    //    return receiptService.getReceiptById($stateParams.productId);
+                    //}
+                }});
     }
 
 })();

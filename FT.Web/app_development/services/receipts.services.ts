@@ -10,7 +10,7 @@
         getReceiptById(receiptId: number): app.models.IFundTrackReceipt;
     }
 
-    class ReceiptService implements IReceiptService {
+    export class ReceiptService implements IReceiptService {
 
         //TODO: Convert this to $resource and throw the hardcoded into the Mock interceptor
         hardcodedReceipts(): app.models.IFundTrackReceipt[] {

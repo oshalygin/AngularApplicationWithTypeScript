@@ -21,11 +21,11 @@
 
                     <td>
                         <!--TODO: Wire up the routing-->
-                        {{ receipt.id}}
+                        {{ receipt.id }}
                     </td>
                     <!--TODO: Wire up the routing-->
                     <td>
-                        <a ng-href="#receipt/{{receipt.id}}">
+                        <a ui-sref="receiptDetail({receiptId: receipt.id})">
                             {{ receipt.checkNumber }}
                         </a>
                     </td>
