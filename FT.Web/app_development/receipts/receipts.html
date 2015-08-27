@@ -1,2 +1,35 @@
 ﻿
-<span>There will be content...I promise!</span>
+<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">
+        {{::vm.title}}
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>CheckNumber</td>
+                    <td>Servicer</td>
+                    <td>Type</td>
+                    <td>Amount</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="receipt in vm.receipts">
+
+                    <td>
+                        <!--TODO: Wire up the routing-->
+                        <a ng-href="#receipt/{{receipt.id}}">
+                            {{ receipt.id}}
+                        </a>
+                    </td>
+                    <td>{{ receipt.checkNumber }}</td>
+                    <td>{{ receipt.servicer}}</td>
+                    <td>{{ receipt.receiptType}}</td>
+                    <td>{{ receipt.totalAmount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

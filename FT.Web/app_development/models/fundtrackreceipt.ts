@@ -1,13 +1,21 @@
 ﻿module app.models {
     
     export interface IFundTrackReceipt {
-        id: string;
+        id: number;
         totalAmount: number;
         checkNumber: string;
-        //todo add classes
         comments: app.models.IFundTrackReceiptComment[];
         receiptType: app.models.IFundTrackReceiptType;
-        servicer: any;
+        servicer: app.models.IFundTrackSubservicer;
+    }
+
+    export class FundTrackReceipt {
+        id: number;
+        totalAmount: number;
+        checkNumber: string;
+        comments: app.models.FundTrackReceiptComment[];
+        receiptType: app.models.FundTrackReceiptType;
+        servicer: app.models.FundTrackSubservicer;
     }
 
 }

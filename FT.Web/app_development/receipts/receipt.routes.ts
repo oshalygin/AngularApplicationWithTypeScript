@@ -7,8 +7,6 @@
 
     function configuration(
         $stateProvider: angular.ui.IStateProvider) {
-        //todo might not be necessary...research
-        //$urlProvider.otherwise("/");
 
         $stateProvider
             .state("receipts", {

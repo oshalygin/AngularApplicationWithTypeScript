@@ -7,6 +7,10 @@ var app;
             function ReceiptController() {
                 var vm = this;
                 vm.title = "derp";
+                for (var i = 0; i <= 5; i++) {
+                    var receipt = new app.models.FundTrackReceipt();
+                    receipt.id = i;
+                }
             }
             return ReceiptController;
         })();
