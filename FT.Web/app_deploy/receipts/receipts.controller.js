@@ -40,9 +40,9 @@ var app;
                     receipt.id = iterator;
                     receipt.checkNumber = "Amerihome: " + iterator.toString();
                     receipt.comments.push(comments);
-                    receipt.servicer = cenlarSubservicer;
-                    receipt.receiptType = wireType;
-                    receipt.totalAmount = 50000.00 + iterator * 500;
+                    receipt.servicer = (iterator % 2) ? cenlarSubservicer : loanCareSubServicer;
+                    receipt.receiptType = (iterator % 2) ? checkType : wireType;
+                    receipt.totalAmount = 50000.00 + iterator * 5000;
                     receiptList.push(receipt);
                 }
                 vm.receipts = receiptList;

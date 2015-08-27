@@ -7,7 +7,7 @@
         //    enabled: true,
         //    requiredBase: false
         //});
-        $locationProvider.html5Mode(false);
+        $locationProvider.html5Mode(true);
     }
 })();
 //# sourceMappingURL=app.config.js.map
