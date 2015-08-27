@@ -29,9 +29,10 @@ bld/
 **/app_deploy/
 
 #Javascript files in the TypeScript app_development folder
-**/app_development/*.js
-**/app_development/**/*.js
-**/app_development/**/*.map.js
+**/app_development/*.*js
+**/app_development/**/*.*.js
+**/app_development/**/*.*.map.js
+
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
