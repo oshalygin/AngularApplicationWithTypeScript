@@ -10,3 +10,4 @@ var app;
         models.FundTrackReceiptComment = FundTrackReceiptComment;
     })(models = app.models || (app.models = {}));
 })(app || (app = {}));
+//# sourceMappingURL=FundTrackReceiptComment.js.map

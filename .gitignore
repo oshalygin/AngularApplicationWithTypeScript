@@ -26,10 +26,11 @@ bld/
 .vs/
 
 # App_Deploy Folder
-app_deploy/
+**/app_deploy/
 
 #Javascript files in the TypeScript app_development folder
-app_development/*.js
+**/app_development/*.js
+**/app_development/*.map.js
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

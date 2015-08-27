@@ -13,3 +13,4 @@
         });
     }
 })();
+//# sourceMappingURL=receipt.routes.js.map

@@ -16,3 +16,4 @@ var app;
             .controller("app.home.HomeController", HomeController);
     })(layout = app.layout || (app.layout = {}));
 })(app || (app = {}));
+//# sourceMappingURL=home.controller.js.map

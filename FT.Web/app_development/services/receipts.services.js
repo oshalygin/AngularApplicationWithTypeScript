@@ -53,3 +53,4 @@ var app;
             .service("app.services.ReceiptService", ReceiptService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=receipts.services.js.map
