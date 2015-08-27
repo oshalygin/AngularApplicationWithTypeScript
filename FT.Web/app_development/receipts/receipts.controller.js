@@ -8,6 +8,7 @@ var app;
                 var vm = this;
                 vm.title = "Receipts";
                 vm.receipts = receiptService.getAllReceipts();
+                //
             }
             ReceiptController.$inject = ["app.services.ReceiptService"];
             return ReceiptController;

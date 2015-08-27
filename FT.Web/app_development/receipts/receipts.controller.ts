@@ -19,7 +19,7 @@
             var vm = this;
             vm.title = "Receipts";
             vm.receipts = receiptService.getAllReceipts();
-
+            //
 
         }
     }
