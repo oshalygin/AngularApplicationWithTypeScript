@@ -1,7 +1,7 @@
 ﻿((): void => {
     "use strict";
 
-    angular.module("app.layout")
+    angular.module("app.home")
         .config(configuration);
 
     //configuration.$inject["$stateProvider", "$urlProvider"];
@@ -14,8 +14,8 @@
         $stateProvider
             .state("home", {
                 url: "/",
-                templateUrl: "./app_development/layout/layout.html",
-                controller: "app.layout.LayoutController",
+                templateUrl: "./app_development/home/home.html",
+                controller: "app.home.HomeController",
                 controllerAs: "vm"
             });
     }

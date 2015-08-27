@@ -8,10 +8,9 @@
         $stateProvider
             .state("receipts", {
             url: "/Receipts",
-            templateUrl: "app_deployment/receipts/receipts.html",
+            templateUrl: "./app_development/receipts/receipts.html",
             controller: "app.receipts.ReceiptsController",
             controllerAs: "vm"
         });
     }
 })();
-//# sourceMappingURL=receipt.routes.js.map

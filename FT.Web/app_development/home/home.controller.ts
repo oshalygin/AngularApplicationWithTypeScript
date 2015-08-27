@@ -1,13 +1,13 @@
 ﻿module app.layout {
     "use strict";
 
-    interface ILayoutController {
+    interface IHomeController {
         title: string;
         projectName: string;
         copyrightDate: Date;
     }
     
-    class LayoutController implements ILayoutController {
+    class HomeController implements IHomeController {
         title: string;
         projectName: string;
         copyrightDate: Date;
@@ -20,8 +20,8 @@
         }
     }
 
-    angular.module("app.layout")
-        .controller("app.layout.LayoutController",
-            LayoutController);
+    angular.module("app.home")
+        .controller("app.home.HomeController",
+            HomeController);
 
 }

@@ -130,7 +130,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app_development\layout\layout.html" />
+    <Content Include="app_development\home\home.html" />
+    <Content Include="app_development\receipts\receipts.html" />
     <Content Include="bower_components\angular-animate\angular-animate.js" />
     <Content Include="bower_components\angular-animate\angular-animate.min.js" />
     <Content Include="bower_components\angular-animate\index.js" />
@@ -12921,9 +12922,9 @@
     <TypeScriptCompile Include="app_development\app.core.ts" />
     <TypeScriptCompile Include="app_development\app.run.ts" />
     <TypeScriptCompile Include="app_development\app.ts" />
-    <TypeScriptCompile Include="app_development\layout\layout.controller.ts" />
-    <TypeScriptCompile Include="app_development\layout\layout.module.ts" />
-    <TypeScriptCompile Include="app_development\layout\layout.routes.ts" />
+    <TypeScriptCompile Include="app_development\home\home.controller.ts" />
+    <TypeScriptCompile Include="app_development\home\home.module.ts" />
+    <TypeScriptCompile Include="app_development\home\home.routes.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackReceiptComment.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackReceipt.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackReceiptType.ts" />

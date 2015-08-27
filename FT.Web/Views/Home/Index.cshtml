@@ -1,4 +1,33 @@
 ﻿@{
     ViewBag.Title = "Landing Page";
 }
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="home">Home</a></li>
+                <li><a ui-sref="receipts">Fund Track Receipts</a></li>
+                <li><a ui-sref="receipts">Fund Track Comments</a></li>
+                <li><a ui-sref="receipts">Fund Track Types</a></li>
+                <li><a ui-sref="receipts">Fund Track SubServicers</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<span>$state = <b>{{$state.current.name}}</b></span>
+<br />
+
+
 <div ui-view></div>
+
+
+<div class="container body-content">
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+</div>
