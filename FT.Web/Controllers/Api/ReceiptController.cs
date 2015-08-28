@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using FT.BLL;
 using FT.Models;
 
 namespace FT.Web.Controllers.Api
 {
     public class ReceiptController : ApiController
     {
-        
+        private readonly Repository _repo = new Repository();
+
         public IEnumerable<FundTrackReceipt> Get()
         {
-            return null;
+            var receipts = _repo.Get10Receipts();
+            return receipts;
         }
 
         

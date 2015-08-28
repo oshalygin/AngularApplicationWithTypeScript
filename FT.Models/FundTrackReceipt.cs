@@ -10,15 +10,15 @@ namespace FT.Models
             Comments = new List<FundTrackReceiptComment>();
         }
 
-        public int Id { get; set; }
-        public decimal TotalAmount { get; set; }
-        public DateTime ReceivedDate { get; set; }
-        public string CheckNumber { get; set; }
+        public virtual int Id { get; set; }
+        public virtual decimal TotalAmount { get; set; }
+        public virtual DateTime ReceivedDate { get; set; }
+        public virtual string CheckNumber { get; set; }
 
-        public List<FundTrackReceiptComment> Comments { get; set; }
+        public virtual List<FundTrackReceiptComment> Comments { get; set; }
 
-        public FundTrackReceiptType Type { get; set; }
+        public virtual FundTrackReceiptType Type { get; set; }
 
-        public FundTrackSubservicer Servicer { get; set; }
+        public virtual FundTrackSubservicer Servicer { get; set; }
     }
 }

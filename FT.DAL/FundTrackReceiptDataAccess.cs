@@ -62,7 +62,6 @@ namespace FT.DAL
         {
             return _context
                 .FundTrackReceipts
-                .Include(x => x.Comments)
                 .AsNoTracking()
                 .AsEnumerable();
         }
