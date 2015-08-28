@@ -12935,6 +12935,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app_development\app.config.ts" />
+    <TypeScriptCompile Include="app_development\app.constants.ts" />
     <TypeScriptCompile Include="app_development\app.core.ts" />
     <TypeScriptCompile Include="app_development\app.run.ts" />
     <TypeScriptCompile Include="app_development\app.ts" />
@@ -12949,6 +12950,7 @@
     <TypeScriptCompile Include="app_development\receipts\receiptDetail.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipts.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipts.module.ts" />
+    <TypeScriptCompile Include="app_development\services\apiendpoints.services.ts" />
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.module.ts" />

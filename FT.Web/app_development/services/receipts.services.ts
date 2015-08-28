@@ -6,13 +6,20 @@
     }
 
     export interface IReceiptService {
-        getAllReceipts(): app.models.IFundTrackReceipt[];
-        getReceiptById(receiptId: number): app.models.IFundTrackReceipt;
+        getAllReceipts(): ng.IPromise<app.models.IFundTrackReceipt[]>;
+        //getReceiptById(receiptId: number): ng.IPromise<app.models.IFundTrackReceipt>;
+
     }
 
     export class ReceiptService implements IReceiptService {
 
-        //TODO: Get this data back via $resource...
+        api: app.services.ApiProvider;
+
+        //Verify necessity
+        constructor() {
+            
+        }
+   
         hardcodedReceipts(): app.models.IFundTrackReceipt[] {
             var iterator: number;
             var numberOfReceipts: number;
@@ -75,11 +82,22 @@
 
 
 
-        getAllReceipts(): app.models.IFundTrackReceipt[] {
+        getAllLocalReceipts(): app.models.IFundTrackReceipt[] {
 
             var allReceipts = this.hardcodedReceipts();
             return allReceipts;
         }
+
+        getAllReceipts(): ng.IPromise<app.models.IFundTrackReceipt[]> {
+
+            return this.$http
+                .get("http://localhost:51615/api/Receipt")
+                .then((response: ng.IHttpPromiseCallbackArg<app.models.IFundTrackReceipt[]>): app.models.IFundTrackReceipt[] => {
+                    return <app.models.IFundTrackReceipt[]>response.data;
+                });
+
+        }
+
 
         getReceiptById(receiptId: number): app.models.IFundTrackReceipt {
             //Making assumption here that the Id matches the index...

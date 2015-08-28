@@ -17,14 +17,15 @@
 
         static $inject = ["app.services.ReceiptService", "$stateParams"];
         constructor(receiptService: app.services.IReceiptService,
-            $stateParams: app.services.IReceiptStateParams) {
+            $stateParams: app.services.IReceiptStateParams,
+            $http: ng.IHttpService) {
 
-            receiptService = new app.services.ReceiptService();
+            receiptService = new app.services.ReceiptService($http);
             this.receiptId = $stateParams.receiptId;
 
             var vm = this;
             vm.title = "Receipt Detail";
-            vm.receipt = receiptService.getReceiptById(this.receiptId);
+            //vm.receipt = receiptService.getReceiptById(this.receiptId);
             vm.imageUrl = "./Content/images/receiptImage.png";
 
         }

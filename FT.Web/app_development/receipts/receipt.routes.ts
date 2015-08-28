@@ -13,7 +13,10 @@
                 title: "Receipts",
                 templateUrl: "./app_development/receipts/receipts.html",
                 controller: "app.receipts.ReceiptController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                resolve: {
+                    //receipts: resolveReceipts
+                }
             })
             .state("receiptDetail", {
                 url: "/Receipts/Detail/:receiptId",
@@ -21,7 +24,7 @@
                 controller: "app.receipts.ReceiptDetailController",
                 controllerAs: "vm",
                 resolve: {
-                    //receiptService: "app.services.ReceiptService",
+                   
 
                     //receipt: function (receiptService, $stateParams) {
                     //    //var productId = $stateParams.productId;
@@ -29,6 +32,10 @@
                     //}
                 }});
     }
+
+    //function resolveReceipts(receiptService: app.services.IReceiptService): ng.IPromise<app.models.IFundTrackReceipt[]> {
+    //    return receiptService.getAllReceipts();
+    //}
 
 })();
 

@@ -10,16 +10,18 @@
 
 
     class ReceiptController implements IReceiptsScope {
+
         title: string;
-        receipts: app.models.FundTrackReceipt[];
+        receipts: app.models.FundTrackReceipt[] = [];
         lastComment: app.models.IFundTrackReceiptComment;
 
-        static $inject = ["app.services.ReceiptService"];
-        constructor(receiptService: app.services.IReceiptService) {
-
+        //static $inject = ["app.services.ReceiptService"];
+        constructor(receipts: app.models.FundTrackReceipt[]) {
             var vm = this;
+
             vm.title = "Receipts";
-            vm.receipts = receiptService.getAllReceipts();
+            //vm.receipts = receiptService.getAllReceipts();
+            vm.receipts = null;
 
         }
     }
