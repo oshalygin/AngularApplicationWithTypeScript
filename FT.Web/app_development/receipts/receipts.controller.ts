@@ -2,26 +2,28 @@
 
     "use strict";
 
-    interface IReceiptsScope {
+    interface IReceiptController {
         title: string;
         receipts: app.models.FundTrackReceipt[];
         lastComment: app.models.IFundTrackReceiptComment;
     }
 
 
-    class ReceiptController implements IReceiptsScope {
+    class ReceiptController implements IReceiptController {
 
         title: string;
-        receipts: app.models.FundTrackReceipt[] = [];
+        receipts: app.models.IFundTrackReceipt[] = [];
         lastComment: app.models.IFundTrackReceiptComment;
 
         //static $inject = ["app.services.ReceiptService"];
-        constructor(receipts: app.models.FundTrackReceipt[]) {
+        constructor(private receiptResource: app.services.IReceiptResource) {
             var vm = this;
 
+            
+
+
             vm.title = "Receipts";
-            //vm.receipts = receiptService.getAllReceipts();
-            vm.receipts = null;
+          
 
         }
     }

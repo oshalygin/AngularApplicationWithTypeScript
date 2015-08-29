@@ -12952,6 +12952,7 @@
     <TypeScriptCompile Include="app_development\receipts\receipts.module.ts" />
     <TypeScriptCompile Include="app_development\services\apiendpoints.services.ts" />
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
+    <TypeScriptCompile Include="app_development\services\resource.builder.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.module.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tslint\node_modules\tslint\lib\tslint.d.ts" />
