@@ -39,15 +39,19 @@
     <script src="~/app_development/models/FundTrackSubservicer.model.js"></script>
 
     <!-- App Modules -->
-
+    <script src="~/app_development/services/services.module.js"></script>
     <script src="~/app_development/home/home.module.js"></script>
     <script src="~/app_development/widgets/widgets.module.js"></script>
     <script src="~/app_development/receipts/receipts.module.js"></script>
-    <script src="~/app_development/services/services.module.js"></script>
-
     <script src="~/app_development/app.core.js"></script>
     <script src="~/app_development/app.js"></script>
     <script src="~/app_development/app.run.js"></script>
+
+    <!-- Services -->
+    <script src="~/app_development/services/resource.builder.js"></script>
+    <script src="~/app_development/services/receipts.services.js"></script>
+    <script src="~/app_development/services/apiendpoints.services.js"></script>
+
     <!-- Routing -->
 
 
@@ -58,9 +62,6 @@
 
     <script src="~/app_development/app.config.js"></script>
 
-    <!-- Services -->
-    <script src="~/app_development/services/receipts.services.js"></script>
-    <script src="~/app_development/services/apiendpoints.services.js"></script>
 
     <!-- Directives -->
     <!-- Controllers -->
@@ -70,6 +71,6 @@
     <script src="~/app_development/receipts/receipts.controller.js"></script>
     <script src="~/app_development/receipts/receiptDetail.controller.js"></script>
 
-@RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

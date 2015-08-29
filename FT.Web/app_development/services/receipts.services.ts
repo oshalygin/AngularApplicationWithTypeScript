@@ -13,11 +13,16 @@
         
     }
 
+
+
+}
+
+((): void => {
+
     angular.module("app.services")
         .factory("ReceiptResource", [
             "ResourceBuilder",
             (builder: app.services.ResourceBuilder) => builder.getReceiptResource()
         ]);
 
-}
-
+})();
