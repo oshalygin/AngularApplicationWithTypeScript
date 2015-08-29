@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FT.DAL</RootNamespace>
     <AssemblyName>FT.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDomainContext.cs" />
     <Compile Include="FundDetailView.cs" />
     <Compile Include="FundTrackReceiptDataAccess.cs" />
     <Compile Include="FundTrackLegacyDataAccess.cs" />

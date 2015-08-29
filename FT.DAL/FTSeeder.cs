@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FT.Models;
 
+
 namespace FT.DAL
 {
     public static class FTSeeder

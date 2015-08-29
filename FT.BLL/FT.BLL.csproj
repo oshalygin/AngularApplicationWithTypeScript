@@ -11,6 +11,7 @@
     <AssemblyName>FT.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,17 +45,17 @@
     <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\FT.DAL\FT.DAL.csproj">
-      <Project>{1a7a44f0-6bcb-4805-82d5-3ec09b41351b}</Project>
+      <Project>{1A7A44F0-6BCB-4805-82D5-3EC09B41351B}</Project>
       <Name>FT.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Models\FT.Models.csproj">
-      <Project>{b3e21755-894d-420f-b574-11f3c1b38be5}</Project>
+      <Project>{B3E21755-894D-420F-B574-11F3C1B38BE5}</Project>
       <Name>FT.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -18,7 +18,7 @@ namespace FT.DAL.Migrations
         protected override void Seed(FT.DAL.FundTrackContext context)
         {
 
-            Database.SetInitializer(new DropCreateDatabaseAlways<FundTrackContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<FundTrackContext>());
             //FTSeeder.SeedData(context);
 
         }

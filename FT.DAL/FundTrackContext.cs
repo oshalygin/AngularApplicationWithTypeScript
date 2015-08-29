@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using FT.Models;
 
+
 namespace FT.DAL
 {
     public class FundTrackContext : DbContext

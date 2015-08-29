@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using FT.Models;
+
 
 namespace FT.DAL
 {
@@ -12,9 +12,9 @@ namespace FT.DAL
 
         public FundTrackReceiptDataAccess()
         {
-            Database.SetInitializer<FundTrackContext>(null);
+            
             _context = new FundTrackContext();
-            _context.Database.Initialize(false);
+            
         }
 
         public FundTrackReceipt Create(FundTrackReceipt receipt)
@@ -47,7 +47,6 @@ namespace FT.DAL
         public FundTrackReceipt GetWithComments(int receiptId)
         {
             return _context.FundTrackReceipts
-                .Include(x => x.Comments)
                 .AsNoTracking()
                 .Single(x => x.Id == receiptId);
         }
@@ -72,7 +71,7 @@ namespace FT.DAL
                 .FundTrackSubservicers
                 .Find(servicerId);
         }
-
+               
         public FundTrackReceiptType GetReceiptType(int receiptTypeId)
         {
             return _context
@@ -96,7 +95,6 @@ namespace FT.DAL
         public void Delete(int receiptId)
         {
             var receipt = _context.FundTrackReceipts
-                .Include(x => x.Comments)
                 .Single(x => x.Id == receiptId);
 
             _context.FundTrackReceipts
@@ -121,10 +119,6 @@ namespace FT.DAL
             _context.SaveChanges();
         }
 
-
-        public void CloseConnection()
-        {
-            _context.Database.Connection.Close();
-        }
+        
     }
 }
