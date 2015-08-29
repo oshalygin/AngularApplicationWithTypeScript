@@ -15,10 +15,10 @@
         receiptId: number;
         imageUrl: string;
 
-        static $inject = ["app.services.ReceiptService", "$stateParams"];
-        constructor(receiptService: app.services.IReceiptService,
-            $stateParams: app.services.IReceiptStateParams,
-            $http: ng.IHttpService) {
+        static $inject = ["$stateParams"];
+        constructor(
+            $stateParams: app.services.IReceiptStateParams)
+             {
 
             
             this.receiptId = $stateParams.receiptId;

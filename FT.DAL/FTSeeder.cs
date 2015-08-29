@@ -8,8 +8,8 @@ namespace FT.DAL
     {
         public static void SeedData(FundTrackContext context)
         {
-            int NUMBER_OF_RECEIPTS = 10000;
-            int MAX_NUMBER_OF_COMMENTS = 50;
+            int NUMBER_OF_RECEIPTS = 600;
+            int MAX_NUMBER_OF_COMMENTS = 20;
 
             var receiptList = new List<FundTrackReceipt>();
 
