@@ -14,6 +14,13 @@ namespace FT.BLL
         public IEnumerable<FundTrackReceipt> GetLast10Recepts()
         {
             return _repo.GetWithComments().Take(20).ToList();
+
         }
+
+        public FundTrackReceipt GetReceiptById(int id)
+        {
+            return _repo.Get(id);
+        }
+
     }
 }

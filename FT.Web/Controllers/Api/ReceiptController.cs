@@ -10,7 +10,7 @@ namespace FT.Web.Controllers.Api
 {
     public class ReceiptController : ApiController
     {
-        
+
         private readonly IRepository _repository;
         public ReceiptController(IRepository repository)
         {
@@ -24,6 +24,24 @@ namespace FT.Web.Controllers.Api
             return Ok(receipts);
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            try
+            {
+                var receipt = _repository.GetReceiptById(id);
+                if (receipt == null)
+                {
+                    return NotFound();
+                }
+                return Ok(receipt);
+            }
+            catch
+            {
+                //TODO: Perform some logging
+                return BadRequest();
+            }
+            
+        }
 
         //public string Get(int id)
         //{

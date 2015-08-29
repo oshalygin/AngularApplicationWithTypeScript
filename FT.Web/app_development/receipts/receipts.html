@@ -12,9 +12,9 @@
                 <td><strong>Id</strong></td>
                 <td><strong>CheckNumber</strong></td>
                 <td><strong>Servicer</strong></td>
-                <td><strong>Type</strong></td>
-                <td><strong>Amount</strong></td>
-                <td><strong>Last Comment Date</strong></td>
+                <td class="text-center"><strong>Type</strong></td>
+                <td class="text-center"><strong>Amount</strong></td>
+                <td class="text-center"><strong>Last Comment Date</strong></td>
             </tr>
             </thead>
             <tbody>
@@ -23,16 +23,16 @@
 
 
                 <td>
-                    <a ui-sref="receiptDetail({receiptId: receipt.id})">
+                    <a ui-sref="receiptDetail({id: receipt.id})">
                         {{ receipt.checkNumber }}
                     </a>
                 </td>
                 <td>{{ receipt.servicer.name}}</td>
-                <td>{{ receipt.type.name}}</td>
-                <td>{{ receipt.totalAmount | currency}}</td>
-                <td>{{ receipt.comments[receipt.comments.length - 1].createdDate | date:'medium'}}</td>
+                <td class="text-center">{{ receipt.type.name}}</td>
+                <td class="text-success text-center">{{ receipt.totalAmount | currency}}</td>
+                <td class="text-center">{{ receipt.comments[receipt.comments.length - 1].createdDate | date:'medium'}}</td>
             </tr>
-            </tbody>
+            </tbody>    
 
         </table>
         <div class="sk-rotating-plane" ng-show="vm.loadedReceipts"></div>

@@ -40,7 +40,8 @@ namespace FT.DAL
 
         public FundTrackReceipt Get(int receiptId)
         {
-            return _context.FundTrackReceipts.AsNoTracking()
+            return _context.FundTrackReceipts
+                .AsNoTracking()
                 .FirstOrDefault(x => x.Id == receiptId);
         }
 
