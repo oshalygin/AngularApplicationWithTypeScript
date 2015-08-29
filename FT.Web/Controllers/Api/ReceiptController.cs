@@ -8,7 +8,7 @@ namespace FT.Web.Controllers.Api
 {
     public class ReceiptController : ApiController
     {
-
+        //TODO: Refactor all this stuff to IHttpResponse with a model instead of this view stuff
         private IRepository _repository;
         public ReceiptController(IRepository repository)
         {
