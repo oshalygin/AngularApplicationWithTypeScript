@@ -1,43 +1,55 @@
-﻿//module app.receipts {
+﻿module app.receipts {
 
 
 
-//    interface IReceiptDetailController {
-//        title: string;
-//        receiptId: number;
-//        imageUrl: string;
-//    }
+    interface IReceiptDetailController {
+        title: string;
+        receiptId: number;
+        imageUrl: string;
+    }
 
-//    class ReceiptDetailController implements  IReceiptDetailController {
+    class ReceiptDetailController implements IReceiptDetailController {
 
-//        title: string;
-//        receipt: app.models.FundTrackReceipt;
-//        receiptId: number;
-//        imageUrl: string;
+        title: string;
+        receipt: app.models.FundTrackReceipt;
+        receiptId: number;
+        imageUrl: string;
 
-//        static $inject = ["$stateParams"];
-//        constructor(
-//            $stateParams: app.services.IReceiptStateParams)
-//             {
+        static $inject = ["$stateParams", "ReceiptResource"];
+        constructor(
+            $stateParams: app.services.IReceiptStateParams,
+            private receiptResource: app.services.IReceiptResource) {
+            this.receiptId = $stateParams.id;
 
-            
-//            this.receiptId = $stateParams.receiptId;
+            var vm = this;
+            vm.title = "Receipt Detail";
+            vm.imageUrl = "./Content/images/receiptImage.png";
 
-//            var vm = this;
-//            vm.title = "Receipt Detail";
-//            //vm.receipt = receiptService.getReceiptById(this.receiptId);
-//            vm.imageUrl = "./Content/images/receiptImage.png";
+            this.getReceiptById(this.receiptId);
 
-//        }
-
-
-//    }
+            //vm.receipt = receiptService.getReceiptById(this.receiptId);
 
 
+        }
 
-//    angular.module("app.receipts")
-//        .controller("app.receipts.ReceiptDetailController",
-//            ReceiptDetailController);
+        public getReceiptById(id: number): void {
+            this.receiptResource.get({ id: id },
+            (data: app.models.IFundTrackReceipt) => this.loaded(data));
+        }
 
-//}
+        private loaded(data: app.models.IFundTrackReceipt): void {
+            this.receipt = data;
+
+        }
+
+
+    }
+
+
+
+    angular.module("app.receipts")
+        .controller("app.receipts.ReceiptDetailController",
+            ReceiptDetailController);
+
+}
 

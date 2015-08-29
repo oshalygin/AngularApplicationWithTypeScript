@@ -16,7 +16,7 @@
                 controllerAs: "vm"
             })
             .state("receiptDetail", {
-                url: "/Receipts/Detail/:receiptId",
+                url: "/Receipts/Detail/:id",
                 templateUrl: "./app_development/receipts/receiptDetail.html",
                 controller: "app.receipts.ReceiptDetailController",
                 controllerAs: "vm"

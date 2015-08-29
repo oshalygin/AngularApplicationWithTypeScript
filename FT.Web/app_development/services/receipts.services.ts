@@ -1,7 +1,7 @@
 ﻿module app.services {
 
     export interface IReceiptStateParams extends angular.ui.IStateParamsService {
-        receiptId: number;
+        id: number;
     }
 
 
