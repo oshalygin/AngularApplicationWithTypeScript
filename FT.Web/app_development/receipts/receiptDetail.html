@@ -6,31 +6,67 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
-                    <div class="col-md-2"><strong>Id:</strong></div>
+                    <div class="col-md-2"><strong>Id:</strong>
+                    </div>
                     <div class="col-md-3">{{vm.receipt.id}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2"><strong>CheckNumber:</strong></div>
+                    <div class="col-md-2"><strong>CheckNumber:</strong>
+                    </div>
                     <div class="col-md-3">{{vm.receipt.checkNumber }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2"><strong>Servicer:</strong></div>
+                    <div class="col-md-2"><strong>Servicer:</strong>
+                    </div>
                     <div class="col-md-3">{{vm.receipt.servicer.name }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2"><strong>Receipt Type:</strong></div>
+                    <div class="col-md-2"><strong>Receipt Type:</strong>
+                    </div>
                     <div class="col-md-3">{{vm.receipt.receiptType.name }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2"><strong>Amount:</strong></div>
+                    <div class="col-md-2"><strong>Amount:</strong>
+                    </div>
                     <div class="col-md-3">{{ vm.receipt.totalAmount | currency}}</div>
                 </div>
             </div>
             <div class="col-md-3">
                 <img class="center-block img-responsive"
-                     style="width:200px;margin:2px;"
+                     style="width: 200px; margin: 2px;"
                      ng-src="{{vm.imageUrl}}"
                      title="{{vm.receipt.checkNumber}}">
+            </div>
+        </div>
+
+        <div class="detailBox">
+            <div class="titleBox">
+                <label>Recent Comments</label>
+                <!--TODO: Hide the comments when the x is pressed via angular-->
+                <button type="button" class="close" aria-hidden="true">&times;</button>
+            </div>
+           
+            <div class="actionBox">
+                <ul class="commentList">
+                    <li ng-repeat="comment in vm.receipt.comments | orderBy: '-createdDate'">
+                        <div class="commenterImage">
+                            <img src="http://lorempixel.com/50/50/people/3" />
+                        </div>
+                        <div class="commentText">
+                            <p class="">{{ comment.text | limitTo: 300}}</p>
+                            <span class="date sub-text">on {{ comment.createdDate | date: "short"}}</span>
+                        </div>
+                    </li>
+                   
+                </ul>
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Your comments" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-default">Add</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
