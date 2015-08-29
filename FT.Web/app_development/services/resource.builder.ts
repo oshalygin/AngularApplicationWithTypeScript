@@ -15,7 +15,7 @@
 
     angular.module("app.services")
         .factory("ResourceBuilder", ["$resource",
-            ($resource) => new app.services.ResourceBuilder($resource)]);
+            ($resource: angular.resource.IResourceService) => new app.services.ResourceBuilder($resource)]);
 
 }
 

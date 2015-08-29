@@ -17,24 +17,29 @@
         loadedReceipts: boolean;
         lastComment: app.models.IFundTrackReceiptComment;
 
-        static $inject = ["ReceiptResource"];
-        constructor(private receiptResource: app.services.IReceiptResource) {
+        static $inject = ["ReceiptResource", "$timeout"];
+        constructor(private receiptResource: app.services.IReceiptResource,
+                    private $timeout: angular.ITimeoutService) {
             var vm = this;
             vm.receipts = [];
             vm.loadedReceipts = true;
 
-            this.getAllReceipts();
+            $timeout(() => {
+                this.getAllReceipts();
+            }, 1000);
 
             vm.title = "Receipts";
         }
 
         public getAllReceipts(): void {
+            
             this.receiptResource.query({},
                 (data: app.models.IFundTrackReceipt[]) => this.loaded(data));
             
         }
 
         private loaded(data: app.models.IFundTrackReceipt[]): void {
+            
             this.receipts = data;
             this.loadedReceipts = false;
         }
