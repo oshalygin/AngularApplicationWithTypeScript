@@ -1,5 +1,5 @@
 ﻿module app.models {
-    
+
     export interface IFundTrackReceipt {
         id: number;
         totalAmount: number;

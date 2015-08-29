@@ -1,26 +1,40 @@
 ﻿module app.services {
 
-
     export interface IReceiptStateParams extends angular.ui.IStateParamsService {
         receiptId: number;
     }
 
-    export interface IReceiptService {
-        getAllReceipts(): ng.IPromise<app.models.IFundTrackReceipt[]>;
-        //getReceiptById(receiptId: number): ng.IPromise<app.models.IFundTrackReceipt>;
+
+    export interface IFundTrackReceiptDefinition extends ng.resource.IResource<IFundTrackReceiptDefinition> {
+        id: number;
+        totalAmount: number;
+        checkNumber: string;
+        comments: app.models.IFundTrackReceiptComment[];
+        receiptType: app.models.IFundTrackReceiptType;
+        servicer: app.models.IFundTrackSubservicer;
+    }
+
+
+  
+    export interface IReceiptsService extends ng.resource.IResourceClass<IFundTrackReceiptDefinition> {
+        getAllReceipts(): ng.resource.IResource<IFundTrackReceiptDefinition[]>
 
     }
 
-    export class ReceiptService implements IReceiptService {
+    export class ReceiptResource implements IReceiptsService {
 
-        api: app.services.ApiProvider;
+        $resource: ng.resource.IResourceService;
 
-        //Verify necessity
-        constructor() {
-            
+       
+      
+
+        getAllReceipts(): ng.resource.IResource<IFundTrackReceiptDefinition[]> {
+            var receipts = <ng.resource.IResource<IFundTrackReceiptDefinition[]>>this.$resource("http://localhost:51615/api/Receipt/")
+                .get();
+            return receipts;
         }
    
-        hardcodedReceipts(): app.models.IFundTrackReceipt[] {
+        hardcodedReceipts(): app.models.FundTrackReceipt[] {
             var iterator: number;
             var numberOfReceipts: number;
             var numberOfComments: number;
@@ -82,36 +96,29 @@
 
 
 
-        getAllLocalReceipts(): app.models.IFundTrackReceipt[] {
+        //getAllLocalReceipts(): app.models.IFundTrackReceipt[] {
 
-            var allReceipts = this.hardcodedReceipts();
-            return allReceipts;
-        }
+        //    var allReceipts = this.hardcodedReceipts();
+        //    return allReceipts;
+        //}
 
-        getAllReceipts(): ng.IPromise<app.models.IFundTrackReceipt[]> {
-
-            return this.$http
-                .get("http://localhost:51615/api/Receipt")
-                .then((response: ng.IHttpPromiseCallbackArg<app.models.IFundTrackReceipt[]>): app.models.IFundTrackReceipt[] => {
-                    return <app.models.IFundTrackReceipt[]>response.data;
-                });
-
-        }
+       
+        
 
 
-        getReceiptById(receiptId: number): app.models.IFundTrackReceipt {
-            //Making assumption here that the Id matches the index...
-            //No need to unnecessarily loop through the array...
-            var receipt = this.hardcodedReceipts()[receiptId];
-            return receipt;
+        //getReceiptById(receiptId: number): app.models.IFundTrackReceipt {
+        //    //Making assumption here that the Id matches the index...
+        //    //No need to unnecessarily loop through the array...
+        //    var receipt = this.hardcodedReceipts()[receiptId];
+        //    return receipt;
 
-        }
+        //}
     }
 
     angular
         .module("app.services")
-        .service("app.services.ReceiptService",
-            ReceiptService);
+        .factory("app.services.ReceiptService",
+        ReceiptResource);
 
 }
 

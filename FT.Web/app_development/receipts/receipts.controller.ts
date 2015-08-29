@@ -4,7 +4,7 @@
 
     interface IReceiptsScope {
         title: string;
-        receipts: app.models.IFundTrackReceipt[];
+        receipts: app.models.FundTrackReceipt[];
         lastComment: app.models.IFundTrackReceiptComment;
     }
 

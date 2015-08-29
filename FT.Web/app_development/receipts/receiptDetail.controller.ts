@@ -20,7 +20,7 @@
             $stateParams: app.services.IReceiptStateParams,
             $http: ng.IHttpService) {
 
-            receiptService = new app.services.ReceiptService($http);
+            
             this.receiptId = $stateParams.receiptId;
 
             var vm = this;
