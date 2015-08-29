@@ -9,8 +9,8 @@
     angular.module("app")
         .run(run);
 
- 
 
+    run.$inject = ["$rootScope", "$state", "$stateParams"];
     function run($rootScope: app.common.IRootScope,
         $state: angular.ui.IStateProvider,
         $stateParams: angular.ui.IStateParamsService) {

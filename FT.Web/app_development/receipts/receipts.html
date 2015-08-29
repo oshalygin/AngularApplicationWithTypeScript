@@ -7,16 +7,19 @@
     <div class="panel-body">
         <table class="table">
             <thead>
-                <tr>
-                    <td><strong>CheckNumber</strong></td>
-                    <td><strong>Servicer</strong></td>
-                    <td><strong>Type</strong></td>
-                    <td><strong>Amount</strong></td>
-                    <td><strong>Last Comment On</strong></td>
-                </tr>
+            <tr>
+                <td><strong>Id</strong></td>
+                <td><strong>CheckNumber</strong></td>
+                <td><strong>Servicer</strong></td>
+                <td><strong>Type</strong></td>
+                <td><strong>Amount</strong></td>
+                <td><strong>Last Comment Date</strong></td>
+            </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="receipt in vm.receipts">
+                    <td>{{ receipt.id }}</td>
+
 
                     <td>
                         <a ui-sref="receiptDetail({receiptId: receipt.id})">
@@ -24,10 +27,9 @@
                         </a>
                     </td>
                     <td>{{ receipt.servicer.name}}</td>
-                    <td>{{ receipt.receiptType.name}}</td>
+                    <td>{{ receipt.type.name}}</td>
                     <td>{{ receipt.totalAmount | currency}}</td>
-                    <td>Temp</td>
-                    <!--<td>{{ receipt.comments[receipt.comments.length - 1].createdDate | date:'medium'}}</td>-->
+                    <td>{{ receipt.comments[receipt.comments.length - 1].createdDate | date:'medium'}}</td>
                 </tr>
             </tbody>
         </table>

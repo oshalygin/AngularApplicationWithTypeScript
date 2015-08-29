@@ -54,7 +54,9 @@ namespace FT.DAL
 
         public IEnumerable<FundTrackReceipt> Get()
         {
-            return _context.FundTrackReceipts.AsEnumerable();
+            return _context.FundTrackReceipts
+                .OrderByDescending(x=>x.Id)
+                .AsEnumerable();
         }
 
         public IEnumerable<FundTrackReceipt> GetWithComments()
@@ -62,6 +64,7 @@ namespace FT.DAL
             return _context
                 .FundTrackReceipts
                 .AsNoTracking()
+                .OrderByDescending(x => x.Id)
                 .AsEnumerable();
         }
 

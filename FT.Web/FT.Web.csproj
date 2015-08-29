@@ -12956,7 +12956,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app_development\app.config.ts" />
-    <TypeScriptCompile Include="app_development\app.constants.ts" />
     <TypeScriptCompile Include="app_development\app.core.ts" />
     <TypeScriptCompile Include="app_development\app.run.ts" />
     <TypeScriptCompile Include="app_development\app.ts" />

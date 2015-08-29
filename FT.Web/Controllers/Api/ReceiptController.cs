@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using FT.BLL;
 using FT.Models;
@@ -8,21 +10,21 @@ namespace FT.Web.Controllers.Api
 {
     public class ReceiptController : ApiController
     {
-        //TODO: Refactor all this stuff to IHttpResponse with a model instead of this view stuff
-        private IRepository _repository;
+        
+        private readonly IRepository _repository;
         public ReceiptController(IRepository repository)
         {
             _repository = repository;
         }
-        
 
-        public IEnumerable<FundTrackReceipt> Get()
+
+        public IHttpActionResult Get()
         {
-            var receipts = _repository.Get10Receipts();
-            return receipts;
+            var receipts = _repository.GetLast10Recepts();
+            return Ok(receipts);
         }
 
-        
+
         //public string Get(int id)
         //{
         //    return "value";

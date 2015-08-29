@@ -1,15 +1,15 @@
 ﻿((): void => {
-    "use strict";
+    
 
     angular.module("app.home")
         .config(configuration);
 
-    //configuration.$inject["$stateProvider", "$urlProvider"];
+    configuration.$inject = ["$stateProvider", "$urlRouterProvider"];
     function configuration(
         $stateProvider: angular.ui.IStateProvider
         , $urlRouterProvider: angular.ui.IUrlRouterProvider) {
 
-        //$urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise("/");
 
         $stateProvider
             .state("home", {
@@ -20,5 +20,8 @@
                 controllerAs: "vm"
             });
     }
+
+    
+
 
 })();
