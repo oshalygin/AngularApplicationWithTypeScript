@@ -5,6 +5,7 @@
     interface IReceiptController {
         title: string;
         receipts: app.models.FundTrackReceipt[];
+        loadedReceipts: boolean;
         lastComment: app.models.IFundTrackReceiptComment;
     }
 
@@ -13,12 +14,14 @@
 
         title: string;
         receipts: app.models.IFundTrackReceipt[];
+        loadedReceipts: boolean;
         lastComment: app.models.IFundTrackReceiptComment;
 
         static $inject = ["ReceiptResource"];
         constructor(private receiptResource: app.services.IReceiptResource) {
             var vm = this;
             vm.receipts = [];
+            vm.loadedReceipts = true;
 
             this.getAllReceipts();
 
@@ -27,11 +30,13 @@
 
         public getAllReceipts(): void {
             this.receiptResource.query({},
-            (data: app.models.IFundTrackReceipt[]) => this.loaded(data));
+                (data: app.models.IFundTrackReceipt[]) => this.loaded(data));
+            
         }
 
         private loaded(data: app.models.IFundTrackReceipt[]): void {
             this.receipts = data;
+            this.loadedReceipts = false;
         }
     }
 

@@ -5,6 +5,7 @@
         {{::vm.title}}
     </div>
     <div class="panel-body">
+        
         <table class="table">
             <thead>
             <tr>
@@ -17,21 +18,23 @@
             </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="receipt in vm.receipts">
-                    <td>{{ receipt.id }}</td>
+            <tr ng-repeat="receipt in vm.receipts">
+                <td>{{ receipt.id }}</td>
 
 
-                    <td>
-                        <a ui-sref="receiptDetail({receiptId: receipt.id})">
-                            {{ receipt.checkNumber }}
-                        </a>
-                    </td>
-                    <td>{{ receipt.servicer.name}}</td>
-                    <td>{{ receipt.type.name}}</td>
-                    <td>{{ receipt.totalAmount | currency}}</td>
-                    <td>{{ receipt.comments[receipt.comments.length - 1].createdDate | date:'medium'}}</td>
-                </tr>
+                <td>
+                    <a ui-sref="receiptDetail({receiptId: receipt.id})">
+                        {{ receipt.checkNumber }}
+                    </a>
+                </td>
+                <td>{{ receipt.servicer.name}}</td>
+                <td>{{ receipt.type.name}}</td>
+                <td>{{ receipt.totalAmount | currency}}</td>
+                <td>{{ receipt.comments[receipt.comments.length - 1].createdDate | date:'medium'}}</td>
+            </tr>
             </tbody>
+
         </table>
+        <div class="sk-rotating-plane" ng-show="vm.loadedReceipts"></div>
     </div>
 </div>

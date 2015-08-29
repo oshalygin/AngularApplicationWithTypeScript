@@ -8,7 +8,8 @@
         ,"ngResource"
 
         //Third Party
-        ,"ui.router"
+        , "ui.router"
+        ,"angularSpinners"
     ]);
 
 })();

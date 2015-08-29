@@ -19,6 +19,8 @@
     "angular-resource": "~1.4.4",
     "angular-route": "~1.4.4",
     "angular-sanitize": "~1.4.4",
-    "angular-ui-router": "~0.2.15"
+    "angular-spinners": "~2.1.8",
+    "angular-ui-router": "~0.2.15",
+    "SpinKit": "spinkit#~1.2.1"
   }
 }
