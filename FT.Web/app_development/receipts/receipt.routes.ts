@@ -17,8 +17,16 @@
             })
             .state("receiptDetail", {
                 url: "/Receipts/Detail/:id",
+                title: "Receipt Detail",
                 templateUrl: "./app_development/receipts/receiptDetail.html",
                 controller: "app.receipts.ReceiptDetailController",
+                controllerAs: "vm"
+            })
+            .state("newReceipt", {
+                url: "/Receipts/NewReceipt/",
+                title: "New Receipt",
+                templateUrl: "./app_development/receipts/newreceipt.html",
+                controller: "app.receipts.NewReceiptController",
                 controllerAs: "vm"
             });
     }
