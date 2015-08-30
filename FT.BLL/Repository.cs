@@ -22,5 +22,11 @@ namespace FT.BLL
             return _repo.Get(id);
         }
 
+        public FundTrackReceipt SaveNewReceipt(FundTrackReceipt receipt)
+        {
+            return _repo.Create(receipt);
+            
+        }
+
     }
 }

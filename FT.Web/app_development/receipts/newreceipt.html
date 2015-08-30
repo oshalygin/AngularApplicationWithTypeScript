@@ -3,7 +3,7 @@
         {{::vm.title}}
     </div>
     <br />
-    <form class="form-horizontal css-form" ng-submit="saveReceipt()" novalidate>
+    <form class="form-horizontal css-form" ng-submit="vm.saveNewReceipt()" novalidate>
 
         <div class="form-group" show-errors>
             <label class="control-label col-md-2">Check Number:</label>
@@ -64,10 +64,9 @@
                ui-sref="receipts">
                 <i class="glyphicon glyphicon-chevron-left"></i>
                 Cancel
-            </a>
-           
+            </a>           
                 <a class="btn btn-primary pull-right"
-                   ui-sref="receipts">
+                   ng-click="vm.saveNewReceipt()">
                     Save Receipt
                     <i class="glyphicon glyphicon-chevron-right"></i>
                 </a>

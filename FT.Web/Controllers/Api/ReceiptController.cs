@@ -43,15 +43,22 @@ namespace FT.Web.Controllers.Api
             
         }
 
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+       
+        public IHttpActionResult Post([FromBody]FundTrackReceipt newReceipt)
+        {
+            //TODO: Perform some validation...
+            try
+            {
+                _repository.SaveNewReceipt(newReceipt);
+                return Ok();
+            }
+            catch
+            {
+                //TODO:  Perform some logging here...
+                return BadRequest();
+            }
 
-        //// POST: api/Receipt
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        }
 
         //// PUT: api/Receipt/5
         //public void Put(int id, [FromBody]string value)
