@@ -61,14 +61,17 @@ namespace FT.Web.Controllers.Api
                 }
 
                 //TODO: Refactor this out of the controller...
-                var receipt = new FundTrackReceipt();
-                receipt.Servicer = new FundTrackSubservicer();
-                receipt.Type = new FundTrackReceiptType();
+                var receipt = new FundTrackReceipt
+                {
+                    Servicer = new FundTrackSubservicer(),
+                    Type = new FundTrackReceiptType(),
+                    CheckNumber = newReceipt.CheckNumber,
+                    ReceivedDate = newReceipt.ReceivedDate
+                };
 
-                receipt.CheckNumber = newReceipt.CheckNumber;
-                receipt.ReceivedDate = newReceipt.ReceivedDate;
                 receipt.Servicer.Name = newReceipt.Servicer.Name;
                 receipt.TotalAmount = newReceipt.TotalAmount;
+                receipt.Type.Name = newReceipt.ReceiptType.Name;
                 
 
 

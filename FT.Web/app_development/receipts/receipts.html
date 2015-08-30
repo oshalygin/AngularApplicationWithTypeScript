@@ -14,7 +14,7 @@
                 <td><strong>Servicer</strong></td>
                 <td class="text-center"><strong>Type</strong></td>
                 <td class="text-center"><strong>Amount</strong></td>
-                <td class="text-center"><strong>Last Comment On</strong></td>
+                <td class="text-center"><strong>Received On</strong></td>
             </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                 <td>{{ receipt.servicer.name}}</td>
                 <td class="text-center">{{ receipt.type.name}}</td>
                 <td class="text-success text-center"><strong>{{ receipt.totalAmount | currency}}</strong></td>
-                <td class="text-center">{{ receipt.comments[receipt.comments.length - 1].createdDate | date:'medium'}}</td>
+                <td class="text-center">{{ receipt.receivedDate | date:'medium'}}</td>
             </tr>
             </tbody>    
 

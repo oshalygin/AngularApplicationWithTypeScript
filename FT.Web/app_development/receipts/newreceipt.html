@@ -32,7 +32,7 @@
             <label class="control-label col-md-2">Type:</label>
             <div class="col-md-3">
                 <select class="form-control" required name="receiptType" ng-model="vm.receipt.receiptType.name">
-                    <option ng-repeat="option in vm.receiptTypes" value="{{option.id}}">{{option.name}}</option>
+                    <option ng-repeat="option in vm.receiptTypes" value="{{option.name}}">{{option.name}}</option>
                 </select>
             </div>
         </div>
@@ -41,7 +41,7 @@
             <label class="control-label col-md-2">Servicer:</label>
             <div class="col-md-3">
                 <select class="form-control" required name="servicer" ng-model="vm.receipt.servicer.name">
-                    <option ng-repeat="option in vm.servicers" value="{{option.id}}">{{option.name}}</option>
+                    <option ng-repeat="option in vm.servicers" value="{{option.name}}">{{option.name}}</option>
                 </select>
             </div>
         </div>
