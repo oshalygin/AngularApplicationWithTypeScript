@@ -36,6 +36,8 @@
             vm.title = "New Receipt";
 
             this.receipt = new app.models.FundTrackReceipt();
+            this.receipt.servicer = new app.models.FundTrackSubservicer;
+            this.receipt.receiptType = new app.models.FundTrackReceiptType;
 
             this.status = new DatePickerStatus();
             this.status.opened = false;
@@ -87,14 +89,13 @@
 
         
         public saveReceipt(): void {
-            
-            //if (this.receiptForm.$invalid) {
-            //    toastr.error("There are errors in the form !!");
-            //}
 
             if (this.form.receiptForm.$invalid) {
-                toastr.error("There are errors in the form !!");
+                toastr.error("There are form validation errors!");
+                return;
             }
+
+            this.saveReceiptToDatabase();
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -46,16 +47,30 @@ namespace FT.Web.Controllers.Api
        
         public IHttpActionResult Post([FromBody]FundTrackReceipt newReceipt)
         {
-            //TODO: Perform some validation...
+           
             try
             {
-                _repository.SaveNewReceipt(newReceipt);
-                return Ok();
+                if (newReceipt == null)
+                {
+                    return BadRequest("No Receipt was received");
+                }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var savedReceipt = _repository.SaveNewReceipt(newReceipt);
+                if (savedReceipt == null)
+                {
+                    return Conflict();
+                }
+
+                return Created<FundTrackReceipt>(Request.RequestUri + savedReceipt.Id.ToString(), savedReceipt);
             }
-            catch
+            catch(Exception exception)
             {
                 //TODO:  Perform some logging here...
-                return BadRequest();
+                return InternalServerError(exception);
             }
 
         }
