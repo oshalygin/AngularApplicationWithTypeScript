@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Web.Http;
 using FT.BLL;
 using FT.Models;
+using FT.Web.Models;
 
 
 namespace FT.Web.Controllers.Api
@@ -45,7 +46,7 @@ namespace FT.Web.Controllers.Api
         }
 
        
-        public IHttpActionResult Post([FromBody]FundTrackReceipt newReceipt)
+        public IHttpActionResult Post([FromBody]FundTrackReceiptVm newReceipt)
         {
            
             try
@@ -59,7 +60,19 @@ namespace FT.Web.Controllers.Api
                     return BadRequest(ModelState);
                 }
 
-                var savedReceipt = _repository.SaveNewReceipt(newReceipt);
+                //TODO: Refactor this out of the controller...
+                var receipt = new FundTrackReceipt();
+                receipt.Servicer = new FundTrackSubservicer();
+                receipt.Type = new FundTrackReceiptType();
+
+                receipt.CheckNumber = newReceipt.CheckNumber;
+                receipt.ReceivedDate = newReceipt.ReceivedDate;
+                receipt.Servicer.Name = newReceipt.Servicer.Name;
+                receipt.TotalAmount = newReceipt.TotalAmount;
+                
+
+
+                var savedReceipt = _repository.SaveNewReceipt(receipt);
                 if (savedReceipt == null)
                 {
                     return Conflict();

@@ -13085,7 +13085,7 @@
       <Name>FT.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\FT.Models\FT.Models.csproj">
-      <Project>{B3E21755-894D-420F-B574-11F3C1B38BE5}</Project>
+      <Project>{b3e21755-894d-420f-b574-11f3c1b38be5}</Project>
       <Name>FT.Models</Name>
     </ProjectReference>
   </ItemGroup>
