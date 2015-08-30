@@ -8,7 +8,9 @@
 
     <title ng-cloak>{{ $state.current.title }}</title>
     <link href="~/Content/spinner.css" rel="stylesheet"/>
-    <link href="~/Content/commentBox.css" rel="stylesheet" />
+    <link href="~/Content/commentBox.css" rel="stylesheet"/>
+    <link href="~/bower_components/toastr/toastr.min.css" rel="stylesheet" />
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -28,15 +30,17 @@
 <!--Other Bower files-->
 
 <!--TODO: Inject all of this and point to deployment folder... -->
-    <!-- AngularLibrary Library Files -->
+    <!-- Bower Packages -->
 
     <script src="~/bower_components/angular/angular.js"></script>
     <script src="~/bower_components/angular-animate/angular-animate.js"></script>
     <script src="~/bower_components/angular-resource/angular-resource.js"></script>
     <script src="~/bower_components/angular-route/angular-route.js"></script>
     <script src="~/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="~/bower_components/angular-spinners/dist/angular-spinners.min.js"></script>
-    <!-- 3rd Party Library Files -->
+<script src="~/bower_components/angular-spinners/dist/angular-spinners.min.js"></script>
+    <script src="~/bower_components/toastr/toastr.min.js"></script>
+
+<!-- 3rd Party Library Files -->
     
 <!-- Model Classes -->
     <script src="~/app_development/models/FundTrackReceipt.model.js"></script>
@@ -75,7 +79,8 @@
 
     <script src="~/app_development/home/home.controller.js"></script>
     <script src="~/app_development/receipts/receipts.controller.js"></script>
-    <script src="~/app_development/receipts/receiptDetail.controller.js"></script>
+<script src="~/app_development/receipts/receiptDetail.controller.js"></script>
+    <script src="~/app_development/receipts/newreceipt.controller.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>
