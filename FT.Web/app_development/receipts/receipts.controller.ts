@@ -22,7 +22,7 @@
                     private $timeout: angular.ITimeoutService) {
             var vm = this;
             vm.receipts = [];
-            vm.loadedReceipts = true;
+            vm.loadedReceipts = false;
 
             $timeout(() => {
                 this.getAllReceipts();
@@ -41,7 +41,7 @@
         private loaded(data: app.models.IFundTrackReceipt[]): void {
             
             this.receipts = data;
-            this.loadedReceipts = false;
+            this.loadedReceipts = true;
         }
     }
 

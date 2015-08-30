@@ -25,22 +25,29 @@
         receiptTypes: app.models.FundTrackReceiptType[];
         servicers: app.models.FundTrackSubservicer[];
         receiptForm: angular.IFormController;
+        savingFormLoader: boolean;
+
+        //TODO: Throw this into another class
+        countFrom: number;
+        countTo: number; 
+        progressValue: number;
         
 
-        static $inject = ["ReceiptResource", "$scope"];
+        static $inject = ["ReceiptResource", "$scope", "$timeout"];
         constructor(           
             private receiptResource: app.services.IReceiptResource,
-            private form: IReceiptForm) {
+            private form: IReceiptForm,
+            private $timeout: angular.ITimeoutService) {
        
             var vm = this;
             vm.title = "New Receipt";
 
-            this.receipt = new app.models.FundTrackReceipt();
-            this.receipt.servicer = new app.models.FundTrackSubservicer;
-            this.receipt.receiptType = new app.models.FundTrackReceiptType;
+            vm.receipt = new app.models.FundTrackReceipt();
+            vm.receipt.servicer = new app.models.FundTrackSubservicer;
+            vm.receipt.receiptType = new app.models.FundTrackReceiptType;
 
-            this.status = new DatePickerStatus();
-            this.status.opened = false;
+            vm.status = new DatePickerStatus();
+            vm.status.opened = false;
 
 
             //TODO: Throw this into a factory service
@@ -57,7 +64,7 @@
             vm.receiptTypes.push(firstType);
             vm.receiptTypes.push(secondType);
 
-            //TODO: Throw this into a factory service
+            //TODO: Throw all this into a factory service
             vm.servicers = new Array<app.models.FundTrackSubservicer>();
 
             var firstServicer = new app.models.FundTrackSubservicer();
@@ -76,10 +83,16 @@
             vm.servicers.push(secondServicer);
             vm.servicers.push(thirdSubservicer);
 
-            //Date stuff
+            //Progress Bar Stuff
+            var amount = 75;
+          
+            vm.countTo = amount;
+            vm.countFrom = 0;
+          
 
-            
-            
+            $timeout(() => {
+                vm.progressValue = amount;
+            }, 1000);
 
         }
 
@@ -104,8 +117,8 @@
             () => {
                 toastr.success("New Receipt Saved!");
             },
-            () => {
-                toastr.error("Server Error!  Contact your administrator");
+            (error) => {
+                toastr.error(error);
             });
 
         }
