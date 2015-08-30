@@ -28,10 +28,10 @@
         private saveNewReceipt(): void {
             this.receiptResource.save(this.receipt,
             () => {
-                //TODO: Toaster stuff
+                toastr.success("New Receipt Saved!");
             },
             () => {
-                //TODO: Toaster stuff
+                toastr.error("Server Error!  Contact your administrator");
             });
 
         }
