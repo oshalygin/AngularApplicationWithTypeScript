@@ -12,6 +12,7 @@
         , "ui.router"
         , "angularSpinners"
         , "ui.bootstrap"
+        , "ui.bootstrap.showErrors"
     ]);
 
 })();

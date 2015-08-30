@@ -170,9 +170,13 @@
     <Content Include="app_development\receipts\receipts.html" />
     <Content Include="app_development\receipts\receiptDetail.html" />
     <Content Include="app_development\widgets\currencyMask.js" />
+    <Content Include="app_development\widgets\showErrors.js" />
     <Content Include="bower_components\angular-animate\angular-animate.js" />
     <Content Include="bower_components\angular-animate\angular-animate.min.js" />
     <Content Include="bower_components\angular-animate\index.js" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\karma.conf.js" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\src\showErrors.js" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\src\showErrors.min.js" />
     <Content Include="bower_components\angular-bootstrap\index.js" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-csp.css" />
     <Content Include="bower_components\angular-bootstrap\ui-bootstrap-tpls.js" />
@@ -12941,6 +12945,14 @@
     <Content Include="bower_components\angular-bootstrap\bower.json" />
     <Content Include="bower_components\angular-bootstrap\package.json" />
     <Content Include="bower_components\angular-bootstrap\README.md" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\.bower.json" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\bower.json" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\CHANGELOG.md" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\Gruntfile.coffee" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\LICENSE" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\package.json" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\README.md" />
+    <Content Include="bower_components\angular-bootstrap-show-errors\src\showErrors.coffee" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -13049,6 +13061,7 @@
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
     <TypeScriptCompile Include="app_development\services\resource.builder.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
+    <TypeScriptCompile Include="app_development\widgets\widgets.config.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.module.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tslint\node_modules\tslint\lib\tslint.d.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tslint\node_modules\tslint\typings\node.d.ts" />

@@ -28,3 +28,11 @@ textarea {
 .form-control {
     border-radius: 0;
 }
+
+.form-group .help-block {
+  display: none;
+}
+
+.form-group.has-error .help-block {
+  display: block;
+}
