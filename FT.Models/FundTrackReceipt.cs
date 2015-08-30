@@ -10,7 +10,7 @@ namespace FT.Models
             Comments = new List<FundTrackReceiptComment>();
         }
 
-        public virtual int Id { get; set; }
+        public virtual int Id { get; set; } 
         public virtual decimal TotalAmount { get; set; }
         public virtual DateTime ReceivedDate { get; set; }
         public virtual string CheckNumber { get; set; }

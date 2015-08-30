@@ -3,13 +3,15 @@
     "use strict";
 
     angular.module("app.core", [
-        //Angular
+        //Core Angular
         "ngRoute"
         ,"ngResource"
+        ,"ngAnimate"
 
         //Third Party
         , "ui.router"
-        ,"angularSpinners"
+        , "angularSpinners"
+        , "ui.bootstrap"
     ]);
 
 })();

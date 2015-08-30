@@ -7,10 +7,15 @@
         receipt: app.models.IFundTrackReceipt;
     }
 
+    class DatePickerStatus {
+        opened: boolean;
+    }
+
     class NewReceiptController implements INewReceiptController {
 
         title: string;
         receipt: app.models.FundTrackReceipt;
+        status: DatePickerStatus;
 
         static $inject = ["ReceiptResource"];
         constructor(           
@@ -21,7 +26,16 @@
 
             this.receipt = new app.models.FundTrackReceipt();
 
+            this.status = new DatePickerStatus();
+            this.status.opened = false;
 
+            //Date stuff
+
+
+        }
+
+        public open($event: any) {
+            this.status.opened = true;
         }
 
 
