@@ -2,65 +2,79 @@
     <div class="panel-heading" style="font-size: large">
         {{::vm.title}}
     </div>
-    <br/> 
+    <br />
     <form class="form-horizontal">
 
         <div class="form-group">
             <label class="control-label col-md-2">Check Number:</label>
-            <div class="col-sm-3">
-                <div class="input-group">
-                    <input type="text" class="form-control">
+            <div class="col-md-3">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control" ng-model="vm.receipt.totalAmount" currency-mask>
                 </div>
             </div>
         </div>
 
+        <!-- TODO: Slap this into a directive-->
         <div class="form-group">
             <label class="control-label col-md-2">Received Date:</label>
             <div class="col-md-3">
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                </div>
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="vm.dt" is-open="vm.status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2">Type:</label>
+            <label class="control-label col-md-2" for="company">Type:</label>
             <div class="col-md-3">
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                </div>
+                <select id="company" class="form-control">
+                    <option></option>
+                    <option>First Type</option>
+                    <option>Second</option>
+                </select>
             </div>
         </div>
-
         <div class="form-group">
-            <label class="control-label col-md-2">Servicer:</label>
+            <label class="control-label col-md-2" for="company">Servicer:</label>
             <div class="col-md-3">
-                <div class="input-group">
-                    <input type="text" class="form-control">
-                </div>
+                <select id="company" class="form-control">
+                    <option></option>
+                    <option>First Servicer</option>
+                    <option>Second</option>
+                </select>
             </div>
         </div>
-
+ 
         <div class="form-group">
             <label class="control-label col-md-2">Amount:</label>
             <div class="col-md-3">
-                <div class="input-group">
-                    <input type="text" class="form-control">
+                <div class="input-group col-md-12">
+                    <span class="input-group-addon">
+                        $
+                    </span>
+                    <input type="text" class="form-control" ng-model="vm.receipt.totalAmount" currency-mask>
                 </div>
             </div>
         </div>
-
-       
-
+        <br/>
+ 
+        <div class="panel-footer">
+            <a class="btn btn-danger"
+               ui-sref="receipts">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Cancel
+            </a>
+           
+                <a class="btn btn-primary pull-right"
+                   ui-sref="receipts">
+                    Save Receipt
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
+            
+        </div>
     </form>
 </div>
 
-<div class="col-md-6">
-    <p class="input-group">
-        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="vm.dt" is-open="vm.status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-        <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="vm.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-        </span>
-    </p>
-</div>
