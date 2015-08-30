@@ -7,9 +7,15 @@
         receipt: app.models.IFundTrackReceipt;
     }
 
+    interface IReceiptForm extends angular.IScope {
+        receiptForm: angular.IFormController;
+    }
+
     class DatePickerStatus {
         opened: boolean;
     }
+
+
 
     class NewReceiptController implements INewReceiptController {
 
@@ -18,10 +24,13 @@
         status: DatePickerStatus;
         receiptTypes: app.models.FundTrackReceiptType[];
         servicers: app.models.FundTrackSubservicer[];
+        receiptForm: angular.IFormController;
+        
 
-        static $inject = ["ReceiptResource"];
+        static $inject = ["ReceiptResource", "$scope"];
         constructor(           
-            private receiptResource: app.services.IReceiptResource) {
+            private receiptResource: app.services.IReceiptResource,
+            private form: IReceiptForm) {
        
             var vm = this;
             vm.title = "New Receipt";
@@ -67,6 +76,8 @@
 
             //Date stuff
 
+            
+            
 
         }
 
@@ -74,8 +85,20 @@
             this.status.opened = true;
         }
 
+        
+        public saveReceipt(): void {
+            
+            //if (this.receiptForm.$invalid) {
+            //    toastr.error("There are errors in the form !!");
+            //}
 
-        private saveNewReceipt(): void {
+            if (this.form.receiptForm.$invalid) {
+                toastr.error("There are errors in the form !!");
+            }
+        }
+
+
+        private saveReceiptToDatabase(): void {
             this.receiptResource.save(this.receipt,
             () => {
                 toastr.success("New Receipt Saved!");
