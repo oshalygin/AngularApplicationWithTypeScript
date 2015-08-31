@@ -2,13 +2,13 @@
     "use strict";
 
     angular
-        .module("app.widgets")
-        .config(configuration);
+        .module("app.widgets");
+    //.config(configuration);
 
-    configuration.$inject = ["showErrorsConfigProvider"];
+    //configuration.$inject = ["showErrorsConfigProvider"];
 
-    function configuration(showErrorsConfigProvider) {
-        showErrorsConfigProvider.showSuccess(true);
-    }
+    //function configuration(showErrorsConfigProvider) {
+    //    showErrorsConfigProvider.showSuccess(true);
+    //}
 
 })();

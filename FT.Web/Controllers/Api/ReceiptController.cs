@@ -49,8 +49,7 @@ namespace FT.Web.Controllers.Api
         public IHttpActionResult Post([FromBody]FundTrackReceiptVm newReceipt)
         {
            
-            try
-            {
+           
                 if (newReceipt == null)
                 {
                     return BadRequest("No Receipt was received");
@@ -82,12 +81,7 @@ namespace FT.Web.Controllers.Api
                 }
 
                 return Created<FundTrackReceipt>(Request.RequestUri + savedReceipt.Id.ToString(), savedReceipt);
-            }
-            catch(Exception exception)
-            {
-                //TODO:  Perform some logging here...
-                return InternalServerError(exception);
-            }
+  
 
         }
 

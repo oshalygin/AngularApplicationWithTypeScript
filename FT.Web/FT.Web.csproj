@@ -173,8 +173,6 @@
     <Content Include="app_development\receipts\newReceipt.html" />
     <Content Include="app_development\receipts\receipts.html" />
     <Content Include="app_development\receipts\receiptDetail.html" />
-    <Content Include="app_development\widgets\currencyMask.js" />
-    <Content Include="app_development\widgets\showErrors.js" />
     <Content Include="bower_components\angular-animate\angular-animate.js" />
     <Content Include="bower_components\angular-animate\angular-animate.min.js" />
     <Content Include="bower_components\angular-animate\index.js" />
@@ -13064,6 +13062,8 @@
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
     <TypeScriptCompile Include="app_development\services\resource.builder.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
+    <Content Include="app_development\widgets\currency.mask.widget.js" />
+    <TypeScriptCompile Include="app_development\widgets\showErrors.widget.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.config.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.module.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tslint\node_modules\tslint\lib\tslint.d.ts" />

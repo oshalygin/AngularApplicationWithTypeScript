@@ -117,7 +117,7 @@
             () => {
                 toastr.success("New Receipt Saved!");
             },
-            (error) => {
+            (error: any) => {
                 toastr.error(error);
             });
 
