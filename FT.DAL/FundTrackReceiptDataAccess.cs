@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using FT.Models;
 
@@ -17,12 +18,24 @@ namespace FT.DAL
 
         public FundTrackReceipt Create(FundTrackReceipt receipt)
         {
+            var newReceipt = new FundTrackReceipt();
+
+            newReceipt.CheckNumber = receipt.CheckNumber;
+            newReceipt.TotalAmount = receipt.TotalAmount;
+            newReceipt.ReceivedDate = receipt.ReceivedDate;
+
+            newReceipt.ReceiptType = this.GetReceiptTypeById(receipt.ReceiptType.Id);
+            newReceipt.Servicer = this.GetSubservicerById(receipt.Servicer.Id);
+
+            //_context.Entry(newReceipt.ReceiptType).State = EntityState.Modified;
+            //_context.Entry(newReceipt.Servicer).State = EntityState.Modified;
+
             _context.FundTrackReceipts
-                .Add(receipt);
+                .Add(newReceipt);
 
             _context.SaveChanges();
 
-            return receipt;
+            return newReceipt;
         }
 
         public void AddComments(int receiptId, IEnumerable<FundTrackReceiptComment> comments)
@@ -67,7 +80,7 @@ namespace FT.DAL
                 .AsEnumerable();
         }
 
-        public FundTrackSubservicer GetSubservicer(int servicerId)
+        public FundTrackSubservicer GetSubservicerById(int servicerId)
         {
             return _context
                 .FundTrackSubservicers

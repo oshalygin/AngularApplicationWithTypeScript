@@ -39,7 +39,10 @@ textarea {
 
 .progress { 
   height: 3em;
-  i { line-height: 3.5em; }
+
+}
+.progress i {
+     line-height: 3.5em;
 }
 
 .progress-bar { 

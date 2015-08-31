@@ -63,7 +63,7 @@ namespace FT.DAL
                     CheckNumber = string.Concat("AmeriHome:", i.ToString()),
                     ReceivedDate = new DateTime(2005, 1, 1),
                     TotalAmount = random.Next(1000000),
-                    Type = i%2 == 0 ? checkType : wireType,
+                    ReceiptType = i%2 == 0 ? checkType : wireType,
                     Servicer = i%3 == 0 ? cenlarSubServicer : loanCareSubServicer
                 };
 

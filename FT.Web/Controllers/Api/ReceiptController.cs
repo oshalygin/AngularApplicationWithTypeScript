@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using FT.BLL;
 using FT.Models;
-using FT.Web.Models;
-
 
 namespace FT.Web.Controllers.Api
 {
@@ -42,46 +36,31 @@ namespace FT.Web.Controllers.Api
                 //TODO: Perform some logging
                 return BadRequest();
             }
-            
+
         }
 
-       
-        public IHttpActionResult Post([FromBody]FundTrackReceiptVm newReceipt)
+
+        public IHttpActionResult Post([FromBody]FundTrackReceipt newReceipt)
         {
-           
-           
-                if (newReceipt == null)
-                {
-                    return BadRequest("No Receipt was received");
-                }
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                //TODO: Refactor this out of the controller...
-                var receipt = new FundTrackReceipt
-                {
-                    Servicer = new FundTrackSubservicer(),
-                    Type = new FundTrackReceiptType(),
-                    CheckNumber = newReceipt.CheckNumber,
-                    ReceivedDate = newReceipt.ReceivedDate
-                };
-
-                receipt.Servicer.Name = newReceipt.Servicer.Name;
-                receipt.TotalAmount = newReceipt.TotalAmount;
-                receipt.Type.Name = newReceipt.ReceiptType.Name;
-                
 
 
-                var savedReceipt = _repository.SaveNewReceipt(receipt);
-                if (savedReceipt == null)
-                {
-                    return Conflict();
-                }
+            if (newReceipt == null)
+            {
+                return BadRequest("No Receipt was received");
+            }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-                return Created<FundTrackReceipt>(Request.RequestUri + savedReceipt.Id.ToString(), savedReceipt);
-  
+            var savedReceipt = _repository.SaveNewReceipt(newReceipt);
+            if (savedReceipt == null)
+            {
+                return Conflict();
+            }
+
+            return Created<FundTrackReceipt>(Request.RequestUri + savedReceipt.Id.ToString(), savedReceipt);
+
 
         }
 
@@ -89,6 +68,6 @@ namespace FT.Web.Controllers.Api
         //public void Put(int id, [FromBody]string value)
         //{
         //}
-        
+
     }
 }

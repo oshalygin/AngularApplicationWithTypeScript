@@ -31,8 +31,8 @@
         <div class="form-group" show-errors>
             <label class="control-label col-md-2">Type:</label>
             <div class="col-md-3">
-                <select class="form-control" required name="receiptType" ng-model="vm.receipt.receiptType.name">
-                    <option ng-repeat="option in vm.receiptTypes" value="{{option.name}}">{{option.name}}</option>
+                <select class="form-control" required name="receiptType" ng-model="vm.receipt.receiptType.id">
+                    <option ng-repeat="option in vm.receiptTypes" value="{{option.id}}">{{option.name}}</option>
                 </select>
             </div>
         </div>
@@ -40,8 +40,8 @@
         <div class="form-group" show-errors>
             <label class="control-label col-md-2">Servicer:</label>
             <div class="col-md-3">
-                <select class="form-control" required name="servicer" ng-model="vm.receipt.servicer.name">
-                    <option ng-repeat="option in vm.servicers" value="{{option.name}}">{{option.name}}</option>
+                <select class="form-control" required name="servicer" ng-model="vm.receipt.servicer.id">
+                    <option ng-repeat="option in vm.servicers" value="{{option.id}}">{{option.name}}</option>
                 </select>
             </div>
         </div>
@@ -76,5 +76,5 @@
 </div>
 
 <div ng-if="vm.startProgress">
-    <progressbar class="progress-striped active" value="vm.progressValue" type="success">{{vm.progressValue}} %</progressbar>
+    <progressbar class="progress-striped active" value="vm.progressValue" type="success"></progressbar>
 </div>

@@ -12,10 +12,15 @@
             }
         }
 
+        /////EndPoints
 
-        static get receiptsApi(): string {
+        static get receipts(): string {
             return "Receipt/:id";
         }
+
+        static get receiptTypes(): string{
+            return "ReceiptTypes/:id";
+    }
         
     }
 

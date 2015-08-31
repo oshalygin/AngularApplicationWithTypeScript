@@ -10,14 +10,13 @@
             
         }
 
-
         public getReceiptResource(): app.services.IReceiptResource {
-            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.receiptsApi, { id: "@id" });
+            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.receipts, { id: "@id" });
         }
 
 
         public getReceiptTypeResource(): app.services.IReceiptTypesResource {
-            return this.$resource("http://localhost:51615/api/ReceiptTypes/:id", { id: "@id" });
+            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.receiptTypes, { id: "@id" });
         }
 
     }

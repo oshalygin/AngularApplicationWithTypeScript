@@ -17,7 +17,7 @@ namespace FT.Models
 
         public virtual List<FundTrackReceiptComment> Comments { get; set; }
 
-        public virtual FundTrackReceiptType Type { get; set; }
+        public virtual FundTrackReceiptType ReceiptType { get; set; }
 
         public virtual FundTrackSubservicer Servicer { get; set; }
     }

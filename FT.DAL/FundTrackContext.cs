@@ -27,7 +27,7 @@ namespace FT.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<FundTrackReceipt>()
-                .HasRequired(x => x.Type);
+                .HasRequired(x => x.ReceiptType);
 
             modelBuilder.Properties<DateTime>()
                 .Configure(x => x.HasColumnType("datetime2"));

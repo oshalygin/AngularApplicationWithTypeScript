@@ -104,8 +104,9 @@
                     }, 2000);
                     
                 },
+                //TODO:  Look into what properties error object has
             (error: any) => {
-                toastr.error(error);
+                toastr.error("Failed: Server Error");
             });
 
         }
