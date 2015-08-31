@@ -84,14 +84,12 @@
             vm.servicers.push(thirdSubservicer);
 
             //Progress Bar Stuff
-            var amount = 75;
-          
-            vm.countTo = amount;
-            vm.countFrom = 0;
           
 
+            vm.progressValue = 0;
+
             $timeout(() => {
-                vm.progressValue = amount;
+                vm.progressValue = 100;
             }, 1000);
 
         }

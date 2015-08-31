@@ -44,4 +44,12 @@ textarea {
 
 .progress-bar { 
   transition: width 1s ease-in-out; 
+  font-size: 20px;
+  line-height: 40px;
+  color: white;
+  text-align: center;
 }
+
+/*.progress-bar-success {
+    background-color:#337ab7;
+}*/
