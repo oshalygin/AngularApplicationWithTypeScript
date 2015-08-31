@@ -55,7 +55,7 @@ namespace FT.Web.Controllers.Api
 
             var savedReceipt = _repository.SaveNewReceipt(newReceipt);
             if (savedReceipt == null)
-            {
+            {   
                 return Conflict();
             }
 

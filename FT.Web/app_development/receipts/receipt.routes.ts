@@ -16,12 +16,19 @@
                 controllerAs: "vm"
             })
             .state("receiptDetail", {
-                url: "/Receipts/Detail/:id",
+            url: "/Receipts/Detail/:id",
                 title: "Receipt Detail",
                 templateUrl: "./app_development/receipts/receiptDetail.html",
                 controller: "app.receipts.ReceiptDetailController",
                 controllerAs: "vm"
             })
+            //.state("receiptDetail.comments", {
+            //    url: "/Receipts/Detail/:id",
+            //    parent: "receiptDetail",
+            //    templateUrl: "./app_development/receipts/comments.html",
+            //    controller: "app.receipts.CommentsController",
+            //    controllerAs: "vm"
+            //})
             .state("newReceipt", {
                 url: "/Receipts/NewReceipt/",
                 title: "New Receipt",

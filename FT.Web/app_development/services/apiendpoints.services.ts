@@ -1,7 +1,7 @@
 ﻿module app.services {
 
     export class ApiEndpoints {
-       
+
         public static local: boolean = true;
 
         public static get baseUrl(): string {
@@ -18,10 +18,14 @@
             return "Receipt/:id";
         }
 
-        static get receiptTypes(): string{
+        static get receiptTypes(): string {
             return "ReceiptTypes/:id";
-    }
-        
+        }
+
+        static get comments(): string {
+            return "ReceiptComments/:id";
+        }
+
     }
 
 

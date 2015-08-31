@@ -19,6 +19,10 @@
             return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.receiptTypes, { id: "@id" });
         }
 
+        public getReceiptCommentResource(): app.services.ICommentResource {
+            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.comments, { id: "@id" });
+        }
+
     }
 
     angular.module("app.services")

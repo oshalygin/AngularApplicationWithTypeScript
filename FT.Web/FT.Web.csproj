@@ -157,6 +157,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\ReceiptCommentsController.cs" />
     <Compile Include="Controllers\Api\ReceiptController.cs" />
     <Compile Include="Controllers\Api\ReceiptTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_development\home\home.html" />
+    <Content Include="app_development\receipts\comments.html" />
     <Content Include="app_development\receipts\newReceipt.html" />
     <Content Include="app_development\receipts\receipts.html" />
     <Content Include="app_development\receipts\receiptDetail.html" />
@@ -13051,12 +13053,14 @@
     <TypeScriptCompile Include="app_development\models\FundTrackReceipt.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackReceiptType.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackSubservicer.model.ts" />
+    <TypeScriptCompile Include="app_development\receipts\comments.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\newreceipt.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipt.routes.ts" />
     <TypeScriptCompile Include="app_development\receipts\receiptDetail.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipts.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipts.module.ts" />
     <TypeScriptCompile Include="app_development\services\apiendpoints.services.ts" />
+    <TypeScriptCompile Include="app_development\services\comment.services.ts" />
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
     <TypeScriptCompile Include="app_development\services\receiptTypes.services.ts" />
     <TypeScriptCompile Include="app_development\services\resource.builder.ts" />

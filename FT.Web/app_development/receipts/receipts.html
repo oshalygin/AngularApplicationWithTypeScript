@@ -17,11 +17,10 @@
                 <td class="text-center"><strong>Received On</strong></td>
             </tr>
             </thead>
-            <tbody>
+            <tbody ng-if="vm.loadedReceipts">
             <tr ng-repeat="receipt in vm.receipts">
+                
                 <td>{{ receipt.id }}</td>
-
-
                 <td>
                     <a ui-sref="receiptDetail({id: receipt.id})">
                         {{ receipt.checkNumber }}
@@ -30,11 +29,10 @@
                 <td>{{ receipt.servicer.name}}</td>
                 <td class="text-center">{{ receipt.receiptType.name}}</td>
                 <td class="text-success text-center"><strong>{{ receipt.totalAmount | currency}}</strong></td>
-                <td class="text-center">{{ receipt.receivedDate | date:'medium'}}</td>
+                <td class="text-center">{{ receipt.receivedDate | date:'longDate'}}</td>
             </tr>
             </tbody>    
-
         </table>
-        <div class="sk-rotating-plane" ng-hide="vm.loadedReceipts"></div>
+        <div class="sk-rotating-plane" ng-show="!vm.loadedReceipts"></div>
     </div>
 </div>
