@@ -26,21 +26,20 @@
         servicers: app.models.FundTrackSubservicer[];
         receiptForm: angular.IFormController;
         savingFormLoader: boolean;
-
-        //TODO: Throw this into another class
-        countFrom: number;
-        countTo: number; 
+        startProgress: boolean;
         progressValue: number;
-        
 
-        static $inject = ["ReceiptResource", "$scope", "$timeout"];
+        static $inject = ["ReceiptResource", "$scope", "$timeout", "$state"];
         constructor(           
             private receiptResource: app.services.IReceiptResource,
             private form: IReceiptForm,
-            private $timeout: angular.ITimeoutService) {
+            private $timeout: angular.ITimeoutService,
+            private $state: angular.ui.IStateService) {
        
             var vm = this;
             vm.title = "New Receipt";
+            vm.startProgress = false;
+            vm.progressValue = 0;
 
             vm.receipt = new app.models.FundTrackReceipt();
             vm.receipt.servicer = new app.models.FundTrackSubservicer;
@@ -83,14 +82,8 @@
             vm.servicers.push(secondServicer);
             vm.servicers.push(thirdSubservicer);
 
-            //Progress Bar Stuff
+            
           
-
-            vm.progressValue = 0;
-
-            $timeout(() => {
-                vm.progressValue = 100;
-            }, 1000);
 
         }
 
@@ -112,9 +105,17 @@
 
         private saveReceiptToDatabase(): void {
             this.receiptResource.save(this.receipt,
-            () => {
-                toastr.success("New Receipt Saved!");
-            },
+                () => {
+                    this.startProgress = true;
+                    this.$timeout(() => {
+                        this.progressValue = 100;
+                    }, 100);
+                    this.$timeout(() => {
+                        toastr.success("New Receipt Saved!");
+                        this.$state.go("receipts");
+                    }, 2000);
+                    
+                },
             (error: any) => {
                 toastr.error(error);
             });

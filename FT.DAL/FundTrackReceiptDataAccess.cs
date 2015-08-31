@@ -12,7 +12,6 @@ namespace FT.DAL
 
         public FundTrackReceiptDataAccess()
         {
-            
             _context = new FundTrackContext();
             
         }
@@ -75,8 +74,16 @@ namespace FT.DAL
                 .FundTrackSubservicers
                 .Find(servicerId);
         }
-               
-        public FundTrackReceiptType GetReceiptType(int receiptTypeId)
+
+        public IEnumerable<FundTrackReceiptType> GetAllReceiptTypes()
+        {
+            return _context
+                .FundTrackReceiptTypes
+                .AsNoTracking()
+                .AsEnumerable();
+        }
+
+        public FundTrackReceiptType GetReceiptTypeById(int receiptTypeId)
         {
             return _context
                 .FundTrackReceiptTypes

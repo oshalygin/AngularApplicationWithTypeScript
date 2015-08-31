@@ -89,10 +89,6 @@ namespace FT.Web.Controllers.Api
         //public void Put(int id, [FromBody]string value)
         //{
         //}
-
-        //// DELETE: api/Receipt/5
-        //public void Delete(int id)
-        //{
-        //}
+        
     }
 }

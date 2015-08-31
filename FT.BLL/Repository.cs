@@ -28,5 +28,10 @@ namespace FT.BLL
             
         }
 
+        public IEnumerable<FundTrackReceiptType> GetAllReceiptTypes()
+        {
+            return _repo.GetAllReceiptTypes().ToList();
+        }
+
     }
 }
