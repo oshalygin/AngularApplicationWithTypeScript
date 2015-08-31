@@ -1,28 +1,23 @@
 ﻿module app.services {
 
-    export interface IApiProvider {
-        baseUrl: string;
-        local: boolean;
-    }
+    export class ApiEndpoints {
+       
+        public static local: boolean = true;
 
-    export class ApiProvider implements IApiProvider {
-        //_baseUrl: string;
-        local: boolean = true;
-
-        get baseUrl(): string {
+        public static get baseUrl(): string {
             if (this.local) {
-                return "http://localhost:51615/api";
+                return "http://localhost:51615/api/";
             } else {
                 return "";
             }
         }
-        
 
+
+        static get receiptsApi(): string {
+            return "Receipt/:id";
+        }
         
     }
 
-    angular
-        .module('app.services')
-        .service('app.services.ApiProvider', ApiProvider);
 
 }

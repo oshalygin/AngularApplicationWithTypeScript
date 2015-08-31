@@ -13061,6 +13061,7 @@
     <TypeScriptCompile Include="app_development\receipts\receipts.module.ts" />
     <TypeScriptCompile Include="app_development\services\apiendpoints.services.ts" />
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
+    <TypeScriptCompile Include="app_development\services\receiptTypes.services.ts" />
     <TypeScriptCompile Include="app_development\services\resource.builder.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
     <Content Include="app_development\widgets\currency.mask.widget.js" />

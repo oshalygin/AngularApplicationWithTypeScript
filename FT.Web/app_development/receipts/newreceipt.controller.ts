@@ -29,9 +29,10 @@
         startProgress: boolean;
         progressValue: number;
 
-        static $inject = ["ReceiptResource", "$scope", "$timeout", "$state"];
+        static $inject = ["ReceiptResource", "ReceiptTypesResource", "$scope", "$timeout", "$state"];
         constructor(           
             private receiptResource: app.services.IReceiptResource,
+            private receiptTypesResource: app.services.IReceiptTypesResource,
             private form: IReceiptForm,
             private $timeout: angular.ITimeoutService,
             private $state: angular.ui.IStateService) {
@@ -41,27 +42,14 @@
             vm.startProgress = false;
             vm.progressValue = 0;
 
+            this.getReceiptTypes();
+
             vm.receipt = new app.models.FundTrackReceipt();
             vm.receipt.servicer = new app.models.FundTrackSubservicer;
             vm.receipt.receiptType = new app.models.FundTrackReceiptType;
 
             vm.status = new DatePickerStatus();
             vm.status.opened = false;
-
-
-            //TODO: Throw this into a factory service
-            vm.receiptTypes = new Array<app.models.FundTrackReceiptType>();
-
-            var firstType = new app.models.FundTrackReceiptType();
-            firstType.id = 1;
-            firstType.name = "Wire";
-
-            var secondType = new app.models.FundTrackReceiptType();
-            secondType.id = 2;
-            secondType.name = "Cash";
-
-            vm.receiptTypes.push(firstType);
-            vm.receiptTypes.push(secondType);
 
             //TODO: Throw all this into a factory service
             vm.servicers = new Array<app.models.FundTrackSubservicer>();
@@ -121,6 +109,15 @@
             });
 
         }
+
+
+        private getReceiptTypes(): void {
+            this.receiptTypesResource.query({},
+            (data: app.models.IFundTrackReceiptType[]) => {
+                this.receiptTypes = data;
+            });
+        }
+
 
 
     }

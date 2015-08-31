@@ -13,7 +13,6 @@ namespace FT.DAL
         public FundTrackReceiptDataAccess()
         {
             _context = new FundTrackContext();
-            
         }
 
         public FundTrackReceipt Create(FundTrackReceipt receipt)
@@ -55,7 +54,7 @@ namespace FT.DAL
         public IEnumerable<FundTrackReceipt> Get()
         {
             return _context.FundTrackReceipts
-                .OrderByDescending(x=>x.Id)
+                .OrderByDescending(x => x.Id)
                 .AsEnumerable();
         }
 
@@ -129,7 +128,5 @@ namespace FT.DAL
             _context.FundTrackReceiptComments.RemoveRange(comments);
             _context.SaveChanges();
         }
-
-        
     }
 }
