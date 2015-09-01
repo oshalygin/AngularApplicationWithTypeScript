@@ -14,7 +14,9 @@ namespace FT.BLL
 
         public IEnumerable<FundTrackReceipt> GetLast10Recepts()
         {
-            return _repo.GetWithComments().Take(20).ToList();
+            return _repo.GetWithComments()
+                .Take(20)
+                .ToList();
 
         }
 
@@ -53,7 +55,9 @@ namespace FT.BLL
 
         public IEnumerable<FundTrackReceiptComment> GetAllComments()
         {
-            return _repo.GetComments();
+            return _repo.GetComments()
+                .Take(30)
+                .ToList();
         }
 
 

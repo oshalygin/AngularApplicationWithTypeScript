@@ -16,18 +16,12 @@
                 </tr>
             </thead>
             <tbody ng-if="vm.loadedComments">
-                <tr ng-repeat="comment in vm.comments">
+                <tr ng-repeat="comment in vm.comments | orderBy: '-id'">
 
                     <td>{{ comment.id }}</td>
-                    <td>
-                        <a ui-sref="receiptDetail({id: receipt.id})">
-                            {{ receipt.checkNumber }}
-                        </a>
-                    </td>
-                    <td>{{ receipt.servicer.name}}</td>
-                    <td class="text-center">{{ receipt.receiptType.name}}</td>
-                    <td class="text-success text-center"><strong>{{ receipt.totalAmount | currency}}</strong></td>
-                    <td class="text-center">{{ receipt.receivedDate | date:'longDate' : '-1400'}}</td>
+                    <td>{{ comment.text | limitTo: 300}}</td>
+                    <td class="text-center">{{ comment.createdDate | date:'short' : '-1400'}}</td>
+                    <td class="text-center">{{ comment.updateDate | date:'short' : '-1400'}}</td>
                 </tr>
             </tbody>
         </table>
