@@ -2,12 +2,12 @@
 
     "use strict";
     export class ResourceBuilder {
-        
+
 
         static $inject = ["$resource"];
         constructor(private $resource: ng.resource.IResourceService) {
-            
-            
+
+
         }
 
         public getReceiptResource(): app.services.IReceiptResource {
@@ -20,7 +20,10 @@
         }
 
         public getReceiptCommentResource(): app.services.ICommentResource {
-            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.comments, { id: "@id" });
+            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.comments, {
+                receiptId: "@receiptId",
+                text: "@text"
+            });
         }
 
     }

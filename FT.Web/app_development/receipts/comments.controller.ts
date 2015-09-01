@@ -29,7 +29,7 @@
         private addCommentToDatabase(): void {
             this.commentResource.save({
                 receiptId: this.receiptId,
-                comment: this.comment
+                text: this.comment.text
 
             },
                 () => {

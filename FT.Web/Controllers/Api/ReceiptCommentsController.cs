@@ -28,7 +28,8 @@ namespace FT.Web.Controllers.Api
             return Ok(comments);
         }
 
-        public IHttpActionResult Post(int receiptId, string text)
+        [Route("api/ReceiptComments/{receiptId}/{text}")]
+        public IHttpActionResult Post([FromUri]int receiptId, [FromUri]string text)
         {
 
             var savedComment = _repository.AddComment(receiptId, text);

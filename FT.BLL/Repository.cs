@@ -48,10 +48,7 @@ namespace FT.BLL
                 Text = text,
                 CreatedDate = DateTime.UtcNow
             };
-
-
             return _repo.AddComment(receiptId, newComment);
-
         }
 
 

@@ -23,7 +23,7 @@
         }
 
         static get comments(): string {
-            return "ReceiptComments/:id";
+            return "ReceiptComments/:receiptId/:text";
         }
 
     }
