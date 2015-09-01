@@ -160,6 +160,7 @@
     <Compile Include="Controllers\Api\ReceiptCommentsController.cs" />
     <Compile Include="Controllers\Api\ReceiptController.cs" />
     <Compile Include="Controllers\Api\ReceiptTypesController.cs" />
+    <Compile Include="Controllers\Api\ReceiptSubservicerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -13066,6 +13067,7 @@
     <TypeScriptCompile Include="app_development\services\receipts.services.ts" />
     <TypeScriptCompile Include="app_development\services\receiptTypes.services.ts" />
     <TypeScriptCompile Include="app_development\services\resource.builder.ts" />
+    <TypeScriptCompile Include="app_development\services\subservicer.services.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
     <TypeScriptCompile Include="app_development\widgets\currency.mask.directive.ts" />
     <TypeScriptCompile Include="app_development\receipts\display.comments.directive.ts" />

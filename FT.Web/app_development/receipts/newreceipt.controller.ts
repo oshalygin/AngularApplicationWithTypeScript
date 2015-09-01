@@ -29,10 +29,12 @@
         startProgress: boolean;
         progressValue: number;
 
-        static $inject = ["ReceiptResource", "ReceiptTypesResource", "$scope", "$timeout", "$state"];
+        static $inject = ["ReceiptResource", "ReceiptTypesResource", "SubservicerResource",
+            "$scope", "$timeout", "$state"];
         constructor(           
             private receiptResource: app.services.IReceiptResource,
             private receiptTypesResource: app.services.IReceiptTypesResource,
+            private subservicerResource: app.services.ISubservicerResource,
             private form: IReceiptForm,
             private $timeout: angular.ITimeoutService,
             private $state: angular.ui.IStateService) {
@@ -43,33 +45,19 @@
             vm.progressValue = 0;
 
             this.getReceiptTypes();
+            this.getSubservicers();
 
             vm.receipt = new app.models.FundTrackReceipt();
             vm.receipt.servicer = new app.models.FundTrackSubservicer;
+
             vm.receipt.receiptType = new app.models.FundTrackReceiptType;
+            
 
             vm.status = new DatePickerStatus();
             vm.status.opened = false;
 
-            //TODO: Throw all this into a factory service
-            vm.servicers = new Array<app.models.FundTrackSubservicer>();
-
-            var firstServicer = new app.models.FundTrackSubservicer();
-            firstServicer.id = 1;
-            firstServicer.name = "Cenlar";
-
-            var secondServicer = new app.models.FundTrackSubservicer();
-            secondServicer.id = 2;
-            secondServicer.name = "LoanCare";
-
-            var thirdSubservicer = new app.models.FundTrackSubservicer();
-            thirdSubservicer.id = 3;
-            thirdSubservicer.name = "Oleg's Subservice";
-
-            vm.servicers.push(firstServicer);
-            vm.servicers.push(secondServicer);
-            vm.servicers.push(thirdSubservicer);
-
+            
+            
             
           
 
@@ -117,6 +105,13 @@
             (data: app.models.IFundTrackReceiptType[]) => {
                 this.receiptTypes = data;
             });
+        }
+
+        private getSubservicers(): void {
+            this.subservicerResource.query({},
+                (data: app.models.IFundTrackSubservicer[]) => {
+                    this.servicers = data;
+                });
         }
 
 

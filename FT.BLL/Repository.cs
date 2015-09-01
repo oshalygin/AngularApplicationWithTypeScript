@@ -34,7 +34,7 @@ namespace FT.BLL
 
         public IEnumerable<FundTrackReceiptType> GetAllReceiptTypes()
         {
-            return _repo.GetAllReceiptTypes().ToList();
+            return _repo.GetAllReceiptTypes();
         }
 
         public IEnumerable<FundTrackReceiptComment> GetCommentsForReceipt(int receiptId)
@@ -59,6 +59,11 @@ namespace FT.BLL
                 .OrderByDescending(x=>x.Id)
                 .Take(30)
                 .ToList();
+        }
+
+        public IEnumerable<FundTrackSubservicer> GetAllSubservicers()
+        {
+            return _repo.GetAllSubservicers();
         }
 
 

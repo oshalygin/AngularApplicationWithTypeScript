@@ -4,33 +4,108 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-3"><strong>Id:</strong>
+            <form class="form-horizontal css-form" name="receiptForm" ng-submit="vm.saveReceipt(receiptForm)" novalidate>
+                <div class="col-md-9">
+
+
+                    <div class="form-group formSpacing" show-errors>
+
+                        <label class="control-label col-md-2">Id:</label>
+
+                        <div class="col-md-3">
+                            <div class="input-group col-md-12">
+                                <span class="editForm">{{ vm.receipt.id }}</span>
+                            </div>
+                        </div>
+
+                       
+
                     </div>
-                    <div class="col-md-3">{{vm.receipt.id}}</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"><strong>CheckNumber:</strong>
+
+
+                    <div class="form-group formSpacing" show-errors>
+
+                        <label class="control-label col-md-2">Check Number:</label>
+
+                        <div class="col-md-3" ng-show="!vm.editMode">
+                            <div class="input-group col-md-12">
+                                <span class="editForm">{{ vm.receipt.checkNumber }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" ng-show="vm.editMode">
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control" required name="checkNumber" ng-model="vm.receipt.checkNumber">
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-md-3">{{vm.receipt.checkNumber }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"><strong>Servicer:</strong>
+
+
+                    <div class="form-group formSpacing" show-errors>
+
+                        <label class="control-label col-md-2">Subservicer:</label>
+
+                        <div class="col-md-3" ng-show="!vm.editMode">
+                            <div class="input-group col-md-12">
+                                <span class="editForm">{{ vm.receipt.servicer.name }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" ng-show="vm.editMode">
+                            <div class="input-group col-md-12">
+                                <select class="form-control" required name="servicer" ng-model="vm.receipt.servicer.id">
+                                    <option ng-repeat="option in vm.servicers" value="{{option.id}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-md-3">{{vm.receipt.servicer.name }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"><strong>Receipt Type:</strong>
+
+
+                    <div class="form-group formSpacing" show-errors>
+
+                        <label class="control-label col-md-2">Receipt Type:</label>
+
+                        <div class="col-md-3" ng-show="!vm.editMode">
+                            <div class="input-group col-md-12">
+                                <span class="editForm">{{ vm.receipt.receiptType.name}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" ng-show="vm.editMode">
+                            <div class="input-group col-md-12">
+                                <select class="form-control" required name="receiptType" ng-model="vm.receipt.receiptType.id">
+                                    <option ng-repeat="option in vm.receiptTypes" value="{{option.id}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-md-3">{{vm.receipt.receiptType.name }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"><strong>Amount:</strong>
+
+
+                    <div class="form-group formSpacing" show-errors>
+
+                        <label class="control-label col-md-2">Amount:</label>
+
+                        <div class="col-md-3" ng-show="!vm.editMode">
+                            <div class="input-group col-md-12">
+                                <span class="editForm">{{ vm.receipt.totalAmount | currency}}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" ng-show="vm.editMode">
+                            <div class="input-group col-md-12">
+                                <span class="input-group-addon">
+                                    $
+                                </span>
+                                <input type="text" required class="form-control" name="totalAmount" ng-model="vm.receipt.totalAmount" currency-mask>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-md-3 text-success"><strong>{{ vm.receipt.totalAmount | currency}}</strong></div>
                 </div>
-            </div>
+            </form>
             <div class="col-md-3">
                 <img class="center-block img-responsive"
                      style="width: 100px; margin: 2px;"
@@ -40,18 +115,32 @@
         </div>
         <display-comments></display-comments>
     </div>
-    <div class="panel-footer">
+    <div class="panel-footer" ng-show="!vm.editMode">
         <a class="btn btn-default"
            ui-sref="receipts"
-           style="width: 80px">
+           style="width: 100px">
             <i class="glyphicon glyphicon-chevron-left"></i>
             Back
         </a>
-        <a class="btn btn-default"
+        <a class="btn btn-default" href="#"
+           style="width: 200px" ng-click="vm.flipOnEditMode()">
+
+            Edit Receipt
+        </a>
+    </div>
+
+    <div class="panel-footer" ng-show="vm.editMode">
+        <a class="btn btn-danger"
+           ng-click="vm.flipOnEditMode()"
+           style="width: 100px">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Cancel
+        </a>
+        <a class="btn btn-success"
            ui-sref="receipts"
            style="width: 200px">
-            
-            Edit Receipt
+
+            Save Changes
         </a>
     </div>
 </div>

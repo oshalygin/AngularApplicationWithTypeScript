@@ -26,6 +26,10 @@
             });
         }
 
+        public getSubservicerResource(): app.services.ISubservicerResource {
+            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.servicer, { id: "@id" });
+        }
+
     }
 
     angular.module("app.services")

@@ -18,19 +18,24 @@
             </tr>
             </thead>
             <tbody ng-if="vm.loadedReceipts">
-            <tr ng-repeat="receipt in vm.receipts">
-                
-                <td>{{ receipt.id }}</td>
-                <td>
-                    <a ui-sref="receiptDetail({id: receipt.id})">
-                        {{ receipt.checkNumber }}
-                    </a>
-                </td>
-                <td>{{ receipt.servicer.name}}</td>
-                <td class="text-center">{{ receipt.receiptType.name}}</td>
-                <td class="text-success text-center"><strong>{{ receipt.totalAmount | currency}}</strong></td>
-                <td class="text-center">{{ receipt.receivedDate | date:'longDate' : '-1400'}}</td>
-            </tr>
+              
+                <tr ng-repeat="receipt in vm.receipts"
+                    ng-class-even="'active'"
+                    ng-class="{even: $even, odd: $odd, info: hover}"
+                    ng-mouseover="hover = true"
+                    ng-mouseleave="hover = false">
+
+                    <td>{{ receipt.id }}</td>
+                    <td>
+                        <a ui-sref="receiptDetail({id: receipt.id})">
+                            {{ receipt.checkNumber }}
+                        </a>
+                    </td>
+                    <td>{{ receipt.servicer.name}}</td>
+                    <td class="text-center">{{ receipt.receiptType.name}}</td>
+                    <td class="text-success text-center"><strong>{{ receipt.totalAmount | currency}}</strong></td>
+                    <td class="text-center">{{ receipt.receivedDate | date:'longDate' : '-1400'}}</td>
+                </tr>
             </tbody>    
         </table>
         <div ng-hide="vm.loadedComments">

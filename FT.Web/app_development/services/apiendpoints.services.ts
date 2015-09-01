@@ -26,6 +26,10 @@
             return "ReceiptComments/:receiptId/:text";
         }
 
+        static get servicer(): string {
+            return "ReceiptSubservicer/:id";
+        }
+
     }
 
 

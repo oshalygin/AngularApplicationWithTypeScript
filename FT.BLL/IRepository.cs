@@ -12,5 +12,6 @@ namespace FT.BLL
         IEnumerable<FundTrackReceiptComment> GetCommentsForReceipt(int receiptId);
         FundTrackReceiptComment AddComment(int receiptId, string text);
         IEnumerable<FundTrackReceiptComment> GetAllComments();
+        IEnumerable<FundTrackSubservicer> GetAllSubservicers();
     }
 }

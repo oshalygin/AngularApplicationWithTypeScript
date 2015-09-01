@@ -116,6 +116,14 @@ namespace FT.DAL
                 .AsEnumerable();
         }
 
+        public IEnumerable<FundTrackSubservicer> GetAllSubservicers()
+        {
+            return _context
+                .FundTrackSubservicers
+                .AsNoTracking()
+                .AsEnumerable();
+        }
+
         public FundTrackReceiptType GetReceiptTypeById(int receiptTypeId)
         {
             return _context
