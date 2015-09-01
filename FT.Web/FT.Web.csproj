@@ -12984,6 +12984,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="app_deploy\" />
+    <Folder Include="bower_components\angular-ui-router\api\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -13069,7 +13070,6 @@
     <TypeScriptCompile Include="app_development\widgets\showErrors.widget.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.config.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.module.ts" />
-    <TypeScriptCompile Include="bower_components\angular-ui-router\api\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tslint\node_modules\tslint\lib\tslint.d.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tslint\node_modules\tslint\typings\node.d.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tslint\node_modules\tslint\typings\typescriptServices.d.ts" />
