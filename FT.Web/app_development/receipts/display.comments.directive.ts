@@ -6,9 +6,9 @@
             return new DisplayCommentsDirective;
         }
 
-        restrict = 'E';
-        templateUrl = "./app_development/receipts/comments.html";
-        controller = app.receipts.CommentsController;
+        restrict = "E";
+        templateUrl = "./app_development/receipts/commentDetail.html";
+        controller = app.receipts.CommentDetailController;
         controllerAs = "sv";
     }
 

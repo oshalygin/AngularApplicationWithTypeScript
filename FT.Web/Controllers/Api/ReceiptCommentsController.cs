@@ -18,8 +18,8 @@ namespace FT.Web.Controllers.Api
 
         public IHttpActionResult Get()
         {
-            return Ok("foobar");
-
+            var comments = _repository.GetAllComments();
+            return Ok(comments);
         }
 
         public IHttpActionResult Get(int id)

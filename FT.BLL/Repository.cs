@@ -51,6 +51,11 @@ namespace FT.BLL
             return _repo.AddComment(receiptId, newComment);
         }
 
+        public IEnumerable<FundTrackReceiptComment> GetAllComments()
+        {
+            return _repo.GetComments();
+        }
+
 
     }
 }

@@ -27,9 +27,6 @@ namespace FT.DAL
             newReceipt.ReceiptType = this.GetReceiptTypeById(receipt.ReceiptType.Id);
             newReceipt.Servicer = this.GetSubservicerById(receipt.Servicer.Id);
 
-            //_context.Entry(newReceipt.ReceiptType).State = EntityState.Modified;
-            //_context.Entry(newReceipt.Servicer).State = EntityState.Modified;
-
             _context.FundTrackReceipts
                 .Add(newReceipt);
 
@@ -68,6 +65,17 @@ namespace FT.DAL
                 .AsNoTracking()
                 .FirstOrDefault(x => x.Id == receiptId);
         }
+
+        public IEnumerable<FundTrackReceiptComment> GetComments()
+        {
+            return _context.FundTrackReceiptComments
+                .AsNoTracking()
+                .AsEnumerable();
+
+        }
+
+
+
 
         public FundTrackReceipt GetWithComments(int receiptId)
         {

@@ -169,6 +169,7 @@
   <ItemGroup>
     <Content Include="app_development\home\home.html" />
     <Content Include="app_development\receipts\comments.html" />
+    <Content Include="app_development\receipts\commentDetail.html" />
     <Content Include="app_development\receipts\newReceipt.html" />
     <Content Include="app_development\receipts\receipts.html" />
     <Content Include="app_development\receipts\receiptDetail.html" />
@@ -13053,6 +13054,7 @@
     <TypeScriptCompile Include="app_development\models\FundTrackReceipt.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackReceiptType.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackSubservicer.model.ts" />
+    <TypeScriptCompile Include="app_development\receipts\commentDetail.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\comments.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\newreceipt.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\receipt.routes.ts" />

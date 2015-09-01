@@ -1,37 +1,36 @@
 ﻿
-<div class="detailBox" ng-show="sv.displayComments">
-    <div class="titleBox">
-        <label>Recent Comments</label>
-        <!--TODO: Hide the comments when the x is pressed via angular-->
-        <button type="button" class="close" aria-hidden="true" ng-click="sv.hideComments()">&times;</button>
+<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">
+        {{::vm.title}}
     </div>
+    <div class="panel-body">
 
-    <div class="actionBox">
-        <ul class="commentList">
-            <li ng-repeat="comment in vm.receipt.comments | orderBy: '-createdDate'">
-                <div class="commenterImage">
-                    <img src="http://lorempixel.com/50/50/people/3" />
-                </div>
-                <div class="commentText">
-                    <p class="text-info">{{ comment.text | limitTo: 300}}</p>
-                    <span class="date sub-text">on {{ comment.createdDate | date: "short": "-1400"}}</span>
-                </div>
-            </li>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><strong>Id</strong></td>
+                    <td><strong>Text</strong></td>
+                    <td class="text-center"><strong>Created</strong></td>
+                    <td class="text-center"><strong>Updated</strong></td>
+                </tr>
+            </thead>
+            <tbody ng-if="vm.loadedComments">
+                <tr ng-repeat="comment in vm.comments">
 
-        </ul>
-        <!--TODO: Wire this up to a receiptAddComment()-->
-        <form class="form-inline" role="form" ng-controller="app.receipts.CommentsController">
-            <div class="form-group">
-                <input class="form-control" ng-model="sv.comment.text" type="text" placeholder="Add A New Comment">
-            </div>
-            <div class="form-group">
-                <button class="btn btn-default" ng-click="sv.addComment()">Add</button>
-            </div>
-        </form>
+                    <td>{{ comment.id }}</td>
+                    <td>
+                        <a ui-sref="receiptDetail({id: receipt.id})">
+                            {{ receipt.checkNumber }}
+                        </a>
+                    </td>
+                    <td>{{ receipt.servicer.name}}</td>
+                    <td class="text-center">{{ receipt.receiptType.name}}</td>
+                    <td class="text-success text-center"><strong>{{ receipt.totalAmount | currency}}</strong></td>
+                    <td class="text-center">{{ receipt.receivedDate | date:'longDate' : '-1400'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="sk-rotating-plane" ng-show="!vm.loadedReceipts"></div>
     </div>
-</div>
-<div ng-show="!sv.displayComments">
-    <span>
-        <a href="#" ng-click="sv.hideComments()">Show Comments</a>
-    </span>
 </div>

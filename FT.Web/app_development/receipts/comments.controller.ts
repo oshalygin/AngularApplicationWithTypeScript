@@ -1,58 +1,43 @@
 ﻿module app.receipts {
 
+    "use strict";
 
-    export class CommentsController {
+    class CommentsController {
+        comments: app.models.IFundTrackReceiptComment[];
+        loadedComments: boolean;
+        title: string;
 
-        receiptId: number;
-        commentText: string;
-        comment: app.models.IFundTrackReceiptComment;
-        displayComments: boolean;
+        static $inject = ["$timeout", "CommentResource"];
+        constructor(private $timeout: angular.ITimeoutService,
+            private commentResource: app.services.ICommentResource) {
 
+            var vm = this;
+            vm.title = "Comments";
+            vm.loadedComments = false;
+            vm.comments = [];
 
-        static $inject = ["CommentResource", "$stateParams", "$state"];
-        constructor(private commentResource: app.services.ICommentResource,
-            private $stateParams: app.services.ICommentStateParams,
-            private $state: angular.ui.IStateService) {
-            var sv = this;
-            this.comment = new app.models.FundTrackReceiptComment();
-            this.displayComments = true;
-            this.receiptId = $stateParams.id;
+            $timeout(() => {
+                this.getAllComments();
+            }, 1000);
+
 
         }
 
-        public hideComments(): void {
-            this.displayComments = !this.displayComments;
+        private getAllComments(): void {
+            this.commentResource.query({},
+            (data: app.models.IFundTrackReceiptComment[]) => {
+                this.comments = data;
+                this.loadedComments = true;
+            });
         }
-
-
-        public addComment(): void {
-
-            this.addCommentToDatabase();
-        }
-
-
-        private addCommentToDatabase(): void {
-            this.commentResource.save({
-                receiptId: this.receiptId,
-                text: this.comment.text
-
-            },
-                () => {
-                    toastr.success("New Comment Added!");
-                    this.$state.reload();
-                },
-                //TODO:  Look into what properties error object has
-                (error: any) => {
-                    toastr.error("Failed: Server Error");
-                });
-        }
-
 
     }
+
+
+
+
 
     angular.module("app.receipts")
         .controller("app.receipts.CommentsController", CommentsController);
 
-
 }
-
