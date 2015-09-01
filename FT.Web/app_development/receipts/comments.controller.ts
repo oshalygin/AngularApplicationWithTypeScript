@@ -1,7 +1,7 @@
 ﻿module app.receipts {
 
 
-    class CommentsController {
+    export class CommentsController {
         
         receiptComments: app.models.IFundTrackReceiptComment[];
         receiptId: number;

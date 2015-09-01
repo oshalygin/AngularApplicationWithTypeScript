@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-3"><strong>Receipt Type:</strong>
                     </div>
-                    <div class="col-md-3">{{vm.receipt.type.name }}</div>
+                    <div class="col-md-3">{{vm.receipt.receiptType.name }}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><strong>Amount:</strong>
@@ -38,7 +38,7 @@
                      title="{{vm.receipt.checkNumber}}">
             </div>
         </div>
-        <div ui-view="receiptDetail.comments"></div>
+        <display-comments></display-comments>
     </div>
     <div class="panel-footer">
         <a class="btn btn-default"

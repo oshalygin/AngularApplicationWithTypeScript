@@ -24,7 +24,6 @@
             })
             //.state("receiptDetail.comments", {
             //    url: "/Receipts/Detail/:id",
-            //    parent: "receiptDetail",
             //    templateUrl: "./app_development/receipts/comments.html",
             //    controller: "app.receipts.CommentsController",
             //    controllerAs: "vm"
@@ -36,6 +35,7 @@
                 controller: "app.receipts.NewReceiptController",
                 controllerAs: "vm"
             });
+
     }
 
 
