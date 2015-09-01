@@ -16,10 +16,14 @@
                 </tr>
             </thead>
             <tbody ng-if="vm.loadedComments">
-                <tr ng-repeat="comment in vm.comments | orderBy: '-id'">
+            <tr ng-repeat="comment in vm.comments | orderBy: '-id'"
+                ng-class-even="'active'"
+                ng-class="{even: $even, odd: $odd, info: hover}"
+                ng-mouseover="hover = true"
+                ng-mouseleave="hover = false" >
 
                     <td>{{ comment.id }}</td>
-                    <td>{{ comment.text | limitTo: 300}}</td>
+                    <td>{{ comment.text | limitTo: 100}}<span ng-if="comment.text.length > 100">...</span></td>
                     <td class="text-center">{{ comment.createdDate | date:'short' : '-1400'}}</td>
                     <td class="text-center">{{ comment.updateDate | date:'short' : '-1400'}}</td>
                 </tr>
