@@ -22,7 +22,7 @@
             this.receiptId = $stateParams.id;
 
             var vm = this;
-            vm.title = "Receipt Detail";
+            vm.title = "Receipt Detail";    
             vm.imageUrl = "./Content/images/receiptImage.png";
 
             this.getReceiptById(this.receiptId);

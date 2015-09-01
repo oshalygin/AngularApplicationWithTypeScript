@@ -13065,8 +13065,8 @@
     <TypeScriptCompile Include="app_development\services\receiptTypes.services.ts" />
     <TypeScriptCompile Include="app_development\services\resource.builder.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
-    <Content Include="app_development\widgets\currency.mask.widget.js" />
-    <TypeScriptCompile Include="app_development\widgets\display.comments.widget.ts" />
+    <TypeScriptCompile Include="app_development\widgets\currency.mask.directive.ts" />
+    <TypeScriptCompile Include="app_development\receipts\display.comments.directive.ts" />
     <TypeScriptCompile Include="app_development\widgets\showErrors.widget.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.config.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.module.ts" />

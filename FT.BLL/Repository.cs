@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FT.DAL;
 using FT.Models;
@@ -33,6 +34,24 @@ namespace FT.BLL
         {
             return _repo.GetAllReceiptTypes().ToList();
         }
+
+        public IEnumerable<FundTrackReceiptComment> GetCommentsForReceipt(int receiptId)
+        {
+            var receipt = _repo.Get(receiptId);
+            return receipt.Comments;
+        }
+
+        public FundTrackReceiptComment AddComment(int receiptId, FundTrackReceiptComment comment)
+        {
+            var newComment = new FundTrackReceiptComment();
+            newComment.Text = comment.Text;
+            newComment.CreatedDate = DateTime.UtcNow;
+            
+
+            return _repo.AddComment(receiptId, newComment);
+
+        }
+
 
     }
 }

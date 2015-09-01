@@ -8,8 +8,8 @@
 
         restrict = 'E';
         templateUrl = "./app_development/receipts/comments.html";
-        
-
+        controller = app.receipts.CommentsController;
+        controllerAs = "sv";
     }
 
     angular
@@ -17,4 +17,5 @@
         .directive("displayComments", DisplayCommentsDirective.instance);
 
 }
+
 

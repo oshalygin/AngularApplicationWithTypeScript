@@ -1,4 +1,4 @@
-﻿<div ng-controller="app.receipts.CommentsController as vm">
+﻿
     <div class="detailBox">
         <div class="titleBox">
             <label>Recent Comments</label>
@@ -10,7 +10,7 @@
             <ul class="commentList">
                 <li ng-repeat="comment in vm.receipt.comments | orderBy: '-createdDate'">
                     <div class="commenterImage">
-                        <img src="http://lorempixel.com/50/50/people/3" />
+                        <img src="http://lorempixel.com/50/50/people/3"/>
                     </div>
                     <div class="commentText">
                         <p class="">{{ comment.text | limitTo: 300}}</p>
@@ -20,14 +20,14 @@
 
             </ul>
             <!--TODO: Wire this up to a receiptAddComment()-->
-            <form class="form-inline" role="form">
+            <form class="form-inline" role="form" ng-controller="app.receipts.CommentsController">
                 <div class="form-group">
-                    <input class="form-control" id="focusedInput" type="text" placeholder="Add A New Comment">
+                    <input class="form-control" ng-model="sv.comment.text" type="text" placeholder="Add A New Comment">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-default">Add</button>
+                    <button class="btn btn-default" ng-click="sv.addComment()">Add</button>
                 </div>
             </form>
         </div>
     </div>
-</div>
+    

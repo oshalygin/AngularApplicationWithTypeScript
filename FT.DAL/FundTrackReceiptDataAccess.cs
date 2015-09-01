@@ -49,6 +49,19 @@ namespace FT.DAL
             }
         }
 
+        public FundTrackReceiptComment AddComment(int receiptId, FundTrackReceiptComment comment)
+        {
+            var receipt = _context.FundTrackReceipts.Find(receiptId);
+
+            if (_context != null)
+            {
+                receipt.Comments.Add(comment);
+                _context.SaveChanges();
+                return comment;
+            }
+            return null;
+        }
+
         public FundTrackReceipt Get(int receiptId)
         {
             return _context.FundTrackReceipts
