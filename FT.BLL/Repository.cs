@@ -12,12 +12,18 @@ namespace FT.BLL
         //TODO:  add some ioc and di in the future to clean this out
         private readonly FundTrackReceiptDataAccess _repo = new FundTrackReceiptDataAccess();
 
-        public IEnumerable<FundTrackReceipt> GetLast10Recepts()
+        public IEnumerable<FundTrackReceipt> GetLast20Recepts()
         {
             return _repo.GetWithComments()
                 .Take(20)
                 .ToList();
 
+        }
+
+        public IEnumerable<FundTrackReceipt> GetAllReceipts()
+        {
+            return _repo.GetWithComments()
+                .ToList();
         }
 
         public FundTrackReceipt GetReceiptById(int id)

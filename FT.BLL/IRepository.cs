@@ -5,7 +5,9 @@ namespace FT.BLL
 {
     public interface IRepository
     {
-        IEnumerable<FundTrackReceipt> GetLast10Recepts();
+        IEnumerable<FundTrackReceipt> GetLast20Recepts();
+
+        IEnumerable<FundTrackReceipt> GetAllReceipts();
         FundTrackReceipt GetReceiptById(int id);
         FundTrackReceipt SaveNewReceipt(FundTrackReceipt receipt);
         IEnumerable<FundTrackReceiptType> GetAllReceiptTypes();
