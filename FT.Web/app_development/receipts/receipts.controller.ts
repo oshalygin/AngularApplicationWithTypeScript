@@ -35,14 +35,14 @@
             
             this.receiptResource.query({},
                 (data: app.models.IFundTrackReceipt[]) => this.loaded(data));
-            this.loadedReceipts = true;
+            
             
         }
 
         private loaded(data: app.models.IFundTrackReceipt[]): void {
           
             this.receipts = data;
-           
+            this.loadedReceipts = true;
             
         }
     }

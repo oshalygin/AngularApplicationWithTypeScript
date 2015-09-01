@@ -7,15 +7,14 @@
         commentText: string;
         comment: app.models.IFundTrackReceiptComment;
 
-        static $inject = ["CommentResource", "$stateParams"];
+        static $inject = ["CommentResource", "$stateParams", "$state"];
         constructor(private commentResource: app.services.ICommentResource,
-            $stateParams: app.services.ICommentStateParams) {
+            private $stateParams: app.services.ICommentStateParams,
+            private $state: angular.ui.IStateService) {
             var sv = this;
             this.comment = new app.models.FundTrackReceiptComment();
 
             this.receiptId = $stateParams.id;
-
-
 
         }
 
@@ -34,6 +33,7 @@
             },
                 () => {
                     toastr.success("New Comment Added!");
+                    this.$state.reload();
                 },
                 //TODO:  Look into what properties error object has
                 (error: any) => {
