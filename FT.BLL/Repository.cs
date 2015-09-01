@@ -56,6 +56,7 @@ namespace FT.BLL
         public IEnumerable<FundTrackReceiptComment> GetAllComments()
         {
             return _repo.GetComments()
+                .OrderByDescending(x=>x.Id)
                 .Take(30)
                 .ToList();
         }

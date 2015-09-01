@@ -25,6 +25,8 @@
                 </tr>
             </tbody>
         </table>
-        <div class="sk-rotating-plane" ng-show="!vm.loadedReceipts"></div>
+        <div ng-hide="vm.loadedComments">
+            <spinning-widget></spinning-widget>
+        </div>
     </div>
 </div>
