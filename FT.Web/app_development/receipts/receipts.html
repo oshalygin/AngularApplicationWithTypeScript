@@ -29,7 +29,7 @@
                 <td>{{ receipt.servicer.name}}</td>
                 <td class="text-center">{{ receipt.receiptType.name}}</td>
                 <td class="text-success text-center"><strong>{{ receipt.totalAmount | currency}}</strong></td>
-                <td class="text-center">{{ receipt.receivedDate | date:'longDate'}}</td>
+                <td class="text-center">{{ receipt.receivedDate | date:'longDate' : '-1400'}}</td>
             </tr>
             </tbody>    
         </table>

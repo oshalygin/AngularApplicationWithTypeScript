@@ -6,6 +6,8 @@
         receiptId: number;
         commentText: string;
         comment: app.models.IFundTrackReceiptComment;
+        displayComments: boolean;
+
 
         static $inject = ["CommentResource", "$stateParams", "$state"];
         constructor(private commentResource: app.services.ICommentResource,
@@ -13,9 +15,13 @@
             private $state: angular.ui.IStateService) {
             var sv = this;
             this.comment = new app.models.FundTrackReceiptComment();
-
+            this.displayComments = true;
             this.receiptId = $stateParams.id;
 
+        }
+
+        public hideComments(): void {
+            this.displayComments = !this.displayComments;
         }
 
 
