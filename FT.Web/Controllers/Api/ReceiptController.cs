@@ -16,7 +16,7 @@ namespace FT.Web.Controllers.Api
 
         public IHttpActionResult Get()
         {
-            var receipts = _repository.GetAllReceipts();
+            var receipts = _repository.GetLast20Recepts();
             return Ok(receipts);
         }
 
