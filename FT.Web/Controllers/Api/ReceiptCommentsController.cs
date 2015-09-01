@@ -18,7 +18,7 @@ namespace FT.Web.Controllers.Api
 
         public IHttpActionResult Get()
         {
-            return Ok("oleg");
+            return Ok("foobar");
 
         }
 
@@ -28,10 +28,10 @@ namespace FT.Web.Controllers.Api
             return Ok(comments);
         }
 
-        public IHttpActionResult Post([FromBody] int receiptId, [FromBody] FundTrackReceiptComment comment)
+        public IHttpActionResult Post(int receiptId, string text)
         {
 
-            var savedComment = _repository.AddComment(receiptId, comment);
+            var savedComment = _repository.AddComment(receiptId, text);
             if (savedComment == null)
             {
                 return BadRequest("An error occured!");

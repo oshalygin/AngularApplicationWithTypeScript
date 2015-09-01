@@ -12,7 +12,7 @@ namespace FT.DAL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(FT.DAL.FundTrackContext context)

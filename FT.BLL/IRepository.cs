@@ -10,6 +10,6 @@ namespace FT.BLL
         FundTrackReceipt SaveNewReceipt(FundTrackReceipt receipt);
         IEnumerable<FundTrackReceiptType> GetAllReceiptTypes();
         IEnumerable<FundTrackReceiptComment> GetCommentsForReceipt(int receiptId);
-        FundTrackReceiptComment AddComment(int receiptId, FundTrackReceiptComment comment);
+        FundTrackReceiptComment AddComment(int receiptId, string text);
     }
 }

@@ -41,12 +41,14 @@ namespace FT.BLL
             return receipt.Comments;
         }
 
-        public FundTrackReceiptComment AddComment(int receiptId, FundTrackReceiptComment comment)
+        public FundTrackReceiptComment AddComment(int receiptId, string text)
         {
-            var newComment = new FundTrackReceiptComment();
-            newComment.Text = comment.Text;
-            newComment.CreatedDate = DateTime.UtcNow;
-            
+            var newComment = new FundTrackReceiptComment
+            {
+                Text = text,
+                CreatedDate = DateTime.UtcNow
+            };
+
 
             return _repo.AddComment(receiptId, newComment);
 
