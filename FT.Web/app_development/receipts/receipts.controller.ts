@@ -29,7 +29,7 @@
             vm.receipts = [];
             vm.loadedReceipts = false;
             vm.page = 1;
-            vm.pageSize = 5;
+            vm.pageSize = 10;
 
             $timeout(() => {
                 this.getReceipts();
@@ -55,7 +55,7 @@
                 (data: app.models.IFundTrackReceipt[]) => this.loaded(data));   
         }
 
-
+        
         private loaded(data: app.models.IFundTrackReceipt[]): void {
           
             this.receipts = data;

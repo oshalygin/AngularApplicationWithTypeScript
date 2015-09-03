@@ -16,8 +16,9 @@ namespace FT.BLL
         }
 
 
-        public IEnumerable<FundTrackReceipt> GetReceipts(int page = 0, int pageSize = 10)
+        public IEnumerable<FundTrackReceipt> GetReceipts(int page = 1, int pageSize = 10)
         {
+            page -= 1;
             return _repo.GetWithComments(page, pageSize).ToList();
             
         } 

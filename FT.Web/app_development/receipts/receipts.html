@@ -3,6 +3,7 @@
     <div class="panel-heading"
          style="font-size:large">
         {{::vm.title}}
+        
     </div>
     <div class="panel-body">
 
@@ -18,7 +19,6 @@
             </tr>
             </thead>
             <tbody ng-if="vm.loadedReceipts">
-
             <tr ng-repeat="receipt in vm.receipts"
                 ng-class-even="'active'"
                 ng-class="{even: $even, odd: $odd, info: hover}"
@@ -40,12 +40,15 @@
 
         </table>
         <!--TODO:  Fix Pagination-->
-        <div class="text-center" ng-hide="!vm.loadedReceipts">
-           
-            <pagination total-items="100" ng-model="vm.page" ng-change="vm.pageChanged(vm.page)"></pagination>
+        <div ng-hide="!vm.loadedReceipts">
+            <div class="text-center">
+                <pagination total-items="100" ng-model="vm.page" ng-change="vm.pageChanged(vm.page)"></pagination>
+            </div>
+
+            
+        </div>
         </div>
             <div ng-hide="vm.loadedReceipts">
-                
                 <spinning-widget></spinning-widget>
             </div>
     </div>
