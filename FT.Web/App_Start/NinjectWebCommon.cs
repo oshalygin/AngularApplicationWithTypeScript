@@ -1,19 +1,19 @@
+using System;
+using System.Web;
 using System.Web.Http;
-using FT.BLL;
+using System.Web.Http.Dependencies;
+using FT.Web.App_Start;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Extensions.Conventions;
+using Ninject.Web.Common;
+using WebActivatorEx;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(FT.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(FT.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: ApplicationShutdownMethod(typeof(NinjectWebCommon), "Stop")]
 
 namespace FT.Web.App_Start
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -43,11 +43,14 @@ namespace FT.Web.App_Start
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            GlobalConfiguration.Configuration.DependencyResolver = kernel.Get<System.Web.Http.Dependencies.IDependencyResolver>();
+            
+            GlobalConfiguration.Configuration.DependencyResolver = kernel.Get<IDependencyResolver>();
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
+                
 
                 RegisterServices(kernel);
                 return kernel;
@@ -65,8 +68,13 @@ namespace FT.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind(x=>x.FromAssembliesMatching("FT.*.dll")
+                                .SelectAllClasses()
+                                 .BindAllInterfaces()
+                );
 
-            kernel.Bind<IRepository>().To<Repository>().InRequestScope();
+            
+            
         }        
     }
 }

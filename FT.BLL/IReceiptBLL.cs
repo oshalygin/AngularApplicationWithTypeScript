@@ -3,7 +3,7 @@ using FT.Models;
 
 namespace FT.BLL
 {
-    public interface IRepository
+    public interface IReceiptBLL
     {
         IEnumerable<FundTrackReceipt> GetLast20Recepts();
 

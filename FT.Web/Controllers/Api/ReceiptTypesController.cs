@@ -5,16 +5,16 @@ namespace FT.Web.Controllers.Api
 {
     public class ReceiptTypesController : ApiController
     {
-        private readonly IRepository _repository;
-        public ReceiptTypesController(IRepository repository)
+        private readonly IReceiptBLL _receiptBll;
+        public ReceiptTypesController(IReceiptBLL receiptBll)
         {
-            _repository = repository;
+            _receiptBll = receiptBll;
         }
 
 
         public IHttpActionResult Get()
         {
-            var receiptTypes = _repository.GetAllReceiptTypes();
+            var receiptTypes = _receiptBll.GetAllReceiptTypes();
             return Ok(receiptTypes);
         }
 

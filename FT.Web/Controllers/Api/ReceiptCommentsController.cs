@@ -7,24 +7,24 @@ namespace FT.Web.Controllers.Api
 {
     public class ReceiptCommentsController : ApiController
     {
-        private readonly IRepository _repository;
+        private readonly IReceiptBLL _receiptBll;
 
-        public ReceiptCommentsController(IRepository repository)
+        public ReceiptCommentsController(IReceiptBLL receiptBll)
         {
-            _repository = repository;
+            _receiptBll = receiptBll;
         }
 
 
 
         public IHttpActionResult Get()
         {
-            var comments = _repository.GetAllComments();
+            var comments = _receiptBll.GetAllComments();
             return Ok(comments);
         }
 
         public IHttpActionResult Get(int id)
         {
-            var comments = _repository.GetCommentsForReceipt(id);
+            var comments = _receiptBll.GetCommentsForReceipt(id);
             return Ok(comments);
         }
 
@@ -32,7 +32,7 @@ namespace FT.Web.Controllers.Api
         public IHttpActionResult Post([FromUri]int receiptId, [FromUri]string text)
         {
 
-            var savedComment = _repository.AddComment(receiptId, text);
+            var savedComment = _receiptBll.AddComment(receiptId, text);
             if (savedComment == null)
             {
                 return BadRequest("An error occured!");

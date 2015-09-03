@@ -6,15 +6,15 @@ namespace FT.Web.Controllers.Api
     public class ReceiptSubservicerController : ApiController
     {
 
-        private readonly IRepository _repository;
-        public ReceiptSubservicerController(IRepository repository)
+        private readonly IReceiptBLL _receiptBll;
+        public ReceiptSubservicerController(IReceiptBLL receiptBll)
         {
-            _repository = repository;
+            _receiptBll = receiptBll;
         }
 
         public IHttpActionResult Get()
         {
-            var subservicerTypes = _repository.GetAllSubservicers();
+            var subservicerTypes = _receiptBll.GetAllSubservicers();
             return Ok(subservicerTypes);
         }
 

@@ -7,16 +7,16 @@ namespace FT.Web.Controllers.Api
     public class ReceiptController : ApiController
     {
 
-        private readonly IRepository _repository;
-        public ReceiptController(IRepository repository)
+        private readonly IReceiptBLL _receiptBll;
+        public ReceiptController(IReceiptBLL receiptBll)
         {
-            _repository = repository;
+            _receiptBll = receiptBll;
         }
 
 
         public IHttpActionResult Get()
         {
-            var receipts = _repository.GetLast20Recepts();
+            var receipts = _receiptBll.GetLast20Recepts();
             return Ok(receipts);
         }
 
@@ -24,7 +24,7 @@ namespace FT.Web.Controllers.Api
         {
             try
             {
-                var receipt = _repository.GetReceiptById(id);
+                var receipt = _receiptBll.GetReceiptById(id);
                 if (receipt == null)
                 {
                     return NotFound();
@@ -53,7 +53,7 @@ namespace FT.Web.Controllers.Api
                 return BadRequest(ModelState);
             }
 
-            var savedReceipt = _repository.SaveNewReceipt(newReceipt);
+            var savedReceipt = _receiptBll.SaveNewReceipt(newReceipt);
             if (savedReceipt == null)
             {   
                 return Conflict();
