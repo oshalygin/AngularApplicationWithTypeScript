@@ -5,7 +5,7 @@ using FT.Models;
 namespace FT.Web.Controllers.Api
 {
     public class ReceiptController : ApiController
-    {
+    {       
 
         private readonly IReceiptBLL _receiptBll;
         public ReceiptController(IReceiptBLL receiptBll)
@@ -13,10 +13,9 @@ namespace FT.Web.Controllers.Api
             _receiptBll = receiptBll;
         }
 
-
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(int page, int pageSize)
         {
-            var receipts = _receiptBll.GetLast20Recepts();
+            var receipts = _receiptBll.GetReceipts(page, pageSize);
             return Ok(receipts);
         }
 

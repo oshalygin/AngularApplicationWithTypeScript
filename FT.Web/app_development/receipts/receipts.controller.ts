@@ -7,6 +7,8 @@
         receipts: app.models.FundTrackReceipt[];
         loadedReceipts: boolean;
         lastComment: app.models.IFundTrackReceiptComment;
+        pageSize: number;
+        page: number;
     }
 
 
@@ -16,6 +18,8 @@
         receipts: app.models.IFundTrackReceipt[];
         loadedReceipts: boolean;
         lastComment: app.models.IFundTrackReceiptComment;
+        pageSize: number;
+        page: number;
 
         static $inject = ["ReceiptResource", "$timeout"];
         constructor(private receiptResource: app.services.IReceiptResource,
@@ -29,14 +33,14 @@
             }, 1000);
 
             vm.title = "Receipts";
+            vm.page = 0;
+            vm.pageSize = 4;
         }
 
         public getAllReceipts(): void {
             
-            this.receiptResource.query({},
-                (data: app.models.IFundTrackReceipt[]) => this.loaded(data));
-            
-            
+            this.receiptResource.query({page: this.page, pageSize: this.pageSize},
+                (data: app.models.IFundTrackReceipt[]) => this.loaded(data));   
         }
 
         private loaded(data: app.models.IFundTrackReceipt[]): void {

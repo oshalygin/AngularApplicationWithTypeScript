@@ -9,6 +9,6 @@ namespace FT.BLL
         IEnumerable<FundTrackReceipt> GetAllReceipts();
         FundTrackReceipt GetReceiptById(int id);
         FundTrackReceipt SaveNewReceipt(FundTrackReceipt receipt);
- 
+        IEnumerable<FundTrackReceipt> GetReceipts(int page, int pageSize);
     }
 }

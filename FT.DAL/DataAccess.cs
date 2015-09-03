@@ -92,6 +92,17 @@ namespace FT.DAL
                 .AsEnumerable();
         }
 
+        public IEnumerable<FundTrackReceipt> GetWithComments(int page, int pageSize)
+        {
+            return _context
+                .FundTrackReceipts
+                .AsNoTracking()
+                .OrderByDescending(x => x.Id)
+                .Skip(pageSize*page)
+                .Take(pageSize)
+                .AsEnumerable();
+        }
+
         public IEnumerable<FundTrackReceipt> GetWithComments()
         {
             return _context
