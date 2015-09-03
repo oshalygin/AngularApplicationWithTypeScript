@@ -12,9 +12,15 @@
 
                         <label class="control-label col-md-2">Id:</label>
 
-                        <div class="col-md-3">
+                        <div class="col-md-3" ng-show="!vm.editMode">
                             <div class="input-group col-md-12">
                                 <span class="editForm">{{ vm.receipt.id }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" ng-show="vm.editMode">
+                            <div class="input-group col-md-12">
+                                <input type="text" class="form-control" required disabled name="id" ng-model="vm.receipt.id">
                             </div>
                         </div>
 
@@ -95,7 +101,7 @@
                                 <span class="input-group-addon">
                                     $
                                 </span>
-                                <input type="text" required class="form-control" name="totalAmount" ng-model="vm.receipt.totalAmount" currency-mask>
+                                <input type="text" required name="totalAmount" class="form-control" name="totalAmount" ng-model="vm.receipt.totalAmount" currency-mask>
                             </div>
                         </div>
 
