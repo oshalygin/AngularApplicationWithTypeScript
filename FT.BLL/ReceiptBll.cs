@@ -9,8 +9,13 @@ namespace FT.BLL
 {
     public class ReceiptBll: IReceiptBLL
     {
+        private readonly IDataAccess _repo;
+        public ReceiptBll(IDataAccess repo)
+        {
+            _repo = repo;
+        }
+
         
-        private readonly FundTrackReceiptDataAccess _repo = new FundTrackReceiptDataAccess();
 
         public IEnumerable<FundTrackReceipt> GetLast20Recepts()
         {

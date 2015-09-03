@@ -52,12 +52,12 @@
   <ItemGroup>
     <Compile Include="BaseDomainContext.cs" />
     <Compile Include="FundDetailView.cs" />
-    <Compile Include="FundTrackReceiptDataAccess.cs" />
-    <Compile Include="FundTrackLegacyDataAccess.cs" />
-    <Compile Include="IFundTrackReceiptDataAccess.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="IDataAccess.cs" />
+    <Compile Include="LegacyDataAccess.cs" />
     <Compile Include="FTSeeder.cs" />
     <Compile Include="FundTrackContext.cs" />
-    <Compile Include="IFundTrackLegacyDataAccess.cs" />
+    <Compile Include="ILegacyDataAccess.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 ﻿namespace FT.DAL
 {
-    public interface IFundTrackLegacyDataAccess
+    public interface ILegacyDataAccess
     {
         int RandomizeAllReceiptTotalsUsingStoredProcedure();
         FundReceiptDetail Get(int receiptId);

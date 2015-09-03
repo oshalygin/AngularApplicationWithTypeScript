@@ -7,11 +7,11 @@ using FT.Models;
 
 namespace FT.DAL
 {
-    public class FundTrackReceiptDataAccess : IFundTrackReceiptDataAccess
+    public class DataAccess : IDataAccess
     {
         private readonly FundTrackContext _context;
 
-        public FundTrackReceiptDataAccess()
+        public DataAccess()
         {
             _context = new FundTrackContext();
         }

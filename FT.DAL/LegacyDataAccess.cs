@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace FT.DAL
 {
-    public class FundTrackLegacyDataAccess : IFundTrackLegacyDataAccess
+    public class LegacyDataAccess : ILegacyDataAccess
     {
         private readonly FundTrackContext _context;
 
-        public FundTrackLegacyDataAccess()
+        public LegacyDataAccess()
         {
             Database.SetInitializer<FundTrackContext>(null);
             _context = new FundTrackContext();
