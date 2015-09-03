@@ -41,7 +41,8 @@
         </table>
         <!--TODO:  Fix Pagination-->
         <div class="text-center" ng-hide="!vm.loadedReceipts">
-            <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+           
+            <pagination total-items="100" ng-model="vm.page" ng-change="vm.pageChanged(vm.page)"></pagination>
         </div>
             <div ng-hide="vm.loadedReceipts">
                 

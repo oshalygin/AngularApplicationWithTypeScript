@@ -20,28 +20,41 @@
         lastComment: app.models.IFundTrackReceiptComment;
         pageSize: number;
         page: number;
+        totalNumberOfReceipts: number;
 
         static $inject = ["ReceiptResource", "$timeout"];
         constructor(private receiptResource: app.services.IReceiptResource,
-                    private $timeout: angular.ITimeoutService) {
+            private $timeout: angular.ITimeoutService) {
             var vm = this;
             vm.receipts = [];
             vm.loadedReceipts = false;
+            vm.page = 1;
+            vm.pageSize = 5;
 
             $timeout(() => {
-                this.getAllReceipts();
+                this.getReceipts();
             }, 1000);
 
             vm.title = "Receipts";
-            vm.page = 0;
-            vm.pageSize = 4;
+           
         }
 
-        public getAllReceipts(): void {
+        public pageChanged(page: number): void {
+            this.getReceipts();
+        }
+
+        
+        //TODO: Create another service to track down totals...
+        //private getReceiptTotal(): void {
+        //    this.receiptResource.get({})
+        //}
+
+        private getReceipts(): void {
             
-            this.receiptResource.query({page: this.page, pageSize: this.pageSize},
+            this.receiptResource.query({ page: this.page, pageSize: this.pageSize},
                 (data: app.models.IFundTrackReceipt[]) => this.loaded(data));   
         }
+
 
         private loaded(data: app.models.IFundTrackReceipt[]): void {
           
