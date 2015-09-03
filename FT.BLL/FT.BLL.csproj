@@ -42,8 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IReceiptBLL.cs" />
+    <Compile Include="IReceiptCommentBLL.cs" />
+    <Compile Include="IReceiptSubservicerBLL.cs" />
+    <Compile Include="IReceiptTypeBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceiptBll.cs" />
+    <Compile Include="ReceiptBLL.cs" />
+    <Compile Include="ReceiptCommentBLL.cs" />
+    <Compile Include="ReceiptSubservicerBLL.cs" />
+    <Compile Include="ReceiptTypeBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

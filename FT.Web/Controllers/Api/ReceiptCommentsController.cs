@@ -7,9 +7,9 @@ namespace FT.Web.Controllers.Api
 {
     public class ReceiptCommentsController : ApiController
     {
-        private readonly IReceiptBLL _receiptBll;
+        private readonly IReceiptCommentBLL _receiptBll;
 
-        public ReceiptCommentsController(IReceiptBLL receiptBll)
+        public ReceiptCommentsController(IReceiptCommentBLL receiptBll)
         {
             _receiptBll = receiptBll;
         }

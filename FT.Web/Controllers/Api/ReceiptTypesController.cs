@@ -5,8 +5,8 @@ namespace FT.Web.Controllers.Api
 {
     public class ReceiptTypesController : ApiController
     {
-        private readonly IReceiptBLL _receiptBll;
-        public ReceiptTypesController(IReceiptBLL receiptBll)
+        private readonly IReceiptTypeBLL _receiptBll;
+        public ReceiptTypesController(IReceiptTypeBLL receiptBll)
         {
             _receiptBll = receiptBll;
         }
