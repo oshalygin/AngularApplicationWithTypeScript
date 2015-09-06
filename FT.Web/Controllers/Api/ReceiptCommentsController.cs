@@ -1,7 +1,6 @@
 ﻿using System.Web.Http;
 using FT.BLL;
-using FT.Models;
-using Newtonsoft.Json.Linq;
+
 
 namespace FT.Web.Controllers.Api
 {
