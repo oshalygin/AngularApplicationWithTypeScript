@@ -9,6 +9,8 @@
         lastComment: app.models.IFundTrackReceiptComment;
         pageSize: number;
         page: number;
+        totalNumberOfReceipts: number;
+        maxNumberOfPagesToDisplay: number;
     }
 
 
@@ -21,46 +23,55 @@
         pageSize: number;
         page: number;
         totalNumberOfReceipts: number;
+        maxNumberOfPagesToDisplay: number;
 
         static $inject = ["ReceiptResource", "$timeout"];
         constructor(private receiptResource: app.services.IReceiptResource,
             private $timeout: angular.ITimeoutService) {
             var vm = this;
-            vm.receipts = [];
-            vm.loadedReceipts = false;
-            vm.page = 1;
-            vm.pageSize = 10;
+
+            this.receipts = [];
+            this.loadedReceipts = false;
+            this.page = 1;
+            this.pageSize = 10;
+            this.maxNumberOfPagesToDisplay = 5;
+            this.title = "Receipts";
+
 
             $timeout(() => {
+                this.getReceiptTotal();
                 this.getReceipts();
+
             }, 1000);
 
-            vm.title = "Receipts";
-           
+
+
         }
 
         public pageChanged(page: number): void {
             this.getReceipts();
         }
 
-        
-        //TODO: Create another service to track down totals...
-        //private getReceiptTotal(): void {
-        //    this.receiptResource.get({})
-        //}
 
-        private getReceipts(): void {
-            
-            this.receiptResource.query({ page: this.page, pageSize: this.pageSize},
-                (data: app.models.IFundTrackReceipt[]) => this.loaded(data));   
+
+        private getReceiptTotal(): void {
+            this.receiptResource.get({}, (data: app.models.IFundTrackTotals) => {
+                this.totalNumberOfReceipts = data.totalNumberOfReceipts;
+            });
         }
 
-        
+        private getReceipts(): void {
+
+            this.receiptResource.query({ page: this.page, pageSize: this.pageSize },
+                (data: app.models.IFundTrackReceipt[]) => this.loaded(data));
+        }
+
+
         private loaded(data: app.models.IFundTrackReceipt[]): void {
-          
+
             this.receipts = data;
             this.loadedReceipts = true;
-            
+
         }
     }
 

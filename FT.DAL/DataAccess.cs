@@ -35,6 +35,13 @@ namespace FT.DAL
             return newReceipt;
         }
 
+        public int GetTotalNumberOfReceipts()
+        {
+            return _context.FundTrackReceipts
+                            .Count();
+        }
+
+
         public void AddComments(int receiptId, IEnumerable<FundTrackReceiptComment> comments)
         {
             var receipt = _context.FundTrackReceipts.Find(receiptId);
@@ -98,7 +105,7 @@ namespace FT.DAL
                 .FundTrackReceipts
                 .AsNoTracking()
                 .OrderByDescending(x => x.Id)
-                .Skip(pageSize*page)
+                .Skip(pageSize * page)
                 .Take(pageSize)
                 .AsEnumerable();
         }

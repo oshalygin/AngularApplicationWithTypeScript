@@ -42,8 +42,11 @@
         <!--TODO:  Fix Pagination-->
         <div ng-hide="!vm.loadedReceipts">
             <div class="text-center">
-                <pagination total-items="100" ng-model="vm.page" ng-change="vm.pageChanged(vm.page)"></pagination>
+                <pagination total-items="vm.totalNumberOfReceipts" ng-model="vm.page" ng-change="vm.pageChanged(vm.page)"></pagination>
+                 <pagination total-items="vm.totalNumberOfReceipts" ng-model="vm.page" max-size="vm.maxNumberOfPagesToDisplay" class="pagination-sm" boundary-links="true" rotate="false" ng-model="vm.page" ng-change="vm.pageChanged(vm.page)"></pagination>
+
             </div>
+            {{vm.maxNumberOfPagesToDisplay}}
 
             
         </div>

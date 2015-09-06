@@ -22,5 +22,7 @@ namespace FT.DAL
         void RandomizeAllReceiptTotals();
         void RemoveComments(IEnumerable<FundTrackReceiptComment> comments);
         FundTrackReceipt Update(FundTrackReceipt updateReceipt);
+        
+        int GetTotalNumberOfReceipts();
     }
 }

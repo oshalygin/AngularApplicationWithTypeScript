@@ -169,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReceiptTotals.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -12986,12 +12987,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tsd.json" />
     <Content Include="tslint.json" />
+    <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="app_deploy\" />
     <Folder Include="bower_components\angular-ui-router\api\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -13059,6 +13060,7 @@
     <TypeScriptCompile Include="app_development\models\FundTrackReceipt.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackReceiptType.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackSubservicer.model.ts" />
+    <TypeScriptCompile Include="app_development\models\FundTrackTotals.model.ts" />
     <TypeScriptCompile Include="app_development\receipts\commentDetail.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\comments.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\newreceipt.controller.ts" />
