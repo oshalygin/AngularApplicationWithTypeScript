@@ -1,8 +1,9 @@
 ﻿module app.services {
 
+
+
     "use strict";
     export class ResourceBuilder {
-
 
         static $inject = ["$resource"];
         constructor(private $resource: ng.resource.IResourceService) {
@@ -10,8 +11,18 @@
 
         }
 
+
         public getReceiptResource(): app.services.IReceiptResource {
-            return this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.receipts, { id: "@id" });
+
+            var updateDetails: ng.resource.IActionDescriptor =
+                {
+                    method: "PUT",
+                    isArray: false
+                };
+
+            return <IReceiptResource>this.$resource(ApiEndpoints.baseUrl + ApiEndpoints.receipts, { id: "@id" }, {
+                update: updateDetails
+            });
         }
 
 

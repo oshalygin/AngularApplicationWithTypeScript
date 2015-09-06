@@ -62,7 +62,13 @@
         }
 
         public updateReceiptDetails(receipt: app.models.FundTrackReceipt): void {
-                  //todo: Implement
+            this.receiptResource.update(this.receipt,
+            () => {
+                toastr.success("Receipt Updated");
+            },
+            () => {
+                toastr.error("Could not Update Receipt");
+            });
         }
 
         private getReceiptTypes(): void {

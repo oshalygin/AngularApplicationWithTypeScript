@@ -73,10 +73,11 @@ namespace FT.Web.Controllers.Api
 
         }
 
-        //// PUT: api/Receipt/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+        
+        public IHttpActionResult Put([FromBody]FundTrackReceipt receipt)
+        {
+            return NotFound();
+        }
 
     }
 }
