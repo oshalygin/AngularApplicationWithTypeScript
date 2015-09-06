@@ -1,27 +1,22 @@
 ﻿module app.receipts {
 
-
-
     interface INewReceiptController {
         title: string;
-        receipt: app.models.IFundTrackReceipt;
-    }
-
-    interface IReceiptForm extends angular.IScope {
+        receipt: app.models.FundTrackReceipt;
+        datePicker: app.models.DatePickerStatus;
+        receiptTypes: app.models.FundTrackReceiptType[];
+        servicers: app.models.FundTrackSubservicer[];
         receiptForm: angular.IFormController;
+        savingFormLoader: boolean;
+        startProgress: boolean;
+        progressValue: number;
     }
-
-    class DatePickerStatus {
-        opened: boolean;
-    }
-
-
 
     class NewReceiptController implements INewReceiptController {
 
         title: string;
         receipt: app.models.FundTrackReceipt;
-        status: DatePickerStatus;
+        datePicker: app.models.DatePickerStatus;
         receiptTypes: app.models.FundTrackReceiptType[];
         servicers: app.models.FundTrackSubservicer[];
         receiptForm: angular.IFormController;
@@ -31,14 +26,14 @@
 
         static $inject = ["ReceiptResource", "ReceiptTypesResource", "SubservicerResource",
             "$scope", "$timeout", "$state"];
-        constructor(           
+        constructor(
             private receiptResource: app.services.IReceiptResource,
             private receiptTypesResource: app.services.IReceiptTypesResource,
             private subservicerResource: app.services.ISubservicerResource,
-            private form: IReceiptForm,
+            private form: app.models.IReceiptForm,
             private $timeout: angular.ITimeoutService,
             private $state: angular.ui.IStateService) {
-       
+
             var vm = this;
             vm.title = "New Receipt";
             vm.startProgress = false;
@@ -51,23 +46,13 @@
             vm.receipt.servicer = new app.models.FundTrackSubservicer;
 
             vm.receipt.receiptType = new app.models.FundTrackReceiptType;
-            
 
-            vm.status = new DatePickerStatus();
-            vm.status.opened = false;
 
-            
-            
-            
-          
+            vm.datePicker = new app.models.DatePickerStatus();
+
 
         }
 
-        public open($event: any) {
-            this.status.opened = true;
-        }
-
-        
         public saveReceipt(): void {
 
             if (this.form.receiptForm.$invalid) {
@@ -90,21 +75,21 @@
                         toastr.success("New Receipt Saved!");
                         this.$state.go("receipts");
                     }, 2000);
-                    
+
                 },
                 //TODO:  Look into what properties error object has
-            (error: any) => {
-                toastr.error("Failed: Server Error");
-            });
+                (error: any) => {
+                    toastr.error("Failed: Server Error");
+                });
 
         }
 
 
         private getReceiptTypes(): void {
             this.receiptTypesResource.query({},
-            (data: app.models.IFundTrackReceiptType[]) => {
-                this.receiptTypes = data;
-            });
+                (data: app.models.IFundTrackReceiptType[]) => {
+                    this.receiptTypes = data;
+                });
         }
 
         private getSubservicers(): void {
@@ -122,7 +107,7 @@
 
     angular.module("app.receipts")
         .controller("app.receipts.NewReceiptController",
-        NewReceiptController);
+            NewReceiptController);
 
 }
 

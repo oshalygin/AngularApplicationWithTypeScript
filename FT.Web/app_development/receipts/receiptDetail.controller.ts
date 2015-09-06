@@ -4,8 +4,13 @@
 
     interface IReceiptDetailController {
         title: string;
+        receipt: app.models.FundTrackReceipt;
+        receiptTypes: app.models.FundTrackReceiptType[];
+        servicers: app.models.FundTrackSubservicer[];
+        datePicker: app.models.DatePickerStatus;
         receiptId: number;
         imageUrl: string;
+        editMode: boolean;
     }
 
     class ReceiptDetailController implements IReceiptDetailController {
@@ -14,6 +19,7 @@
         receipt: app.models.FundTrackReceipt;
         receiptTypes: app.models.FundTrackReceiptType[];
         servicers: app.models.FundTrackSubservicer[];
+        datePicker: app.models.DatePickerStatus;
         receiptId: number;
         imageUrl: string;
         editMode: boolean;
@@ -38,6 +44,8 @@
             this.getReceiptTypes();
             this.getSubservicers();
 
+            vm.datePicker = new app.models.DatePickerStatus();
+
 
         }
 
@@ -45,14 +53,16 @@
             this.editMode = !this.editMode;
         }
 
+
         public getReceiptById(id: number): void {
             this.receiptResource.get({ id: id },
-                (data: app.models.IFundTrackReceipt) => this.loaded(data));
+                (data: app.models.IFundTrackReceipt) => {
+                    this.receipt = data;
+                });
         }
 
-        private loaded(data: app.models.IFundTrackReceipt): void {
-            this.receipt = data;
-
+        public updateReceiptDetails(receipt: app.models.FundTrackReceipt): void {
+                  //todo: Implement
         }
 
         private getReceiptTypes(): void {

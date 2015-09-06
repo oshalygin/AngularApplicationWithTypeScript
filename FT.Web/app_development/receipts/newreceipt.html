@@ -15,14 +15,13 @@
         </div>
 
       
-        <!-- TODO: Slap this into a directive-->
         <div class="form-group" show-errors>
             <label class="control-label col-md-2">Received Date:</label>
             <div class="col-md-3">
                 <p class="input-group">
-                    <input type="text" required class="form-control" datepicker-popup="{{format}}" name="receivedDate" ng-model="vm.receipt.receivedDate" is-open="vm.status.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                    <input type="text" required class="form-control" datepicker-popup="{{vm.datePicker.format}}" name="receivedDate" ng-model="vm.receipt.receivedDate" is-open="vm.datePicker.opened" min-date="minDate" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="vm.datePicker.open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </p>
             </div>

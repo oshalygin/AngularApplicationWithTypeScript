@@ -34,7 +34,7 @@
             this.loadedReceipts = false;
             this.page = 1;
             this.pageSize = 10;
-            this.maxNumberOfPagesToDisplay = 5;
+            this.maxNumberOfPagesToDisplay = 4;
             this.title = "Receipts";
 
 

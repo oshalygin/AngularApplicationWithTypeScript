@@ -12961,6 +12961,7 @@
     <Content Include="bower_components\angular-ui-router\CONTRIBUTING.md" />
     <Content Include="bower_components\angular-ui-router\LICENSE" />
     <Content Include="bower_components\angular-ui-router\README.md" />
+    <TypeScriptCompile Include="app_development\models\DatePickerStatus.model.ts" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -13061,6 +13062,7 @@
     <TypeScriptCompile Include="app_development\models\FundTrackReceiptType.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackSubservicer.model.ts" />
     <TypeScriptCompile Include="app_development\models\FundTrackTotals.model.ts" />
+    <TypeScriptCompile Include="app_development\models\IReceiptForm.model.ts" />
     <TypeScriptCompile Include="app_development\receipts\commentDetail.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\comments.controller.ts" />
     <TypeScriptCompile Include="app_development\receipts\newreceipt.controller.ts" />

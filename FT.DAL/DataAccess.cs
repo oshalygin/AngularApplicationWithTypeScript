@@ -155,8 +155,12 @@ namespace FT.DAL
                 .Find(updateReceipt.Id);
 
             receipt.CheckNumber = updateReceipt.CheckNumber;
+
             receipt.ReceivedDate = updateReceipt.ReceivedDate;
             receipt.TotalAmount = updateReceipt.TotalAmount;
+
+            receipt.ReceiptType = this.GetReceiptTypeById(updateReceipt.ReceiptType.Id);
+            receipt.Servicer = this.GetSubservicerById(updateReceipt.Servicer.Id);
 
             _context.SaveChanges();
             return receipt;
