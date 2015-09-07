@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The description of my page" />
 
+
     <title ng-cloak>{{ $state.current.title }}</title>
-    <link href="~/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/bower_components/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="~/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/spinner.css" rel="stylesheet" />
     <link href="~/Content/commentBox.css" rel="stylesheet" />
-    <link href="~/bower_components/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/toastrSettings.css" rel="stylesheet" />
+
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -43,7 +47,9 @@
     <script src="~/bower_components/angular-bootstrap-show-errors/src/showErrors.min.js"></script>
 
 
-    <!-- 3rd Party Library Files -->
+    <!-- Non-Angular Configuration -->
+    <script src="~/app_development/settings/toastr.settings.js"></script>
+
     <!-- Model Classes -->
     <script src="~/app_development/models/FundTrackReceipt.model.js"></script>
     <script src="~/app_development/models/FundTrackReceiptComment.model.js"></script>
@@ -88,7 +94,7 @@
     <script src="~/app_development/widgets/currency.mask.directive.js"></script>
     <script src="~/app_development/receipts/display.comments.directive.js"></script>
     <script src="~/app_development/widgets/spinning.widget.js"></script>
-    
+
 
     <!-- Controllers -->
 

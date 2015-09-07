@@ -24,6 +24,7 @@
     "angular-spinners": "~2.1.8",
     "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
     "SpinKit": "spinkit#~1.2.1",
     "toastr": "~2.1.2"
   }

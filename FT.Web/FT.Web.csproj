@@ -13077,6 +13077,7 @@
     <TypeScriptCompile Include="app_development\services\resource.builder.ts" />
     <TypeScriptCompile Include="app_development\services\subservicer.services.ts" />
     <TypeScriptCompile Include="app_development\services\services.module.ts" />
+    <TypeScriptCompile Include="app_development\settings\toastr.settings.ts" />
     <TypeScriptCompile Include="app_development\widgets\currency.mask.directive.ts" />
     <TypeScriptCompile Include="app_development\receipts\display.comments.directive.ts" />
     <TypeScriptCompile Include="app_development\widgets\spinning.widget.ts" />

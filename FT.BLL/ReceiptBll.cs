@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FT.DAL;
 using FT.Models;
@@ -48,6 +49,10 @@ namespace FT.BLL
             return _repo.GetAllSubservicers();
         }
 
+        public FundTrackReceipt UpdateReceipt(FundTrackReceipt updatedReceipt)
+        {
+            return _repo.Update(updatedReceipt);
 
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 using FT.BLL;
 using FT.Models;
 using FT.Web.Models;
@@ -73,10 +75,21 @@ namespace FT.Web.Controllers.Api
 
         }
 
-        
-        public IHttpActionResult Put([FromBody]FundTrackReceipt receipt)
+
+        public IHttpActionResult Put([FromBody]FundTrackReceipt updatedReceipt)
         {
-            return NotFound();
+            if (updatedReceipt == null)
+            {
+                return BadRequest("No Receipt was sent to update");
+            }
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+
+            var receipt = _receiptBll.UpdateReceipt(updatedReceipt);
+            return Ok(receipt);
+
         }
 
     }
