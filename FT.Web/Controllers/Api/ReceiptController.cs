@@ -80,11 +80,12 @@ namespace FT.Web.Controllers.Api
         {
             if (updatedReceipt == null)
             {
-                return BadRequest("No Receipt was sent to update");
+                return StatusCode(HttpStatusCode.NoContent);
+    
             }
             if (!ModelState.IsValid)
             {
-                return StatusCode(HttpStatusCode.NoContent);
+                return BadRequest("Input Validation Errors!");
             }
 
             var receipt = _receiptBll.UpdateReceipt(updatedReceipt);

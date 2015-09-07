@@ -34,7 +34,7 @@ namespace FT.Web.Controllers.Api
         {
             if (string.IsNullOrWhiteSpace(receipt.Text))
             {
-                return BadRequest("No Comment Text Entered");
+                return BadRequest("Text for the comment was forgotten");
             }
 
             var savedComment = _receiptBll.AddComment(receiptId, receipt.Text);
