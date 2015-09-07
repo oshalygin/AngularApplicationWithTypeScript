@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using FT.BLL;
-using FT.Models;
+using FT.Entities;
 using FT.Web.Models;
 
 

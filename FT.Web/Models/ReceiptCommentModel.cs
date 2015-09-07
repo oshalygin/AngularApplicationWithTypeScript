@@ -1,13 +1,14 @@
-﻿using System;
+using System;
+using FT.Entities;
 
-namespace FT.Entities
+namespace FT.Web.Models
 {
-    public class FundTrackReceiptComment
+    public class ReceiptCommentModel
     {
         public int Id { get; set; }
         public string Text { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdateDate { get; set; }
-        public virtual FundTrackReceipt FundTrackReceipt { get; set; }
+        public int ReceiptId { get; set; }
     }
 }

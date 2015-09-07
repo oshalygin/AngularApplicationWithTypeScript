@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using FT.DAL;
-using FT.Models;
+using FT.Entities;
 
 namespace FT.BLL
 {

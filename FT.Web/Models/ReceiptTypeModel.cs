@@ -1,6 +1,6 @@
-﻿namespace FT.Entities
+﻿namespace FT.Web.Models
 {
-    public class FundTrackReceiptType
+    public class ReceiptTypeModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

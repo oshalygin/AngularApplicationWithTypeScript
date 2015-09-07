@@ -169,7 +169,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\ReceiptCommentModel.cs" />
+    <Compile Include="Models\ReceiptModel.cs" />
+    <Compile Include="Models\ReceiptSubservicerModel.cs" />
     <Compile Include="Models\ReceiptTotals.cs" />
+    <Compile Include="Models\ReceiptTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -13143,9 +13148,9 @@
       <Project>{4720AD30-896E-456D-BAF9-FC8B6827CC46}</Project>
       <Name>FT.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FT.Models\FT.Models.csproj">
+    <ProjectReference Include="..\FT.Models\FT.Entities.csproj">
       <Project>{b3e21755-894d-420f-b574-11f3c1b38be5}</Project>
-      <Name>FT.Models</Name>
+      <Name>FT.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

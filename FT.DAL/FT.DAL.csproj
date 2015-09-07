@@ -66,9 +66,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FT.Models\FT.Models.csproj">
+    <ProjectReference Include="..\FT.Models\FT.Entities.csproj">
       <Project>{b3e21755-894d-420f-b574-11f3c1b38be5}</Project>
-      <Name>FT.Models</Name>
+      <Name>FT.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

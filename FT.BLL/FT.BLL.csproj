@@ -59,9 +59,9 @@
       <Project>{1A7A44F0-6BCB-4805-82D5-3EC09B41351B}</Project>
       <Name>FT.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FT.Models\FT.Models.csproj">
+    <ProjectReference Include="..\FT.Models\FT.Entities.csproj">
       <Project>{B3E21755-894D-420F-B574-11F3C1B38BE5}</Project>
-      <Name>FT.Models</Name>
+      <Name>FT.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

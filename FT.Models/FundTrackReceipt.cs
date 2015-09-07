@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FT.Models
+namespace FT.Entities
 {
     public class FundTrackReceipt
     {

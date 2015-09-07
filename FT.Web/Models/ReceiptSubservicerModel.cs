@@ -1,6 +1,6 @@
-﻿namespace FT.Entities
+﻿namespace FT.Web.Models
 {
-    public class FundTrackSubservicer
+    public class ReceiptSubservicerModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -1,8 +1,9 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FT.BLL;
-using FT.Models;
+using FT.Entities;
 using FT.Web.Models;
 
 namespace FT.Web.Controllers.Api
@@ -11,9 +12,11 @@ namespace FT.Web.Controllers.Api
     {
 
         private readonly IReceiptBLL _receiptBll;
+        private readonly ModelFactory _modelFactory;
         public ReceiptController(IReceiptBLL receiptBll)
         {
             _receiptBll = receiptBll;
+            _modelFactory = new ModelFactory();
         }
 
         public IHttpActionResult Get()
@@ -47,7 +50,10 @@ namespace FT.Web.Controllers.Api
 
         public IHttpActionResult Get(int page, int pageSize)
         {
-            var receipts = _receiptBll.GetReceipts(page, pageSize);
+            var receipts = _receiptBll
+                .GetReceipts(page, pageSize)
+                .Select(x => _modelFactory.Create(x));
+
             return Ok(receipts);
         }
 

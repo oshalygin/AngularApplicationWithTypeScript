@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FT.Models;
+using FT.Entities;
 
 namespace FT.DAL
 {

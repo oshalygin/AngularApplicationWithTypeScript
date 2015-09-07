@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.DAL", "FT.DAL\FT.DAL.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.BLL", "FT.BLL\FT.BLL.csproj", "{4720AD30-896E-456D-BAF9-FC8B6827CC46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Models", "FT.Models\FT.Models.csproj", "{B3E21755-894D-420F-B574-11F3C1B38BE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT.Entities", "FT.Models\FT.Entities.csproj", "{B3E21755-894D-420F-B574-11F3C1B38BE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
