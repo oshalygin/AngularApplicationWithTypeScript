@@ -7,37 +7,37 @@
     <div class="panel-body">
         <div class="form-group">
             <div>
-                <input class="form-control" style="max-width: 300px;" id="focusedInput" type="text" placeholder="Search Comments..." ng-model="vm.searchQuery">
+                <input class="form-control" style="max-width: 300px;" id="focusedInput" type="text" placeholder="Search Comments..." ng-model="vm.searchTerm" ng-model-options="{debounce: 1000}">
             </div>
         </div>
         <table class="table">
             <thead>
-            <tr>
-                <td><strong>Id</strong></td>
-                <td><strong>Text</strong></td>
-                <td class="text-center"><strong>Created</strong></td>
-                <td class="text-center"><strong>Updated</strong></td>
-            </tr>
+                <tr>
+                    <td><strong>Id</strong></td>
+                    <td><strong>Text</strong></td>
+                    <td class="text-center"><strong>Created</strong></td>
+                    <td class="text-center"><strong>Updated</strong></td>
+                </tr>
             </thead>
             <tbody ng-if="vm.loadedComments">
-            <tr ng-repeat="comment in vm.comments | orderBy: '-id' | filter:vm.searchQuery"
-                ng-class-even="'active'"
-                ng-class="{even: $even, odd: $odd, info: hover}"
-                ng-mouseover="hover = true"
-                ng-mouseleave="hover = false">
+                <tr ng-repeat="comment in vm.comments | orderBy: '-id' | filter:vm.searchQuery"
+                    ng-class-even="'active'"
+                    ng-class="{even: $even, odd: $odd, info: hover}"
+                    ng-mouseover="hover = true"
+                    ng-mouseleave="hover = false">
 
-                <td>{{ comment.id }}</td>
-                <td>
-                    {{ comment.text }}<span ng-if="comment.text.length > 100">...</span>
-                </td>
-                <td class="text-center">{{ comment.createdDate | date:'short' : '-1400'}}</td>
-                <td class="text-center">{{ comment.updateDate | date:'short' : '-1400'}}</td>
-            </tr>
+                    <td>{{ comment.id }}</td>
+                    <td>
+                        {{ comment.text }}<span ng-if="comment.text.length > 100">...</span>
+                    </td>
+                    <td class="text-center">{{ comment.createdDate | date:'short' : '-1400'}}</td>
+                    <td class="text-center">{{ comment.updateDate | date:'short' : '-1400'}}</td>
+                </tr>
             </tbody>
         </table>
         <div ng-hide="!vm.loadedComments">
             <div class="text-center">
-                <pagination total-items="vm.totalNumberOfComments" ng-model="vm.page" max-size="vm.maxNumberOfPagesToDisplay" class="pagination-sm" boundary-links="true" rotate="false" ng-model="vm.page" ng-change="vm.pageChanged(vm.page)"></pagination>
+                <pagination total-items="vm.totalNumberOfComments" ng-model="vm.page" max-size="vm.maxNumberOfPagesToDisplay" class="pagination-sm" boundary-links="true" rotate="false" ng-change="vm.pageChanged(vm.page)"></pagination>
             </div>
 
         </div>

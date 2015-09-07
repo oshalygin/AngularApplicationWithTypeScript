@@ -41,6 +41,8 @@ namespace FT.DAL
                             .Count();
         }
 
+
+
         public int GetTotalNumberOfComments()
         {
             return _context.FundTrackReceiptComments
@@ -126,6 +128,18 @@ namespace FT.DAL
                .Take(pageSize)
                .AsEnumerable();
 
+        }
+
+        public IEnumerable<FundTrackReceiptComment> GetFilteredComments(int page, int pageSize, string searchTerm)
+        {
+            return _context
+                .FundTrackReceiptComments
+                .AsNoTracking()
+                .Where(x => x.Text.Contains(searchTerm))
+                .OrderByDescending(x => x.Id)
+                .Skip(pageSize * page)
+                .Take(pageSize)
+                .AsEnumerable();
         }
 
         public IEnumerable<FundTrackReceipt> GetWithComments()

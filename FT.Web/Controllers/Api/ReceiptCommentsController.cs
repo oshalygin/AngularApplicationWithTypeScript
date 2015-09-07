@@ -30,9 +30,9 @@ namespace FT.Web.Controllers.Api
             return Ok(comments);
         }
 
-        public IHttpActionResult Get(int page, int pageSize)
+        public IHttpActionResult Get(int page, int pageSize, string searchTerm)
         {
-            var comments = _receiptBll.GetComments(page, pageSize);
+            var comments = _receiptBll.GetComments(page, pageSize, searchTerm);
             return Ok(comments);
         }
 

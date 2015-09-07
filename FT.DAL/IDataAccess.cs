@@ -15,6 +15,7 @@ namespace FT.DAL
         IEnumerable<FundTrackSubservicer> GetAllSubservicers();
         IEnumerable<FundTrackReceiptComment> GetComments();
         IEnumerable<FundTrackReceiptComment> GetComments(int page, int pageSize);
+        IEnumerable<FundTrackReceiptComment> GetFilteredComments(int page, int pageSize, string searchTerm);
         FundTrackReceiptType GetReceiptTypeById(int receiptTypeId);
         FundTrackSubservicer GetSubservicerById(int servicerId);
         IEnumerable<FundTrackReceipt> GetWithComments(int page, int pageSize);

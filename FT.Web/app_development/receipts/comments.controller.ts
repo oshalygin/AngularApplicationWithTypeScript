@@ -6,7 +6,7 @@
         comments: app.models.IFundTrackReceiptComment[];
         loadedComments: boolean;
         title: string;
-        searchQuery: string;
+        searchTerm: string;
         totalNumberOfComments: number;
         pageSize: number;
         page: number;
@@ -17,15 +17,16 @@
         comments: app.models.IFundTrackReceiptComment[];
         loadedComments: boolean;
         title: string;
-        searchQuery: string;
+        searchTerm: string;
         totalNumberOfComments: number;
         pageSize: number;
         page: number;
         maxNumberOfPagesToDisplay: number;
 
-        static $inject = ["$timeout", "CommentResource"];
+        static $inject = ["$timeout", "CommentResource", "$scope"];
         constructor(private $timeout: angular.ITimeoutService,
-            private commentResource: app.services.ICommentResource) {
+            private commentResource: app.services.ICommentResource,
+            private $scope: angular.IScope) {
 
             var vm = this;
             vm.title = "Comments";
@@ -34,13 +35,19 @@
             this.page = 1;
             this.pageSize = 10;
             this.maxNumberOfPagesToDisplay = 4;
-            vm.searchQuery = "";
+            vm.searchTerm = "";
 
             $timeout(() => {
                 this.getReceiptTotal();
                 this.getComments();
             }, 1000);
 
+            $scope.$watch("vm.searchTerm",
+                (oldString: string, newString: string): void => {
+                    if (oldString !== newString) {
+                        this.getComments();
+                    }
+            });
 
         }
 
@@ -56,7 +63,7 @@
 
         private getComments(): void {
 
-            this.commentResource.query({ page: this.page, pageSize: this.pageSize },
+            this.commentResource.query({ page: this.page, pageSize: this.pageSize, searchTerm: this.searchTerm },
                 (data: app.models.IFundTrackReceiptComment[]) => {
                     this.comments = data;
                     this.loadedComments = true;

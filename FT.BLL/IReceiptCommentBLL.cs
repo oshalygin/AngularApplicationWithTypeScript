@@ -8,7 +8,7 @@ namespace FT.BLL
         FundTrackReceiptComment AddComment(int receiptId, string text);
         IEnumerable<FundTrackReceiptComment> GetAllComments();
         IEnumerable<FundTrackReceiptComment> GetCommentsForReceipt(int receiptId);
-        IEnumerable<FundTrackReceiptComment> GetComments(int page = 1, int pageSize = 10);
+        IEnumerable<FundTrackReceiptComment> GetComments(int page, int pageSize, string searchTerm);
         int GetTotalNumberOfComments();
     }
 }

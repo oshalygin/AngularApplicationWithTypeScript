@@ -29,10 +29,14 @@ namespace FT.BLL
             return receipt.Comments;
         }
 
-        public IEnumerable<FundTrackReceiptComment> GetComments(int page = 1, int pageSize = 10)
+        public IEnumerable<FundTrackReceiptComment> GetComments(int page = 1, int pageSize = 10, string searchTerm = "")
         {
             page -= 1;
-            return _repo.GetComments(page, pageSize).ToList();
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                return _repo.GetComments(page, pageSize).ToList();
+            }
+            return _repo.GetFilteredComments(page, pageSize, searchTerm);
         }
 
 
