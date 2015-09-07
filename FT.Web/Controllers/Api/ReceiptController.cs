@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using FT.BLL;
 using FT.Entities;
@@ -8,15 +7,13 @@ using FT.Web.Models;
 
 namespace FT.Web.Controllers.Api
 {
-    public class ReceiptController : ApiController
+    public class ReceiptController : BaseApiController
     {
-
         private readonly IReceiptBLL _receiptBll;
-        private readonly ModelFactory _modelFactory;
+      
         public ReceiptController(IReceiptBLL receiptBll)
         {
             _receiptBll = receiptBll;
-            _modelFactory = new ModelFactory();
         }
 
         public IHttpActionResult Get()
@@ -38,11 +35,13 @@ namespace FT.Web.Controllers.Api
                 {
                     return NotFound();
                 }
-                return Ok(receipt);
+                var receiptModel = TheModelFactory.Create(receipt);
+
+                return Ok(receiptModel);
             }
             catch
             {
-                //TODO: Perform some logging
+                //TODO: Perform some error logging
                 return BadRequest();
             }
 
@@ -52,12 +51,12 @@ namespace FT.Web.Controllers.Api
         {
             var receipts = _receiptBll
                 .GetReceipts(page, pageSize)
-                .Select(x => _modelFactory.Create(x));
+                .Select(x => TheModelFactory.Create(x));
 
             return Ok(receipts);
         }
 
-        public IHttpActionResult Post([FromBody]FundTrackReceipt newReceipt)
+        public IHttpActionResult Post([FromBody]ReceiptModel newReceipt)
         {
 
 
@@ -70,19 +69,22 @@ namespace FT.Web.Controllers.Api
                 return BadRequest(ModelState);
             }
 
-            var savedReceipt = _receiptBll.SaveNewReceipt(newReceipt);
+            var receiptToSave = TheModelFactory.Parse(newReceipt);
+            var savedReceipt = 
+                TheModelFactory.Create(_receiptBll.SaveNewReceipt(receiptToSave));
+
             if (savedReceipt == null)
             {
                 return Conflict();
             }
 
-            return Created<FundTrackReceipt>(Request.RequestUri + savedReceipt.Id.ToString(), savedReceipt);
+            return Created<ReceiptModel>(Request.RequestUri + savedReceipt.Id.ToString(), savedReceipt);
 
 
         }
 
 
-        public IHttpActionResult Put([FromBody]FundTrackReceipt updatedReceipt)
+        public IHttpActionResult Put([FromBody]ReceiptModel updatedReceipt)
         {
             if (updatedReceipt == null)
             {
@@ -93,8 +95,8 @@ namespace FT.Web.Controllers.Api
             {
                 return BadRequest("Input Validation Errors!");
             }
-
-            var receipt = _receiptBll.UpdateReceipt(updatedReceipt);
+            var parsedReceipt = TheModelFactory.Parse(updatedReceipt);
+            var receipt = TheModelFactory.Create(_receiptBll.UpdateReceipt(parsedReceipt));
             return Ok(receipt);
 
         }

@@ -10,7 +10,6 @@ namespace FT.BLL
         FundTrackReceipt SaveNewReceipt(FundTrackReceipt receipt);
         IEnumerable<FundTrackReceipt> GetReceipts(int page, int pageSize);
         int GetReceiptTotal();
-
         FundTrackReceipt UpdateReceipt(FundTrackReceipt updatedReceipt);
 
     }

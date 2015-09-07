@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using FT.BLL;
 using FT.Entities;
 
 namespace FT.Web.Models
 {
     public class ModelFactory
     {
+
+
         public ReceiptModel Create(FundTrackReceipt model)
         {
             return new ReceiptModel()
@@ -50,7 +53,58 @@ namespace FT.Web.Models
                 CreatedDate = model.CreatedDate,
                 ReceiptId = model.FundTrackReceipt.Id,
                 Text = model.Text,
-                UpdateDate =  model.UpdateDate
+                UpdateDate = model.UpdateDate
+            };
+
+        }
+        public FundTrackReceipt Parse(ReceiptModel model)
+        {
+            return new FundTrackReceipt()
+            {
+                Id = model.Id,
+                CheckNumber = model.CheckNumber,
+                Comments = model.Comments.Select(x => Parse(x)).ToList(),
+                ReceiptType = Parse(model.ReceiptType),
+                ReceivedDate = model.ReceivedDate,
+                TotalAmount = model.TotalAmount,
+                Servicer = Parse(model.Servicer)
+            };
+        }
+
+        public FundTrackReceiptType Parse(ReceiptTypeModel model)
+        {
+            return new FundTrackReceiptType()
+            {
+                Id = model.Id,
+                Description = model.Description,
+                Name = model.Name
+            };
+        }
+
+        public FundTrackSubservicer Parse(ReceiptSubservicerModel model)
+        {
+            return new FundTrackSubservicer()
+            {
+                Id = model.Id,
+                IsEnabled = model.IsEnabled,
+                Name = model.Name
+            };
+
+        }
+
+        public FundTrackReceiptComment Parse(ReceiptCommentModel model)
+        {
+
+            return new FundTrackReceiptComment()
+            {
+                Id = model.Id,
+                CreatedDate = model.CreatedDate,
+                Text = model.Text,
+                FundTrackReceipt = new FundTrackReceipt()
+                {
+                    Id = model.ReceiptId
+                },
+                UpdateDate = model.UpdateDate
             };
 
         }

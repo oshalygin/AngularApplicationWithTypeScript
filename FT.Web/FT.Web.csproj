@@ -165,6 +165,7 @@
     <Compile Include="Controllers\Api\ReceiptController.cs" />
     <Compile Include="Controllers\Api\ReceiptTypesController.cs" />
     <Compile Include="Controllers\Api\ReceiptSubservicerController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
