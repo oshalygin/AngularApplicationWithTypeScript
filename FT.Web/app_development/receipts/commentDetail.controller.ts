@@ -43,7 +43,8 @@
                 },
                 //TODO:  Look into what properties error object has
                 (error: any) => {
-                    toastr.error("Failed: Server Error");
+                    console.log(error);
+                    toastr.error(error.status + ": " + error.data.message);
                 });
         }
 

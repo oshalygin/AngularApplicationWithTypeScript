@@ -17,7 +17,7 @@
     content: "\f0a1";
 }
 #toast-container > .toast-error:before {
-    content: "\f119";
+    content: "\f00d";
 }
 #toast-container > .toast-info:before {
     content: "\f129";

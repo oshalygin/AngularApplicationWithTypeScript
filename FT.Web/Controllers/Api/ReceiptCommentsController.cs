@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using FT.BLL;
+using FT.Models;
 
 
 namespace FT.Web.Controllers.Api
@@ -27,18 +28,24 @@ namespace FT.Web.Controllers.Api
             return Ok(comments);
         }
 
-        [Route("api/ReceiptComments/{receiptId}/{text}")]
-        public IHttpActionResult Post([FromUri]int receiptId, [FromUri]string text)
+        [Route("api/ReceiptComments/{receiptId}/{text?}")]
+        [HttpPost]
+        public IHttpActionResult Post([FromUri]int receiptId, [FromBody]FundTrackReceiptComment receipt)
         {
+            if (string.IsNullOrWhiteSpace(receipt.Text))
+            {
+                return BadRequest("No Comment Text Entered");
+            }
 
-            var savedComment = _receiptBll.AddComment(receiptId, text);
+            var savedComment = _receiptBll.AddComment(receiptId, receipt.Text);
             if (savedComment == null)
             {
                 return BadRequest("An error occured!");
             }
             return Ok(savedComment);
 
-            
         }
+
+
     }
 }
