@@ -5,31 +5,34 @@
         {{::vm.title}}
     </div>
     <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><strong>Id</strong></td>
+                    <td><strong>Text</strong></td>
+                    <td class="text-center"><strong>Created</strong></td>
+                    <td class="text-center"><strong>Updated</strong></td>
+                </tr>
+            </thead>
+            <tbody ng-if="vm.loadedComments">
+                <tr ng-repeat="comment in vm.comments | orderBy: '-id'"
+                    ng-class-even="'active'"
+                    ng-class="{even: $even, odd: $odd, info: hover}"
+                    ng-mouseover="hover = true"
+                    ng-mouseleave="hover = false">
 
-        <ul>
-            <li>
-                <span class="col-md-1"><strong>Id</strong></span>
-                <span class="col-md-3"><strong>Text</strong></span>
-                <span class="text-center col-md-3"><strong>Created</strong></span>
-                <span class="text-center col-md-3"><strong>Updated</strong></span>
-            </li>
-        </ul>
-        <ul ng-if="vm.loadedComments">
-            <li ng-repeat="comment in vm.comments | orderBy: '-id'"
-                ng-class-even="'active'"
-                ng-class="{even: $even, odd: $odd, info: hover}"
-                ng-mouseover="hover = true"
-                ng-mouseleave="hover = false">
-
-                <span class="col-md-3">{{ comment.id }}</span>
-                <span class="col-md-3">{{ comment.text | limitTo: 100}}<span ng-if="comment.text.length > 100">...</span></span>
-                <span class="text-center col-md-3">{{ comment.createdDate | date:'short' : '-1400'}}</span>
-                <span class="text-center col-md-3">{{ comment.updateDate | date:'short' : '-1400'}}</span>
-            </li>
-        </ul>
-
+                    <td>{{ comment.id }}</td>
+                    <td>
+                        {{ comment.text }}<span ng-if="comment.text.length > 100">...</span>
+                    </td>
+                    <td class="text-center">{{ comment.createdDate | date:'short' : '-1400'}}</td>
+                    <td class="text-center">{{ comment.updateDate | date:'short' : '-1400'}}</td>
+                </tr>
+            </tbody>
+        </table>
         <div ng-hide="vm.loadedComments">
             <spinning-widget></spinning-widget>
         </div>
+
     </div>
 </div>
