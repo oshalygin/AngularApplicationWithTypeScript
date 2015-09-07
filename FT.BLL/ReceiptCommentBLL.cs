@@ -51,9 +51,13 @@ namespace FT.BLL
             return _repo.AddComment(receiptId, newComment);
         }
 
-        public int GetTotalNumberOfComments()
+        public int GetTotalNumberOfComments(string searchTerm = "")
         {
-            return _repo.GetTotalNumberOfComments();
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                return _repo.GetTotalNumberOfComments();
+            }
+            return _repo.GetTotalNumberOfFilteredComments(searchTerm);
         }
 
 

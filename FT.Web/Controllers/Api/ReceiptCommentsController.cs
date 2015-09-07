@@ -15,10 +15,10 @@ namespace FT.Web.Controllers.Api
             _receiptBll = receiptBll;
         }
 
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(string searchTerm)
         {
 
-            var totalNumberOfComments = _receiptBll.GetTotalNumberOfComments();
+            var totalNumberOfComments = _receiptBll.GetTotalNumberOfComments(searchTerm);
             var total = new ReceiptTotals { TotalNumberOfComments = totalNumberOfComments };
             return Ok(total);
 

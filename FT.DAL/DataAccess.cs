@@ -49,6 +49,12 @@ namespace FT.DAL
                             .Count();
         }
 
+        public int GetTotalNumberOfFilteredComments(string searchTerm)
+        {
+            return _context.FundTrackReceiptComments
+                            .Count(x => x.Text.Contains(searchTerm));
+        }
+
 
         public void AddComments(int receiptId, IEnumerable<FundTrackReceiptComment> comments)
         {

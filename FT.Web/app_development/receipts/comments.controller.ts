@@ -46,6 +46,7 @@
                 (oldString: string, newString: string): void => {
                     if (oldString !== newString) {
                         this.getComments();
+                        this.getReceiptTotal();
                     }
             });
 
@@ -56,7 +57,7 @@
         }
 
         private getReceiptTotal(): void {
-            this.commentResource.get({}, (data: app.models.IFundTrackTotals) => {
+            this.commentResource.get({searchTerm: this.searchTerm}, (data: app.models.IFundTrackTotals) => {
                 this.totalNumberOfComments = data.totalNumberOfComments;
             });
         }

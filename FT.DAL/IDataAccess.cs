@@ -26,5 +26,6 @@ namespace FT.DAL
         FundTrackReceipt Update(FundTrackReceipt updateReceipt);
         int GetTotalNumberOfReceipts();
         int GetTotalNumberOfComments();
+        int GetTotalNumberOfFilteredComments(string searchTerm);
     }
 }

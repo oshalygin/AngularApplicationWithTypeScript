@@ -8,6 +8,14 @@
         <div class="form-group">
             <div>
                 <input class="form-control" style="max-width: 300px;" id="focusedInput" type="text" placeholder="Search Comments..." ng-model="vm.searchTerm" ng-model-options="{debounce: 1000}">
+                <p class="search-result-text noselect" ng-if="vm.searchTerm">
+                    &nbsp; {{ vm.totalNumberOfComments }}
+                    Search
+                    <span ng-if="vm.totalNumberOfComments === 0">Results</span>
+                    <span ng-if="vm.totalNumberOfComments === 1">Result</span>
+                    <span ng-if="vm.totalNumberOfComments > 1">Results</span>
+                    for "<span style="color: black">{{vm.searchTerm}}</span>"
+                </p>
             </div>
         </div>
         <table class="table">
