@@ -14,6 +14,7 @@ namespace FT.DAL
         IEnumerable<FundTrackReceiptType> GetAllReceiptTypes();
         IEnumerable<FundTrackSubservicer> GetAllSubservicers();
         IEnumerable<FundTrackReceiptComment> GetComments();
+        IEnumerable<FundTrackReceiptComment> GetComments(int page, int pageSize);
         FundTrackReceiptType GetReceiptTypeById(int receiptTypeId);
         FundTrackSubservicer GetSubservicerById(int servicerId);
         IEnumerable<FundTrackReceipt> GetWithComments(int page, int pageSize);
@@ -22,7 +23,7 @@ namespace FT.DAL
         void RandomizeAllReceiptTotals();
         void RemoveComments(IEnumerable<FundTrackReceiptComment> comments);
         FundTrackReceipt Update(FundTrackReceipt updateReceipt);
-        
         int GetTotalNumberOfReceipts();
+        int GetTotalNumberOfComments();
     }
 }

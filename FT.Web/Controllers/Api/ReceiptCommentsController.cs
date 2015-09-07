@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using FT.BLL;
 using FT.Models;
+using FT.Web.Models;
 
 
 namespace FT.Web.Controllers.Api
@@ -14,12 +15,13 @@ namespace FT.Web.Controllers.Api
             _receiptBll = receiptBll;
         }
 
-
-
         public IHttpActionResult Get()
         {
-            var comments = _receiptBll.GetAllComments();
-            return Ok(comments);
+
+            var totalNumberOfComments = _receiptBll.GetTotalNumberOfComments();
+            var total = new ReceiptTotals { TotalNumberOfComments = totalNumberOfComments };
+            return Ok(total);
+
         }
 
         public IHttpActionResult Get(int id)
@@ -27,6 +29,13 @@ namespace FT.Web.Controllers.Api
             var comments = _receiptBll.GetCommentsForReceipt(id);
             return Ok(comments);
         }
+
+        public IHttpActionResult Get(int page, int pageSize)
+        {
+            var comments = _receiptBll.GetComments(page, pageSize);
+            return Ok(comments);
+        }
+
 
         [Route("api/ReceiptComments/{receiptId}/{text?}")]
         [HttpPost]

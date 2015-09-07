@@ -29,6 +29,13 @@ namespace FT.BLL
             return receipt.Comments;
         }
 
+        public IEnumerable<FundTrackReceiptComment> GetComments(int page = 1, int pageSize = 10)
+        {
+            page -= 1;
+            return _repo.GetComments(page, pageSize).ToList();
+        }
+
+
 
         public FundTrackReceiptComment AddComment(int receiptId, string text)
         {
@@ -39,6 +46,12 @@ namespace FT.BLL
             };
             return _repo.AddComment(receiptId, newComment);
         }
+
+        public int GetTotalNumberOfComments()
+        {
+            return _repo.GetTotalNumberOfComments();
+        }
+
 
     }
 }

@@ -12,5 +12,6 @@ namespace FT.BLL
         int GetReceiptTotal();
 
         FundTrackReceipt UpdateReceipt(FundTrackReceipt updatedReceipt);
+
     }
 }
