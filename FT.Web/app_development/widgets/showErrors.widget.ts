@@ -1,7 +1,7 @@
 ﻿//TODO: make this into a true typescript file
 
 ((): void => {
-    angular.module("app", []).
+    angular.module("app.widgets", []).
         directive("showErrors", () => {
             return {
                 restrict: "A",

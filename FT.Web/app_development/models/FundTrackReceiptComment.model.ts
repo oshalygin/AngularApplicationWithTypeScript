@@ -5,6 +5,7 @@
         text: string;
         createdDate: Date;
         updateDate: Date;
+        receiptId: number;
     }
 
     export class FundTrackReceiptComment implements IFundTrackReceiptComment {
@@ -12,5 +13,6 @@
         text: string;
         createdDate: Date;
         updateDate: Date;
+        receiptId: number;
     }
 }

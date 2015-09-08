@@ -65,6 +65,7 @@
             this.receiptResource.update(this.receipt,
             () => {
                 toastr.success("Receipt Updated");
+                this.editMode = !this.editMode;
             },
             () => {
                 toastr.error("Could not Update Receipt");

@@ -6,7 +6,8 @@
         //Core Angular
         "ngRoute"
         ,"ngResource"
-        ,"ngAnimate"
+        , "ngAnimate"
+        , "ngSanitize"
 
         //Third Party
         , "ui.router"

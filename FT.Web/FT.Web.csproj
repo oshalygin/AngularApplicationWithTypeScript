@@ -13127,6 +13127,7 @@
     <TypeScriptCompile Include="app_development\settings\toastr.settings.ts" />
     <TypeScriptCompile Include="app_development\widgets\currency.mask.directive.ts" />
     <TypeScriptCompile Include="app_development\receipts\display.comments.directive.ts" />
+    <TypeScriptCompile Include="app_development\widgets\highlight.filter.ts" />
     <TypeScriptCompile Include="app_development\widgets\spinning.widget.ts" />
     <TypeScriptCompile Include="app_development\widgets\showErrors.widget.ts" />
     <TypeScriptCompile Include="app_development\widgets\widgets.config.ts" />
