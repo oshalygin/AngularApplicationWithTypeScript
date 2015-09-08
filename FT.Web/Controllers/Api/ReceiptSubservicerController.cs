@@ -21,6 +21,5 @@ namespace FT.Web.Controllers.Api
             return Ok(subservicerTypes);
         }
 
-
     }
 }

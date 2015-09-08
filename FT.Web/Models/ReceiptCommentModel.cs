@@ -1,5 +1,4 @@
 using System;
-using FT.Entities;
 
 namespace FT.Web.Models
 {

@@ -2,7 +2,6 @@
 using System.Net;
 using System.Web.Http;
 using FT.BLL;
-using FT.Entities;
 using FT.Web.Models;
 
 namespace FT.Web.Controllers.Api
