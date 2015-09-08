@@ -33,9 +33,11 @@
                     ng-class-even="'active'"
                     ng-class="{even: $even, odd: $odd, info: hover}"
                     ng-mouseover="hover = true"
-                    ng-mouseleave="hover = false">
+                    ng-mouseleave="hover = false"
+                    ui-sref="receiptDetail({id: comment.receiptId})">
 
                     <td>{{ comment.id }}</td>
+
                     <td>{{ comment.receiptId }}</td>
 
                     <td>

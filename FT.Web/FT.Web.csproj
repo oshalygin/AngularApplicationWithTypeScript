@@ -12972,6 +12972,7 @@
     <Content Include="bower_components\angular-ui-router\CONTRIBUTING.md" />
     <Content Include="bower_components\angular-ui-router\LICENSE" />
     <Content Include="bower_components\angular-ui-router\README.md" />
+    <Content Include="_Layout.cshtml" />
     <TypeScriptCompile Include="app_development\models\DatePickerStatus.model.ts" />
     <Content Include="bower_components\font-awesome\.bower.json" />
     <Content Include="bower_components\font-awesome\.gitignore" />
@@ -13032,7 +13033,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tsd.json" />
     <Content Include="tslint.json" />
@@ -13041,6 +13041,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="app_deploy\" />
     <Folder Include="bower_components\angular-ui-router\api\" />
+    <Folder Include="dist\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

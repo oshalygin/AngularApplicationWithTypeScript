@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The description of my page" />
+    <title ng-cloak>{{ $state.current.title }}</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/SpinKit/css/spinkit.css" />
+    <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+    <!-- endbower -->
+    <link href="~/Content/spinner.css" rel="stylesheet" />
+    <link href="~/Content/commentBox.css" rel="stylesheet" />
+    <link href="~/Content/toastrSettings.css" rel="stylesheet" />
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- Bower Packages -->
+    <!-- bower:js -->
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/angular-bootstrap-show-errors/src/showErrors.js"></script>
+    <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-spinners/dist/angular-spinners.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/toastr/toastr.js"></script>
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <script src="/app_development/models/DatePickerStatus.model.js"></script>
+    <script src="/app_development/models/FundTrackReceipt.model.js"></script>
+    <script src="/app_development/models/FundTrackReceiptComment.model.js"></script>
+    <script src="/app_development/models/FundTrackReceiptType.model.js"></script>
+    <script src="/app_development/models/FundTrackSubservicer.model.js"></script>
+    <script src="/app_development/models/FundTrackTotals.model.js"></script>
+    <script src="/app_development/models/IReceiptForm.model.js"></script>
+    <script src="/app_development/home/home.module.js"></script>
+    <script src="/app_development/receipts/receipts.module.js"></script>
+    <script src="/app_development/services/services.module.js"></script>
+    <script src="/app_development/widgets/widgets.module.js"></script>
+    <script src="/app_development/app.core.js"></script>
+    <script src="/app_development/app.js"></script>
+    <script src="/app_development/app.run.js"></script>
+    <script src="/app_development/app.config.js"></script>
+    <script src="/app_development/widgets/widgets.config.js"></script>
+    <script src="/app_development/services/apiendpoints.services.js"></script>
+    <script src="/app_development/services/comment.services.js"></script>
+    <script src="/app_development/services/receiptTypes.services.js"></script>
+    <script src="/app_development/services/receipts.services.js"></script>
+    <script src="/app_development/services/servicerType.services.js"></script>
+    <script src="/app_development/services/subservicer.services.js"></script>
+    <script src="/app_development/home/home.routes.js"></script>
+    <script src="/app_development/receipts/receipt.routes.js"></script>
+    <script src="/app_development/receipts/display.comments.directive.js"></script>
+    <script src="/app_development/widgets/currency.mask.directive.js"></script>
+    <script src="/app_development/widgets/showErrors.widget.js"></script>
+    <script src="/app_development/widgets/spinning.widget.js"></script>
+    <script src="/app_development/widgets/highlight.filter.js"></script>
+    <script src="/app_development/home/home.controller.js"></script>
+    <script src="/app_development/receipts/commentDetail.controller.js"></script>
+    <script src="/app_development/receipts/comments.controller.js"></script>
+    <script src="/app_development/receipts/newreceipt.controller.js"></script>
+    <script src="/app_development/receipts/receiptDetail.controller.js"></script>
+    <script src="/app_development/receipts/receipts.controller.js"></script>
+    <script src="/app_development/settings/toastr.settings.js"></script>
+    <script src="/app_development/services/resource.builder.js"></script>
+    <!-- endinject -->
+<!-- Non-Angular Configuration -->
+    <script src="~/app_development/settings/toastr.settings.js"></script>
+
+    <!-- Model Classes -->
+    <script src="~/app_development/models/FundTrackReceipt.model.js"></script>
+    <script src="~/app_development/models/FundTrackReceiptComment.model.js"></script>
+    <script src="~/app_development/models/FundTrackReceiptType.model.js"></script>
+    <script src="~/app_development/models/FundTrackSubservicer.model.js"></script>
+    <script src="~/app_development/models/DatePickerStatus.model.js"></script>
+
+    <!-- App Modules -->
+    <script src="~/app_development/services/services.module.js"></script>
+    <script src="~/app_development/home/home.module.js"></script>
+    <script src="~/app_development/widgets/widgets.module.js"></script>
+    <script src="~/app_development/receipts/receipts.module.js"></script>
+    <script src="~/app_development/app.core.js"></script>
+    <script src="~/app_development/app.js"></script>
+    <script src="~/app_development/app.run.js"></script>
+
+    <!-- Configuration -->
+
+    <script src="~/app_development/app.config.js"></script>
+    <script src="~/app_development/widgets/widgets.config.js"></script>
+
+    <!-- Services -->
+    <script src="~/app_development/services/apiendpoints.services.js"></script>
+    <script src="~/app_development/services/resource.builder.js"></script>
+    <script src="~/app_development/services/receipts.services.js"></script>
+    <script src="~/app_development/services/receiptTypes.services.js"></script>
+    <script src="~/app_development/services/comment.services.js"></script>
+    <script src="~/app_development/services/subservicer.services.js"></script>
+
+
+    <!-- Routing -->
+
+
+    <script src="~/app_development/home/home.routes.js"></script>
+    <script src="~/app_development/receipts/receipt.routes.js"></script>
+
+
+
+    <!-- Directives -->
+
+
+    <script src="~/app_development/widgets/currency.mask.directive.js"></script>
+    <script src="~/app_development/receipts/display.comments.directive.js"></script>
+    <script src="~/app_development/widgets/spinning.widget.js"></script>
+
+    <!--Filters-->
+    <script src="~/app_development/widgets/highlight.filter.js"></script>
+
+    <!-- Controllers -->
+
+
+    <script src="~/app_development/home/home.controller.js"></script>
+    <script src="~/app_development/receipts/receipts.controller.js"></script>
+    <script src="~/app_development/receipts/receiptDetail.controller.js"></script>
+    <script src="~/app_development/receipts/newreceipt.controller.js"></script>
+    <script src="~/app_development/receipts/commentDetail.controller.js"></script>
+    <script src="~/app_development/receipts/comments.controller.js"></script>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
