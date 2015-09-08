@@ -62,6 +62,18 @@
 
     });
 
+    gulp.task("wiredep", function() {
+        log("*** Bower CSS/JavaScript and Application JavasScript to _Layout.cshtml ***");
+        var options = config.getWiredepDefaultOptions();
+        var wiredep = require("wiredep").stream;
+
+        return gulp
+            .src(config.index)
+            .pipe(wiredep(options))
+            .pipe($.inject(gulp.src(config.js)))
+            .pipe(gulp.dest(config.devPath));
+    });
+
 //todo add gulp-inject to populate the cshtml file...
 //todo add uglify/minification
     
