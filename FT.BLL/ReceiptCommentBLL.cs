@@ -36,7 +36,7 @@ namespace FT.BLL
             {
                 return _repo.GetComments(page, pageSize).ToList();
             }
-            return _repo.GetFilteredComments(page, pageSize, searchTerm);
+            return _repo.GetFilteredComments(page, pageSize, searchTerm).ToList();
         }
 
 

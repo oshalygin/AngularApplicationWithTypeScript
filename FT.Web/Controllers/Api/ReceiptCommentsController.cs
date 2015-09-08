@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Http;
 using FT.BLL;
 using FT.Entities;
 using FT.Web.Models;
@@ -6,7 +7,7 @@ using FT.Web.Models;
 
 namespace FT.Web.Controllers.Api
 {
-    public class ReceiptCommentsController : ApiController
+    public class ReceiptCommentsController : BaseApiController    
     {
         private readonly IReceiptCommentBLL _receiptBll;
 
@@ -26,20 +27,23 @@ namespace FT.Web.Controllers.Api
 
         public IHttpActionResult Get(int id)
         {
-            var comments = _receiptBll.GetCommentsForReceipt(id);
+            var comments = _receiptBll.GetCommentsForReceipt(id)
+                .Select(x => TheModelFactory.Create(x));
             return Ok(comments);
         }
 
         public IHttpActionResult Get(int page, int pageSize, string searchTerm)
         {
-            var comments = _receiptBll.GetComments(page, pageSize, searchTerm);
+            var comments = _receiptBll.GetComments(page, pageSize, searchTerm)
+                                    .Select(x => TheModelFactory.Create(x));
+
             return Ok(comments);
         }
 
 
         [Route("api/ReceiptComments/{receiptId}/{text?}")]
         [HttpPost]
-        public IHttpActionResult Post([FromUri]int receiptId, [FromBody]FundTrackReceiptComment receipt)
+        public IHttpActionResult Post([FromUri]int receiptId, [FromBody]ReceiptCommentModel receipt)
         {
             if (string.IsNullOrWhiteSpace(receipt.Text))
             {
@@ -47,11 +51,12 @@ namespace FT.Web.Controllers.Api
             }
 
             var savedComment = _receiptBll.AddComment(receiptId, receipt.Text);
+            var createdComment = TheModelFactory.Create(savedComment);
             if (savedComment == null)
             {
                 return BadRequest("An error occured!");
             }
-            return Ok(savedComment);
+            return Ok(createdComment);
 
         }
 
