@@ -10,6 +10,17 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+Web.config
+app.config
+FT.DAL/Web.config
+FT.BLL/Web.config
+FT.Models/Web.config
+FT.Web/Web.config
+FT.DAL/App.config
+FT.BLL/App.config
+FT.Models/App.config
+FT.Web/App.config
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

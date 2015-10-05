@@ -52,7 +52,7 @@ namespace FT.DAL
             context.FundTrackSubservicers.Add(olegsSubServicer);
             context.FundTrackReceiptTypes.Add(checkType);
             context.FundTrackReceiptTypes.Add(wireType);
-            
+
 
             var random = new Random();
 
@@ -60,7 +60,7 @@ namespace FT.DAL
             {
                 var receipt = new FundTrackReceipt
                 {
-                    CheckNumber = string.Concat("AmeriHome:", i.ToString()),
+                    CheckNumber = string.Concat("Paypal:", i.ToString()),
                     ReceivedDate = new DateTime(2005, 1, 1),
                     TotalAmount = random.Next(1000000),
                     ReceiptType = i%2 == 0 ? checkType : wireType,
